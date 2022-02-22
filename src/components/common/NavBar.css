@@ -1,0 +1,107 @@
+.header-top {
+  margin: 0px !important;
+  padding: 5px 0px !important;
+  background-color: #512500;
+  font-size: 1.1rem !important;
+  letter-spacing: -0.027em;
+  text-transform: capitalize;
+}
+
+.dropdown-menu::before {
+  position: absolute !important;
+  content: "";
+  top: auto;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  bottom: 99%;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 47%, 0 100%, 100% 100%);
+}
+.navBar-links .dropdown-menu {
+  padding: 5px 0;
+  box-shadow: 0 4px 20px -8px rgb(0 0 0 / 30%);
+  border: none;
+  position: absolute !important;
+  left: 70% !important;
+  transform: translateX(-70%) !important;
+  min-width: 3rem !important;
+  /* min-width: 3.5rem !important; */
+  margin-top: 0px !important;
+  border-radius: 0px !important;
+}
+
+.dropdownItem {
+  text-align: center !important;
+}
+.topContainer {
+  max-width: 100% !important;
+  margin: 0px 10px !important;
+}
+
+.navBar-links a {
+  color: #fff !important;
+  font-size: 0.7rem !important;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.navBar-links .dropDown a {
+  margin-right: 0px;
+}
+
+.signin {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+.headerUserIcon:before {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.dropdown .navBar-links .dropdown-toggle::after {
+  margin-left: 0.5em !important;
+  background-color: transparent;
+}
+
+.navBar-links a.dropdownItem {
+  color: black !important;
+}
+
+.user-link {
+  color: #333 !important;
+}
+
+.header-welcome {
+  color: #fff !important;
+  font-size: 0.7rem !important;
+  font-weight: 400;
+}
+
+.dropdownItem:hover,
+.dropdownItem:active {
+  background-color: transparent !important;
+}
+
+.dropdown > a::after {
+  display: inline-block !important;
+  margin-left: 6px !important;
+  content: "" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-size: 8px !important;
+  font-weight: 900 !important;
+  border: none !important;
+}
+
+.navBar-links a:hover {
+  color: #b64400 !important;
+  transition: all 500ms ease;
+}
+
+@media only screen and (max-width: 991px) {
+  .navBar-links > a {
+    display: none !important;
+  }
+}
