@@ -7,7 +7,7 @@
   text-transform: capitalize;
 }
 
-.dropdown-menu::before {
+.dropDown .dropdown-menu::before {
   position: absolute !important;
   content: "";
   top: auto;
@@ -61,7 +61,7 @@
   margin-right: 5px;
 }
 
-.dropdown .navBar-links .dropdown-toggle::after {
+.dropDown.dropdown .navBar-links .dropdown-toggle::after {
   margin-left: 0.5em !important;
   background-color: transparent;
 }
@@ -85,7 +85,7 @@
   background-color: transparent !important;
 }
 
-.dropdown > a::after {
+.dropDown.dropdown > a::after {
   display: inline-block !important;
   margin-left: 6px !important;
   content: "" !important;
@@ -104,4 +104,278 @@
   .navBar-links > a {
     display: none !important;
   }
+}
+
+/* Header Middle CSS */
+
+.headerMid {
+  padding-top: 3.2rem !important;
+  padding-bottom: 3.3rem !important;
+  color: #333;
+  background: #fff;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.headerMidContainer {
+  max-width: 100% !important;
+  margin: 0px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.headerMidContainer > button.navbar-toggler {
+  margin-right: 20px;
+}
+
+.headerMidToggler,
+.headerMidToggler:hover,
+.headerMidToggler:active,
+.headerMidToggler:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.headerMidToggler > span.navbar-toggler-icon {
+  background-image: none !important;
+}
+
+.headerMidToggler.navbar-toggler {
+  color: rgb(50, 50, 50, 0.8) !important;
+  font-size: 24px;
+}
+
+.headerMidToggler.navbar-toggler:hover {
+  color: #512500 !important;
+}
+
+.headerMidContainer > a:nth-child(2) {
+  flex: 1;
+}
+
+.headerMidContainer > a:nth-child(3) {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerLast {
+  flex: 2;
+}
+
+.headerMidLogo {
+  width: 140px;
+}
+
+.headerMidBanner {
+  border-left: 1px solid #878774;
+}
+
+.headerLast a {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.headerLast > .navbar-nav {
+  margin-right: 2px !important;
+}
+
+.headerLast a:not(:last-child) {
+  margin-right: 10px;
+}
+
+.headerLast > div > div > a {
+  font-size: 26px;
+  margin-right: 0px !important;
+}
+
+.headerLast a:first-child {
+  color: #512500 !important;
+}
+
+.headerLast a:hover {
+  color: #512500 !important;
+  transition: all 500ms ease;
+}
+
+.cartIcon {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  right: -8px;
+  top: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  padding: 0.6rem !important;
+  line-height: 1.9rem;
+  /* background-color: #512500; */
+  background-color: rgb(238, 234, 234);
+  color: #512500;
+  /* color: #fff; */
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.cartText {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.headerMidDropdown > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerMidDropdown a:after {
+  display: none;
+}
+
+.headerMidDropdown > .dropdown-menu {
+  position: absolute !important;
+  padding: 1rem;
+  border: none;
+  min-width: 20rem !important;
+  left: 100% !important;
+  transform: translateX(-100%) !important;
+  box-shadow: 0 4px 20px -8px rgb(0 0 0 / 30%);
+  color: #666 !important;
+  background-color: #fff !important;
+}
+
+.headerMidDropdown .headerMidDropdownItem:not(:first-child) {
+  margin-top: 10px !important;
+}
+
+.headerMidDropdown .headerMidDropdownItem:hover {
+  background-color: transparent !important;
+}
+
+.headerMidDropdown .headerMidDropdownItem:hover p.prodDesc {
+  color: #512500 !important;
+  transition: all 200ms ease;
+}
+
+.prodDesc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.cartItemRemoveBtn > i {
+  font-size: 0.75rem;
+}
+
+.cartItemRemoveBtn {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 10px !important;
+  box-shadow: 0px 3px 5px 2px rgb(0 0 0 / 20%) !important;
+  position: absolute;
+  top: -10px;
+  right: -10px !important;
+  z-index: 1 !important;
+  background-color: #fff !important;
+  color: #666 !important;
+  border-radius: 50% !important;
+  outline: none !important;
+  border: none !important;
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+.cartItemRemoveBtn:hover {
+  color: #512500 !important;
+}
+
+@media only screen and (max-width: 997px) {
+  .headerLast > div.navbar-nav {
+    flex-direction: row;
+    justify-content: flex-end !important;
+    width: 100%;
+  }
+
+  .headerLast > div.navbar-nav > a {
+    margin-left: 10px;
+  }
+
+  .headerLast > .navbar-nav > a:nth-child(-n + 2) {
+    /* first two links hidden */
+    display: none;
+  }
+
+  .headerMidContainer > a:nth-child(3) {
+    /* header gif banner hidden */
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .headerLast > .navbar-nav > a:nth-child(-n + 4) {
+    /* first four links hidden */
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .headerMidDropdown > .dropdown-menu {
+    min-width: 18rem !important;
+  }
+}
+
+/* Offcanvas customization */
+
+#offcanvasNavbar.offcanvas {
+  background-color: #222;
+  color: #fff;
+  width: 300px !important;
+  transition: transform 0.4s ease-in-out !important;
+  box-shadow: 1px 0 5px rgb(0 0 0 / 50%);
+  /* padding: 0.5rem; */
+}
+
+.headerOffCanvas {
+  display: block !important;
+}
+
+.headerOffCanvas > button.btn-close {
+  position: absolute;
+  right: -10%;
+  top: 3.2%;
+  background-color: #fff !important;
+}
+
+.headerOffCanvas > button.btn-close:active,
+.headerOffCanvas > button.btn-close:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.sideBarForm {
+  width: 100% !important;
+  border: 1px solid;
+  border-color: #333 !important;
+  border-radius: 0.3rem 0 0 0.3rem !important;
+}
+
+.searchBtn {
+  background: transparent !important;
+  border: none !important;
+}
+
+.sideBarSearchInput {
+  border: none !important;
+  min-height: 2rem;
+  color: #777 !important;
+  background: transparent !important;
 }

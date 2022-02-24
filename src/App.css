@@ -7,3 +7,42 @@ body {
   color: #666;
   background: #fff;
 }
+
+#root {
+  transition: margin 0.4s ease-in-out !important;
+}
+
+.ai-c {
+  align-items: center !important;
+}
+
+.fd-c {
+  flex-direction: column !important;
+}
+
+.fd-r {
+  flex-direction: row !important;
+}
+
+.jc-c {
+  justify-content: center !important;
+}
+
+.jc-sb {
+  justify-content: space-between !important;
+}
+
+.jc-sa {
+  justify-content: space-around !important;
+}
+.jc-e {
+  justify-content: flex-end !important;
+}
+
+.p-r {
+  position: relative !important;
+}
+
+.p-a {
+  position: absolute !important;
+}
