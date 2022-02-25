@@ -379,3 +379,122 @@
   color: #777 !important;
   background: transparent !important;
 }
+
+/* Sidebar body Tabs customization */
+
+ul.headerSideBarTabs {
+  width: 100% !important;
+  border-bottom: none !important;
+}
+
+ul.headerSideBarTabs > li {
+  margin: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+ul.headerSideBarTabs > li > button {
+  color: #fff !important;
+  font-size: 0.77rem;
+  font-weight: bold;
+  border-bottom: 1px solid #fff !important;
+  width: 99% !important;
+  margin: 0 !important;
+}
+
+ul.headerSideBarTabs > li > button.active {
+  color: #0088cc !important;
+  border-color: #0088cc !important;
+}
+
+/* Sidebar body Tabs content customization */
+
+/* Main Menu Customization */
+
+.sideBarContentItems a.nav-link {
+  color: #fff !important;
+  padding-bottom: 0 !important;
+  padding-left: 0.5rem !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 0px !important;
+}
+
+.sideBarContentItems a.nav-link:hover,
+.sideBarContentItems a.nav-link:focus,
+.sideBarContentItems a.nav-link:hover:after,
+.sideBarContentItems a.nav-link:focus:after {
+  color: #0088cc !important;
+}
+
+.sideBarDropdown > a.nav-link:after {
+  position: absolute;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  right: 0.5rem;
+  content: "\f105" !important;
+  border: none !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  font-size: 0.75rem;
+  color: #666 !important;
+}
+
+.sideBarDividerLine {
+  background-color: rgba(110, 102, 102, 0.8) !important;
+}
+
+.sideBarDropdown > div.dropdown-menu {
+  background-color: #222 !important;
+  border: transparent;
+  position: relative !important;
+  left: 0 !important;
+  top: 100% !important;
+  width: 100%;
+}
+
+.sideBarDropdown > div.dropdown-menu > a {
+  color: #fff !important;
+  font-size: 0.85rem !important;
+}
+.sideBarDropdown > div.dropdown-menu > a:hover {
+  color: #0088cc !important;
+  background-color: transparent;
+}
+
+.sideBarContentItems a.nav-link[aria-expanded="true"]:after {
+  transform: rotate(-90deg) !important;
+  animation-name: spin-in;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+.sideBarContentItems a.nav-link[aria-expanded="false"]:after {
+  transform: rotate(0deg) !important;
+  animation-name: spin-out;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes spin-in {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(280deg);
+  }
+}
+
+@keyframes spin-out {
+  from {
+    transform: rotate(280deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Categories Customization */
+
+.sideBarCategoryName {
+  margin-left: 1rem !important;
+}

@@ -9,6 +9,8 @@ import {
   FormControl,
   Button,
   CloseButton,
+  Tabs,
+  Tab,
 } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
@@ -212,12 +214,174 @@ function NavHam() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-          </Nav>
+          <SideBarTabs />
         </Offcanvas.Body>
       </Navbar.Offcanvas>
     </>
+  );
+}
+
+function SideBarTabs() {
+  return (
+    <Tabs
+      defaultActiveKey="main-menu"
+      id="uncontrolled-tab-example"
+      className="mb-3 d-flex fd-r jc-sb headerSideBarTabs"
+    >
+      <Tab eventKey="main-menu" title="MAIN MENU">
+        <MainMenuTabContent />
+      </Tab>
+      <Tab eventKey="categories" title="CATEGORIES">
+        <CategoriesTabContent />
+      </Tab>
+    </Tabs>
+  );
+}
+
+function MainMenuTabContent() {
+  return (
+    <Nav defaultActiveKey="/home" className="flex-column sideBarContentItems">
+      <Nav.Link href="/home">Home</Nav.Link>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title="Shop"
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title="Vendor"
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title="Blog"
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title="Pages"
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title="Elements"
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  );
+}
+
+function CategoriesTabContent() {
+  return (
+    <Nav defaultActiveKey="/home" className="flex-column sideBarContentItems">
+      <NavDropdown
+        title={<Icon className={"fa-solid fa-shirt"} name="Fashion" />}
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title={<Icon className={"fa-solid fa-house"} name="Home & Garden" />}
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title={<Icon className={"fa-solid fa-desktop"} name="Electronics" />}
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavDropdown
+        title={<Icon className={"fa-solid fa-chair"} name="Furniture" />}
+        id="navbarScrollingDropdown"
+        drop="end"
+        className="sideBarDropdown"
+      >
+        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-heart-pulse"}
+        name={"Health and Beauty"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-gift"}
+        name={"Gift Ideas"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-gamepad"}
+        name={"Toys and Games"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-cookie-bite"}
+        name={"Cooking"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-mobile"}
+        name={"Smart Phones"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-camera"}
+        name={"Cameras & Photos"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+      <NavLinkForCategories
+        className={"fa-solid fa-gem"}
+        name={"Accessories"}
+      />
+      <NavDropdown.Divider className="sideBarDividerLine" />
+    </Nav>
+  );
+}
+
+function Icon({ className, name }) {
+  return (
+    <>
+      <i className={className} />
+      <span className="sideBarCategoryName">{name}</span>
+    </>
+  );
+}
+
+function NavLinkForCategories({ path, className, name }) {
+  return (
+    <Nav.Link href={!path && ""}>
+      <Icon className={className} name={name} />
+    </Nav.Link>
   );
 }
