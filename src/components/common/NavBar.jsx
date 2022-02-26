@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Navbar,
   Container,
@@ -8,7 +8,6 @@ import {
   Form,
   FormControl,
   Button,
-  CloseButton,
   Tabs,
   Tab,
 } from "react-bootstrap";
@@ -79,10 +78,10 @@ function HeaderMid() {
       <Container className="headerMidContainer">
         <NavHam />
         <Navbar.Brand href="#home">
-          <img src={logo} className="headerMidLogo" />
+          <img src={logo} className="headerMidLogo" alt="Moyen Xpress Logo"/>
         </Navbar.Brand>
         <Navbar.Brand href="#home">
-          <img src={banner} className="headerMidBanner" />
+          <img src={banner} className="headerMidBanner" alt="Sales Banner" />
         </Navbar.Brand>
         <div className="d-flex justify-content-end headerLast">
           <Nav className="me-auto d-flex align-items-center">
@@ -213,7 +212,7 @@ function NavHam() {
             </Form>
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body className="sideBarOffCanvasBody">
           <SideBarTabs />
         </Offcanvas.Body>
       </Navbar.Offcanvas>
@@ -365,6 +364,8 @@ function CategoriesTabContent() {
         name={"Accessories"}
       />
       <NavDropdown.Divider className="sideBarDividerLine" />
+      <Nav.Link href="/" className="sideBarLastLink">View all categories</Nav.Link>
+
     </Nav>
   );
 }

@@ -409,6 +409,25 @@ ul.headerSideBarTabs > li > button.active {
 
 /* Sidebar body Tabs content customization */
 
+
+/* Scrollbar customization of offcanvas sidebar */
+.sideBarOffCanvasBody::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sideBarOffCanvasBody::-webkit-scrollbar-track{
+  background-color: #444;
+
+}
+
+.sideBarOffCanvasBody::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 20px;
+}
+
+.sideBarOffCanvasBody::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
 /* Main Menu Customization */
 
 .sideBarContentItems a.nav-link {
@@ -497,4 +516,20 @@ ul.headerSideBarTabs > li > button.active {
 
 .sideBarCategoryName {
   margin-left: 1rem !important;
+}
+
+a.sideBarLastLink.nav-link {
+  color: #512500 !important;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+a.sideBarLastLink.nav-link:after {
+  position: relative !important;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  font-size: 0.8rem;
+  left: 1rem !important;
+  color: #512500 !important;
 }
