@@ -409,15 +409,13 @@ ul.headerSideBarTabs > li > button.active {
 
 /* Sidebar body Tabs content customization */
 
-
 /* Scrollbar customization of offcanvas sidebar */
 .sideBarOffCanvasBody::-webkit-scrollbar {
   width: 4px;
 }
 
-.sideBarOffCanvasBody::-webkit-scrollbar-track{
+.sideBarOffCanvasBody::-webkit-scrollbar-track {
   background-color: #444;
-
 }
 
 .sideBarOffCanvasBody::-webkit-scrollbar-thumb {
@@ -532,4 +530,231 @@ a.sideBarLastLink.nav-link:after {
   font-size: 0.8rem;
   left: 1rem !important;
   color: #512500 !important;
+}
+
+/* Header Bottom */
+
+/* Header Bottom Dropdown */
+
+.headerBotDropDown.dropdown > button.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  border: transparent;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  color: #333 !important;
+  width: 100%;
+  padding: 6%;
+  background: none !important;
+}
+
+.headerBotDropDown.dropdown > button.dropdown-toggle[aria-expanded="true"] {
+  transition: all 200ms ease-in !important;
+  background-color: #512500 !important;
+  color: #fff !important;
+  border-color: #eeeeee !important;
+  box-shadow: none !important;
+}
+
+.headerBotDropDownTitle {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-left: 0.66rem;
+}
+
+.headerBotDropDown.dropdown > button.dropdown-toggle::after {
+  position: absolute;
+  right: 5%;
+  content: "" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-size: 0.75rem !important;
+  font-weight: 900 !important;
+  border: none !important;
+}
+
+.headerBotDropDown.dropdown > .dropdown-menu {
+  background-color: whitesmoke !important;
+  color: #333;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  border-top: none;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  top: 0%;
+  border-radius: 0%;
+  width: 100%;
+}
+
+.headerBotContentItems a.nav-link {
+  color: #555 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0.5rem !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 0px !important;
+}
+
+.headerBotContentItems a.nav-link:hover,
+.headerBotContentItems a.nav-link:focus,
+.headerBotContentItems a.nav-link:hover:after,
+.headerBotContentItems a.nav-link:focus:after {
+  color: #512500 !important;
+}
+
+.headerBotContentItems a.nav-link[aria-expanded="true"]:after {
+  transform: translateX(2px) !important;
+  transition: transform 200ms ease-in-out;
+}
+
+.headerBotContentItems a.nav-link[aria-expanded="false"]:after {
+  transform: translateX(-2px) !important;
+  transition: transform 200ms ease-in-out;
+}
+
+.headerBotDropdown > a.nav-link:after {
+  position: absolute;
+  right: 0.5rem;
+  content: "\f105" !important;
+  border: none !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  font-size: 0.75rem;
+  color: #666 !important;
+}
+
+.headerBotDropdown > div.dropdown-menu {
+  box-shadow: 0 2px 35px rgb(0 0 0 / 10%);
+  position: absolute !important;
+  border-radius: 0%;
+  border: transparent;
+  left: 0% !important;
+  top: -0.6rem !important;
+  width: auto;
+}
+
+/* submenu dropdown title */
+.headerBotDropTitle {
+  cursor: default !important;
+  font-weight: bolder !important;
+  text-transform: uppercase;
+  font-size: 0.85rem !important;
+  color: #444 !important;
+}
+
+.headerBotDropTitle:hover,
+.headerBotDropTitle:focus,
+.headerBotDropTitle:active {
+  background: transparent !important;
+}
+
+/* submenu dropdown width for each item */
+.headerBotMain > div {
+  width: 195px;
+}
+
+/* submenu of dropdown */
+.headerBotDropleft > a.dropdown-item:not(:first-child),
+.headerBotDropRight > a.dropdown-item:not(:first-child) {
+  color: #666;
+  letter-spacing: 0.02rem;
+  font-size: 0.85rem;
+}
+
+.headerBotDropleft > a.dropdown-item:not(:first-child):hover,
+.headerBotDropleft > a.dropdown-item:not(:first-child):focus,
+.headerBotDropRight > a.dropdown-item:not(:first-child):hover,
+.headerBotDropRight > a.dropdown-item:not(:first-child):focus {
+  background: transparent;
+  color: #512500;
+}
+
+.headerBotDividerLine {
+  background-color: rgba(110, 102, 102, 0.2) !important;
+}
+
+a.headerBotLastLink.nav-link {
+  color: #512500 !important;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+a.headerBotLastLink.nav-link:after {
+  position: relative !important;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  font-size: 0.8rem;
+  left: 1rem !important;
+  color: #512500 !important;
+}
+
+/* Header Bottom Searchbar */
+.headerBotForm {
+  margin: 1% 0;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: #b64400 !important;
+}
+
+.headerBotSelect {
+  font-size: 14px !important ;
+  /* width: 25% !important; */
+  width: 147px !important;
+  height: 45px;
+  border-radius: 0% !important;
+  border: transparent !important;
+  border-right: 0.5px solid #e5e5e5 !important;
+  color: #777 !important;
+}
+
+.headerBotSelect:hover {
+  cursor: pointer;
+}
+
+.headerBotSelect:focus {
+  box-shadow: none !important;
+}
+
+.headerBotSearchInput {
+  border: none !important;
+  color: #777 !important;
+  background: transparent !important;
+}
+
+.headerBotSearchBtn {
+  background-color: #b64400 !important;
+  border: none !important;
+  border-radius: 0% !important;
+}
+
+.headerBotSearchBtn:hover {
+  background-color: transparent !important;
+  color: #b64400 !important;
+}
+
+.headerBotRightEnd {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.headerBotRightEnd > span,
+.headerBotRightEnd > i {
+  color: #333 !important;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.01rem;
+}
+
+.headerBotRightEnd > i {
+  font-size: 1.5rem;
+  transform: rotate(90deg);
+}
+
+.headerBotRightEnd:hover > span,
+.headerBotRightEnd:hover > i {
+  color: #512500 !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .headerBot {
+    display: none;
+  }
 }

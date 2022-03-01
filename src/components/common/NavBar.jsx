@@ -10,6 +10,8 @@ import {
   Button,
   Tabs,
   Tab,
+  DropdownButton,
+  Dropdown,
 } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
@@ -20,6 +22,7 @@ export default function NavBar() {
     <>
       <HeaderTop />
       <HeaderMid />
+      <HeaderBot />
     </>
   );
 }
@@ -78,7 +81,7 @@ function HeaderMid() {
       <Container className="headerMidContainer">
         <NavHam />
         <Navbar.Brand href="#home">
-          <img src={logo} className="headerMidLogo" alt="Moyen Xpress Logo"/>
+          <img src={logo} className="headerMidLogo" alt="Moyen Xpress Logo" />
         </Navbar.Brand>
         <Navbar.Brand href="#home">
           <img src={banner} className="headerMidBanner" alt="Sales Banner" />
@@ -364,8 +367,9 @@ function CategoriesTabContent() {
         name={"Accessories"}
       />
       <NavDropdown.Divider className="sideBarDividerLine" />
-      <Nav.Link href="/" className="sideBarLastLink">View all categories</Nav.Link>
-
+      <Nav.Link href="/" className="sideBarLastLink">
+        View all categories
+      </Nav.Link>
     </Nav>
   );
 }
@@ -384,5 +388,227 @@ function NavLinkForCategories({ path, className, name }) {
     <Nav.Link href={!path && ""}>
       <Icon className={className} name={name} />
     </Nav.Link>
+  );
+}
+
+function HeaderBot() {
+  const [show, setShow] = useState(true);
+  const [show1, setShow1] = useState(true);
+  const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
+  const [show4, setShow4] = useState(false);
+  const showDropdown = () => {
+    setShow(!show);
+  };
+  const hideDropdown = () => {
+    setShow(false);
+  };
+  return (
+    <div className="headerBot">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-3">
+            <DropdownButton
+              id="dropdown-item-button"
+              title={<HeaderBotDropDownTitle />}
+              className="headerBotDropDown"
+              show={show}
+              onMouseEnter={showDropdown}
+              onMouseLeave={hideDropdown}
+            >
+              <Nav
+                defaultActiveKey="/home"
+                className="flex-column headerBotContentItems"
+              >
+                <NavDropdown
+                  title={
+                    <Icon className={"fa-solid fa-shirt"} name="Fashion" />
+                  }
+                  id="navbarScrollingDropdown"
+                  drop="end"
+                  className="headerBotDropdown"
+                  show={show1}
+                  onMouseEnter={() => setShow1(!show1)}
+                  onMouseLeave={() => setShow1(false)}
+                >
+                  <div className="headerBotMain d-flex jc-sb">
+                    <div className="headerBotDropleft">
+                      <HeaderBotNavLink
+                        text={"Women"}
+                        className={"headerBotDropTitle"}
+                      />
+                      <NavDropdown.Divider className="sideBarDividerLine" />
+                      <HeaderBotNavLink text={"New Arrivals"} />
+                      <HeaderBotNavLink text={"Best Sellers"} />
+                      <HeaderBotNavLink text={"Trending"} />
+                      <HeaderBotNavLink text={"Clothing"} />
+                      <HeaderBotNavLink text={"Shoes"} />
+                      <HeaderBotNavLink text={"Bags"} />
+                      <HeaderBotNavLink text={"Accessories"} />
+                      <HeaderBotNavLink text={"Jewelry  & Watches"} />
+                      <HeaderBotNavLink text={"Sale"} />
+                    </div>
+                    <div className="headerBotDropRight">
+                      <HeaderBotNavLink
+                        text={"Men"}
+                        className={"headerBotDropTitle"}
+                      />
+                      <NavDropdown.Divider className="sideBarDividerLine" />
+                      <HeaderBotNavLink text={"New Arrivals"} />
+                      <HeaderBotNavLink text={"Best Sellers"} />
+                      <HeaderBotNavLink text={"Trending"} />
+                      <HeaderBotNavLink text={"Clothing"} />
+                      <HeaderBotNavLink text={"Shoes"} />
+                      <HeaderBotNavLink text={"Bags"} />
+                      <HeaderBotNavLink text={"Accessories"} />
+                      <HeaderBotNavLink text={"Jewelry  & Watches"} />
+                    </div>
+                  </div>
+                </NavDropdown>
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavDropdown
+                  title={
+                    <Icon
+                      className={"fa-solid fa-house"}
+                      name="Home & Garden"
+                    />
+                  }
+                  id="navbarScrollingDropdown"
+                  drop="end"
+                  className="headerBotDropdown"
+                  show={show2}
+                  onMouseEnter={() => setShow2(!show2)}
+                  onMouseLeave={() => setShow2(false)}
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavDropdown
+                  title={
+                    <Icon
+                      className={"fa-solid fa-desktop"}
+                      name="Electronics"
+                    />
+                  }
+                  id="navbarScrollingDropdown"
+                  drop="end"
+                  className="headerBotDropdown"
+                  show={show3}
+                  onMouseEnter={() => setShow3(!show3)}
+                  onMouseLeave={() => setShow3(false)}
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavDropdown
+                  title={
+                    <Icon className={"fa-solid fa-chair"} name="Furniture" />
+                  }
+                  id="navbarScrollingDropdown"
+                  drop="end"
+                  className="headerBotDropdown"
+                  show={show4}
+                  onMouseEnter={() => setShow4(!show4)}
+                  onMouseLeave={() => setShow4(false)}
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-heart-pulse"}
+                  name={"Health and Beauty"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-gift"}
+                  name={"Gift Ideas"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-gamepad"}
+                  name={"Toys and Games"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-cookie-bite"}
+                  name={"Cooking"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-mobile"}
+                  name={"Smart Phones"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-camera"}
+                  name={"Cameras & Photos"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <NavLinkForCategories
+                  className={"fa-solid fa-gem"}
+                  name={"Accessories"}
+                />
+                <NavDropdown.Divider className="headerBotDividerLine" />
+                <Nav.Link href="/" className="headerBotLastLink">
+                  View all categories
+                </Nav.Link>
+              </Nav>
+            </DropdownButton>
+          </div>
+          <div className="col-7">
+            <Form className="d-flex headerBotForm">
+              <Form.Select className="headerBotSelect">
+                <option>All Categories</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Sports">Sports</option>
+                <option value="Games">Games</option>
+                <option value="Computers">Computers</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Kitchen">Kitchen</option>
+                <option value="Clothing">Clothing</option>
+              </Form.Select>
+              <FormControl
+                type="search"
+                placeholder="Search in..."
+                className="headerBotSearchInput"
+                aria-label="Search"
+                required
+              />
+              <Button className="headerBotSearchBtn" type="submit">
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </Button>
+            </Form>
+          </div>
+          <div className="col-2 d-flex ai-c jc-c">
+            <a className="headerBotRightEnd d-flex ai-c jc-c">
+              <i className="fa-solid fa-tag" />
+              <span className="mx-3">Daily Deals</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeaderBotDropDownTitle() {
+  return (
+    <>
+      <i className="fa-solid fa-bars-staggered"></i>
+      <span className="headerBotDropDownTitle">BROWSE CATEGORIES</span>
+    </>
+  );
+}
+
+function HeaderBotNavLink({ path, text, className }) {
+  return (
+    <NavDropdown.Item
+      className={className ? className : ""}
+      href={path && path}
+    >
+      {text}
+    </NavDropdown.Item>
   );
 }
