@@ -1,0 +1,121 @@
+.introSliderTextCol {
+  text-transform: uppercase;
+}
+
+.introSliderTextCol > h3 {
+  font-size: 100%;
+  font-weight: bold;
+  color: #333333;
+}
+
+.introSliderTextCol > h1 {
+  color: #333;
+  font-size: 250%;
+  font-weight: 700;
+}
+
+.introSliderTextCol > h1 span {
+  color: #512500;
+}
+
+.introSliderTextCol > h4 {
+  margin-top: 2px;
+  margin-bottom: 20px;
+  font-size: 120%;
+  color: #333;
+  font-weight: 400;
+}
+
+.introSliderTextCol > button {
+  text-transform: uppercase;
+  background-color: #512500;
+  outline: none;
+  border: none;
+  border-radius: 0%;
+  padding: 2% 6%;
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.introSliderTextCol > button:hover {
+  background-color: #b64400;
+}
+
+.introDotsContainer {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.introDotsContainer > button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #512500;
+  border-radius: 50%;
+}
+
+.introDotsContainer > button.carousel__dot--selected {
+  background-color: #b64400;
+  border: 2px solid #333;
+}
+
+.introDotsContainer > button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.row1,
+.row2,
+.row3 {
+  height: 100%;
+}
+
+.introSliderZoomInCus {
+  animation: zoomIn;
+  --animate-duration: 2s;
+  --animate-delay: 0.2s !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .introSliderTextCol > h1 {
+    font-size: 150%;
+  }
+
+  .introSliderTextCol > h4 {
+    font-size: 100%;
+  }
+
+  .introSliderTextCol img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .introSliderTextCol > h1 {
+    font-size: 100%;
+  }
+
+  .introSliderTextCol > h4 {
+    font-size: 70%;
+  }
+
+  .introSliderTextCol > button {
+    font-size: 70%;
+  }
+
+  .introSliderTextCol img {
+    width: 90%;
+    height: 90%;
+  }
+
+  .introDotsContainer > button {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+  }
+}
