@@ -408,7 +408,6 @@ function HeaderBot() {
   const headerBotRef = useRef(null);
 
   const { y } = useWindowScroll(headerBotRef);
-  console.log(y);
   return (
     <div
       ref={headerBotRef}
