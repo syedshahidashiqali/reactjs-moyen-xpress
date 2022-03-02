@@ -758,3 +758,10 @@ a.headerBotLastLink.nav-link:after {
     display: none;
   }
 }
+
+.stickyPosition {
+  background-color: #fff;
+  position: sticky !important;
+  top: 0% !important;
+  z-index: 1;
+}

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useWindowScroll } from "react-use";
+import { useState, useRef } from "react";
 import {
   Navbar,
   Container,
@@ -11,7 +12,6 @@ import {
   Tabs,
   Tab,
   DropdownButton,
-  Dropdown,
 } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
@@ -132,6 +132,7 @@ function NavDropItem() {
     </NavDropdown.Item>
   );
 }
+
 function CartItems() {
   return (
     <div className="d-flex jc-sb ai-c">
@@ -392,8 +393,8 @@ function NavLinkForCategories({ path, className, name }) {
 }
 
 function HeaderBot() {
-  const [show, setShow] = useState(true);
-  const [show1, setShow1] = useState(true);
+  const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   const [show4, setShow4] = useState(false);
@@ -403,8 +404,20 @@ function HeaderBot() {
   const hideDropdown = () => {
     setShow(false);
   };
+
+  const headerBotRef = useRef(null);
+
+  const { y } = useWindowScroll(headerBotRef);
+  console.log(y);
   return (
-    <div className="headerBot">
+    <div
+      ref={headerBotRef}
+      className={`headerBot ${
+        y >= 258
+          ? "stickyPosition animate__animated animate__fadeInDown animate__faster"
+          : ""
+      }`}
+    >
       <div className="container-fluid">
         <div className="row">
           <div className="col-3">
