@@ -549,6 +549,10 @@ a.sideBarLastLink.nav-link:after {
   background: none !important;
 }
 
+.headerBotDropDown.dropdown > button.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
 .headerBotDropDown.dropdown > button.dropdown-toggle[aria-expanded="true"] {
   transition: all 200ms ease-in !important;
   background-color: #512500 !important;
