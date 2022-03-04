@@ -1,0 +1,147 @@
+.prodCardsTitle {
+  font-size: 150%;
+  font-weight: 700;
+}
+
+.showMoreProdsLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.showMoreProdsLink:hover {
+  color: #512500;
+}
+
+.showMoreProdsLinkArrow {
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 435px) {
+  .prodCardsRow1 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .prodCardsRow1Col2 {
+    justify-content: center !important;
+  }
+}
+
+.slideInner___2mfX9 {
+  display: contents;
+}
+
+.cardContainerCard {
+  cursor: pointer;
+  /* width: 15rem; */
+  min-width: 15rem;
+  /* width: 100%; */
+}
+
+.cardBody {
+  box-shadow: 1px 1px 11px rgb(0 0 0 / 14%);
+  text-align: center;
+}
+
+.cardImage {
+  /* min-height: 250px !important; */
+  /* min-height: 250px; */
+  min-height: 15rem;
+  object-fit: cover;
+}
+
+.cardBody .card-title.h5 {
+  text-transform: uppercase;
+  font-size: 80%;
+  /* font-weight: bold; */
+  color: #666;
+}
+
+.cardBody > p.card-text {
+  font-weight: bold;
+  color: #333;
+}
+
+.cardBody > p.card-text > span {
+  color: #ff3c12;
+}
+
+.cardDiscount,
+.cardTag {
+  position: absolute;
+  left: 10%;
+  border-radius: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 80%;
+  padding: 1% 5%;
+}
+
+.cardDiscount {
+  background-color: #512500;
+  top: 1rem;
+}
+
+.cardTag {
+  background-color: #b64400;
+  top: 3rem;
+}
+
+@media only screen and (max-width: 440px) {
+  .cardImage {
+    min-height: auto;
+  }
+}
+
+.carouselBtnContainer {
+  /* background-color: red; */
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  transform: translateY(-40%);
+}
+
+.carouselBtnContainer:hover .carouselBtn {
+  visibility: visible;
+}
+
+.carouselBtnContainer > .carouselBtn {
+  visibility: hidden;
+  width: 50px;
+  height: 50px;
+}
+
+.carouselBtn:first-child {
+  border: none;
+  /* position: absolute; */
+  float: left;
+}
+
+.carouselBtn:last-child {
+  border: none;
+  float: right;
+}
+
+/* .cardCarouselDotGroup {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cardCarouselDotGroup > button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.cardCarouselDotGroup > button {
+  border: none;
+  background-color: #512500;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.cardCarouselDotGroup button.carousel__dot--selected {
+  background-color: #b64400;
+} */

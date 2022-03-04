@@ -61,7 +61,7 @@
 
 .introDotsContainer > button.carousel__dot--selected {
   background-color: #b64400;
-  border: 2px solid #333;
+  border: 2px solid rgb(197, 172, 172);
 }
 
 .introDotsContainer > button:not(:last-child) {

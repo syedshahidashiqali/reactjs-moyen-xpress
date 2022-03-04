@@ -103,6 +103,10 @@ function LeftCarouselItem() {
       <h4>reconnect africa to the world web shopping center</h4>
       <Button variant="primary" size="lg">
         shop now
+        <i
+          className="fa-solid fa-arrow-right-long"
+          style={{ marginLeft: "0.5rem" }}
+        />
       </Button>
     </div>
   );
