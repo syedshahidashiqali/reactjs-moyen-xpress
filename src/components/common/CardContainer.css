@@ -35,9 +35,6 @@
 
 .cardContainerCard {
   cursor: pointer;
-  /* width: 15rem; */
-  min-width: 15rem;
-  /* width: 100%; */
 }
 
 .cardBody {
@@ -46,16 +43,12 @@
 }
 
 .cardImage {
-  /* min-height: 250px !important; */
-  /* min-height: 250px; */
-  min-height: 15rem;
   object-fit: cover;
 }
 
 .cardBody .card-title.h5 {
   text-transform: uppercase;
   font-size: 80%;
-  /* font-weight: bold; */
   color: #666;
 }
 
@@ -89,9 +82,21 @@
   top: 3rem;
 }
 
-@media only screen and (max-width: 440px) {
-  .cardImage {
-    min-height: auto;
+@media only screen and (max-width: 380px) {
+  .cardBody > p.card-text > del,
+  span {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .cardBody > p.card-text {
+    font-size: 75%;
+  }
+
+  .cardBody > p.card-text > del,
+  span {
+    font-size: 100%;
   }
 }
 

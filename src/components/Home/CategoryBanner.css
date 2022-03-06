@@ -1,0 +1,106 @@
+.categoryBanner {
+  margin-bottom: 100px;
+}
+
+.bannerWrapper {
+  position: relative;
+}
+
+.bannerWrapper > figure > img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.categoryText {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+}
+
+.categoryText > h2 {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.categoryBanner .row > .col:last-child .categoryText > h2 {
+  color: #fff;
+}
+
+.categoryBanner .row > .col:last-child .categoryText > h4 {
+  color: #333;
+}
+
+.categoryBanner .row > .col:last-child .categoryText > h6 {
+  color: #fff;
+}
+
+.categoryBanner .row > .col:last-child .categoryText > hr {
+  color: #fff;
+}
+
+.categoryText > h6:after {
+  display: block;
+  content: "";
+  border-bottom: 3px solid #fff;
+  padding-bottom: 5px;
+  width: 90px;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.categoryText > h6:hover:after {
+  transform: scaleX(1);
+}
+
+.categoryText > h4 {
+  font-size: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #666;
+}
+
+.categoryText > h4 > span {
+  color: #ff3c12;
+  font-size: 100%;
+}
+
+.categoryText > h6 {
+  font-size: 80%;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.categoryText > h6 > a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 770px) {
+  .categoryBanner > .container-fluid > .row {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .categoryText > h2 {
+    font-size: 150%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .categoryText > h2 {
+    font-size: 120%;
+  }
+
+  .categoryText > h4 {
+    font-size: 80%;
+  }
+
+  .categoryText > h6 {
+    font-size: 70%;
+  }
+}

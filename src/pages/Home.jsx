@@ -1,6 +1,7 @@
 import IntroSlider from "../components/Home/IntroSlider";
 import CustomerSupport from "../components/common/CustomerSupport";
 import CardContainer from "../components/common/CardContainer";
+import CategoryBanner from "../components/Home/CategoryBanner";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <CustomerSupport />
       </div>
       <CardContainer />
+      <CategoryBanner />
     </>
   );
 }

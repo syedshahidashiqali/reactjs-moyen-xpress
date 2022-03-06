@@ -3,7 +3,6 @@ import {
   CarouselProvider,
   Slider,
   Slide,
-  DotGroup,
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
@@ -32,16 +31,15 @@ export default function CardContainer() {
           </div>
           <CarouselProvider
             naturalSlideWidth={100}
-            naturalSlideHeight={200}
+            naturalSlideHeight={125}
             totalSlides={5}
             visibleSlides={
-              width <= 600
-                ? 2
-                : width > 600 && width <= 770
-                ? 3
-                : width > 770 && width <= 1200
+              width <= 910 && width > 730
                 ? 4
-                : width > 1200 && 5
+                : width <= 730 && width > 555
+                ? 3
+                : width <= 555 ? 2
+                : 5
             }
           >
             <Slider>
@@ -71,12 +69,6 @@ export default function CardContainer() {
                 <i className="fa-solid fa-circle-chevron-right" />
               </ButtonNext>
             </div>
-            {/* {width <= 1200 && (
-              <DotGroup
-                className="cardCarouselDotGroup"
-                showAsSelectedForCurrentSlideOnly={true}
-              />
-            )} */}
           </CarouselProvider>
         </div>
       </div>
