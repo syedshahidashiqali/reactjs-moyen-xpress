@@ -8,6 +8,7 @@ export default function Footer() {
   return (
     <>
       <FooterTop />
+      <FooterBot />
     </>
   );
 }
@@ -75,4 +76,135 @@ function FooterTop() {
       </div>
     </div>
   );
+}
+
+function FooterBot() {
+  return (
+    <div className="footerBot">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <Title title={"let us help you"} />
+            <ul className="footerList">
+              <li className="footerListItem">
+                <a href="">
+                  <b>For Shipment:</b> moyenxpress trucking
+                </a>
+              </li>
+              <li className="footerListItem">
+                <a href="">
+                  <b>Adress:</b> po box 48675 atlanta ga 30362
+                </a>
+              </li>
+              <li className="footerListItem">
+                <a href="">
+                  <b>Email:</b> moyenxpress@gmai.com
+                </a>
+              </li>
+              <li className="footerListItem">
+                <a href="">
+                  <b>Phone:</b> 4707758326
+                </a>
+              </li>
+              <li className="footerListItem">
+                <a href="">
+                  <b>Phone:</b> 4707758328
+                </a>
+              </li>
+              <li className="footerListItem">
+                <a href="">
+                  <b>Phone:</b> 4045425633
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="col">
+            <Title title={"about moyen"} />
+            <ul className="footerList">
+              <li className="footerListItem">
+                <a href="">About Us</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Careers</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Express</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Terms and Conditions</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Privacy and Cookie Notice</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Prime</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Global</a>
+              </li>
+            </ul>
+          </div>
+          <div className="col">
+            <Title title={"make money with moyen"} />
+            <ul className="footerList">
+              <li className="footerListItem">
+                <a href="">Sell on</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Become a Sales Consultant</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Become a Logistics Service Partner</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Join the DA Academy</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Join the KOL Program</a>
+              </li>
+            </ul>
+          </div>
+          <div className="col">
+            <Title title={"moyen international"} />
+            <ul className="footerList">
+              <li className="footerListItem">
+                <a href="">Algeria</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Egypt</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Ghana</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Ivory Coast</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Kenya</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Morocco</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Senegal</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Tunisia</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Uganda</a>
+              </li>
+              <li className="footerListItem">
+                <a href="">Zando</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Title({ title }) {
+  return <h5>{title}</h5>;
 }
