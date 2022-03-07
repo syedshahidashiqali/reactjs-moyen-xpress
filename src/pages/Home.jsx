@@ -10,8 +10,9 @@ export default function Home() {
       <div className="container-fluid">
         <CustomerSupport />
       </div>
-      <CardContainer />
+      <CardContainer name={"Deals Of The Day"} />
       <CategoryBanner />
+      <CardContainer name={"New Arrivals"} />
     </>
   );
 }

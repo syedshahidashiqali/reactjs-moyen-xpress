@@ -11,8 +11,9 @@ import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
 
-export default function CardContainer() {
+export default function CardContainer(props) {
   const { width } = useWindowSize();
+  const { name } = props;
 
   return (
     <>
@@ -20,7 +21,7 @@ export default function CardContainer() {
         <div className="container-fluid">
           <div className="row prodCardsRow1 mb-4">
             <div className="col prodCardsRow1Col1">
-              <h1 className="prodCardsTitle">Deals Of The Day</h1>
+              <h1 className="prodCardsTitle">{name}</h1>
             </div>
             <div className="col d-flex jc-e prodCardsRow1Col2">
               <a href="" className="showMoreProdsLink d-flex ai-c">
@@ -38,7 +39,8 @@ export default function CardContainer() {
                 ? 4
                 : width <= 730 && width > 555
                 ? 3
-                : width <= 555 ? 2
+                : width <= 555
+                ? 2
                 : 5
             }
           >
