@@ -96,6 +96,9 @@ function ContainerCard() {
       />
       <span className="cardDiscount">50% off</span>
       <span className="cardTag">best</span>
+      <span className="cardFvt">
+        <i className="fa-regular fa-heart" />
+      </span>
       <Card.Body className="cardBody">
         <Card.Title>Shoes</Card.Title>
         <Card.Text>

@@ -61,6 +61,39 @@
   color: #ff3c12;
 }
 
+.cardFvt {
+  position: absolute;
+  right: 10%;
+  top: 1rem;
+  background-color: #b64400;
+  color: white;
+  border-radius: 50%;
+  /* width: 2.5rem; */
+  /* height: 2.5rem; */
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cardFvt:hover {
+  transition: all 0.5s ease-in-out;
+  background-color: #512500;
+}
+
+.cardContainerCard:hover .cardFvt {
+  opacity: 1;
+  visibility: visible;
+}
+.cardFvt > i {
+  /* font-size: 1.25rem; */
+  font-size: 1rem;
+}
+
 .cardDiscount,
 .cardTag {
   position: absolute;
