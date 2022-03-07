@@ -108,6 +108,12 @@
   position: relative;
   padding: 10px;
   border-radius: 50%;
+  opacity: 0;
+}
+
+.prodCards .carousel:hover .carouselBtnContainer > .carouselBtn {
+  transition: all 200ms ease-in-out;
+  opacity: 1;
 }
 
 .carouselBtn:first-child {
