@@ -68,6 +68,10 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: flex-end !important;
 }
 
+.jc-se {
+  justify-content: space-evenly !important;
+}
+
 .p-r {
   position: relative !important;
 }

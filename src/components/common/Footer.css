@@ -1,0 +1,162 @@
+.footerTop {
+  background-color: #282828;
+  color: #fff;
+  padding: 4% 0;
+}
+
+.footerTop > .container-fluid > .row > .col:first-child {
+  flex: 0.75;
+}
+
+.footerTop > .container-fluid > .row > .col:nth-child(2) {
+  flex: 2;
+}
+
+.footerTop > .container-fluid > .row > .col:last-child {
+  flex: 1.25;
+}
+
+.footerSubscribeText > h4 {
+  text-transform: uppercase;
+  font-size: 120%;
+}
+
+.footerSubscribeText > p {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+.footerSubscribeForm .footerSubscribeBtn {
+  border-color: #fff;
+  background: transparent;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.footerSubscribeForm .footerSubscribeBtn:hover,
+.footerSubscribeForm .footerSubscribeBtn:focus,
+.footerSubscribeForm .footerSubscribeBtn:active {
+  color: #b64400;
+  border-color: #b64400;
+  background: none !important;
+  box-shadow: none !important;
+  transition: all 0.5s ease-in-out;
+}
+
+.footerSubscribeForm .footerSubscribeSearch {
+  width: 70% !important;
+}
+
+.footerSubscribeForm .footerSubscribeSearch:hover,
+.footerSubscribeForm .footerSubscribeSearch:focus,
+.footerSubscribeForm .footerSubscribeSearch:active {
+  border-color: #b64400;
+  box-shadow: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.footerDownloadAppTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footerDownloadAppTop > .footerDownloadBtn {
+  font-size: 100% !important;
+  background-color: #b64400;
+  border-color: #b64400;
+  padding: 3% 4%;
+}
+
+.footerDownloadAppTop > .footerDownloadBtn:hover,
+.footerDownloadAppTop > .footerDownloadBtn:focus,
+.footerDownloadAppTop > .footerDownloadBtn:active {
+  border-color: #fff;
+  box-shadow: none !important;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+}
+
+.footerDownloadAppTopRight > h4 {
+  text-transform: uppercase;
+  font-size: 120%;
+  text-transform: capitalize;
+}
+
+.footerDownloadAppTopRight > p {
+  font-size: 100%;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.footerDownloadAppBot img {
+  width: 90%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .footerTop > .container-fluid > .row {
+    flex-direction: column;
+  }
+
+  .footerTop > .container-fluid > .row > .col:first-child {
+    flex: auto;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .footerTop > .container-fluid > .row > .col:nth-child(2) {
+    flex: auto;
+    display: flex;
+    justify-content: flex-start !important;
+    margin-bottom: 30px;
+  }
+
+  .footerTop > .container-fluid > .row > .col:last-child {
+    flex: auto;
+    display: flex;
+    justify-content: flex-start !important;
+  }
+
+  .footerDownloadAppTop {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .footerDownloadAppTop > .footerDownloadBtn {
+    padding: 2%;
+    margin-right: 2rem;
+  }
+
+  .footerDownloadAppBot {
+    width: 50%;
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footerDownloadAppBot {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 348px) {
+  .footerSubscribeText > h4 {
+    font-size: 100%;
+  }
+
+  .footerSubscribeText > p {
+    font-size: 80%;
+  }
+
+  .footerSubscribeForm .footerSubscribeBtn {
+    font-size: 80%;
+  }
+
+  .footerDownloadAppTopRight > h4 {
+    font-size: 100%;
+  }
+
+  .footerDownloadAppTopRight > p {
+    font-size: 80%;
+  }
+}
