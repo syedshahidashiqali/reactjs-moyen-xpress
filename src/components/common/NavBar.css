@@ -768,4 +768,5 @@ a.headerBotLastLink.nav-link:after {
   position: sticky !important;
   top: 0% !important;
   z-index: 1;
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 10%);
 }
