@@ -15,11 +15,15 @@ import footerImg9 from "../../images/footerIcon9.png";
 import footerImg10 from "../../images/footerIcon10.png";
 import footerImg11 from "../../images/footerIcon11.png";
 
+import { useWindowScroll } from "react-use";
+import { useState, useRef } from "react";
+
 export default function Footer() {
   return (
     <>
       <FooterTop />
       <FooterBot />
+      <BotTabs />
     </>
   );
 }
@@ -286,4 +290,41 @@ function FooterBot() {
 
 function Title({ title }) {
   return <h5>{title}</h5>;
+}
+
+function BotTabs() {
+  const botNavTabsRef = useRef(null);
+
+  const { y } = useWindowScroll(botNavTabsRef);
+  return (
+    <div
+      className={`botNav  ${
+        y >= 258
+          ? "stickyPositionFooter animate__animated animate__fadeInUp "
+          : ""
+      }`}
+      ref={botNavTabsRef}
+    >
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="footerNavContainer">
+              <a href="">
+                <i className="fa-solid fa-house" />
+                <span>home</span>
+              </a>
+            </div>
+          </div>
+          <div className="col">
+            <div className="footerNavContainer">
+              <a href="">
+                <i className="fa-solid fa-bars-staggered" />
+                <span>shop</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
