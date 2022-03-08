@@ -3,6 +3,17 @@ import logo from "../../images/footer-logo.png";
 import { Form, FormControl, Button } from "react-bootstrap";
 import googlePlayImg from "../../images/footerGoogleplayImg.png";
 import appStoreImg from "../../images/footerAppstoreImg.png";
+import footerImg1 from "../../images/footerIcon1.png";
+import footerImg2 from "../../images/footerIcon2.png";
+import footerImg3 from "../../images/footerIcon3.png";
+import footerImg4 from "../../images/footerIcon4.png";
+import footerImg5 from "../../images/footerIcon5.png";
+import footerImg6 from "../../images/footerIcon6.png";
+import footerImg7 from "../../images/footerIcon7.png";
+import footerImg8 from "../../images/footerIcon8.png";
+import footerImg9 from "../../images/footerIcon9.png";
+import footerImg10 from "../../images/footerIcon10.png";
+import footerImg11 from "../../images/footerIcon11.png";
 
 export default function Footer() {
   return (
@@ -198,6 +209,74 @@ function FooterBot() {
                 <a href="">Zando</a>
               </li>
             </ul>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <div className="footerBotSection footerLeft">
+              <h4>join us on</h4>
+              <div className="footerIconsContainer">
+                <a href="">
+                  <i className="fa-brands fa-facebook-f" />
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-twitter" />
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-instagram" />
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-youtube" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="footerBotSection footerRight">
+              <h4>payment methods & delivery partners</h4>
+              <div className="footerIconsContainerRight">
+                <a href="">
+                  <img src={footerImg1} alt="footer Icon 1" />
+                </a>
+                <a href="">
+                  <img src={footerImg2} alt="footer Icon 2" />
+                </a>
+                <a href="">
+                  <img src={footerImg3} alt="footer Icon 3" />
+                </a>
+                <a href="">
+                  <img src={footerImg4} alt="footer Icon 4" />
+                </a>
+                <a href="">
+                  <img src={footerImg5} alt="footer Icon 5" />
+                </a>
+                <a href="">
+                  <img src={footerImg6} alt="footer Icon 6" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="row">
+          <div className="col d-flex ai-c jc-c">
+            <div className="footerIconsContainerLast">
+              <a href="">
+                <img src={footerImg7} alt="footer img 7" />
+              </a>
+              <a href="">
+                <img src={footerImg8} alt="footer img 8" />
+              </a>
+              <a href="">
+                <img src={footerImg9} alt="footer img 9" />
+              </a>
+              <a href="">
+                <img src={footerImg10} alt="footer img 10" />
+              </a>
+              <a href="">
+                <img src={footerImg11} alt="footer img 11" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
