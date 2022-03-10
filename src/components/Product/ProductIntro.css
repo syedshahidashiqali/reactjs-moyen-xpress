@@ -48,7 +48,8 @@
 }
 
 .prodIntroButtonsContainer > button:not(:disabled) {
-  color: #b64400;
+  /* color: #b64400; */
+  color: #2b579a;
 }
 
 .prodIntroButtonsContainer > button:hover:not(:disabled) {
@@ -63,4 +64,83 @@
 
 .prodIntroButtonsContainer > button:last-child {
   right: 2%;
+}
+
+/* product middle container part customization */
+
+.prodIntroMid {
+  padding: 5%;
+  box-shadow: 1px 1px 11px rgb(0 0 0 / 55%);
+}
+
+.prodIntroMid > h2 {
+  font-size: 150%;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #333;
+}
+
+.prodIntroMidTop {
+  font-size: 80%;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.prodIntroMidTop > nav > ol > li > a {
+  color: #999;
+  text-decoration: none;
+}
+
+.prodIntroMidTop {
+  color: #999;
+}
+
+.bold {
+  color: #444;
+  font-weight: 400;
+}
+
+.prodIntroMidMid > h2 {
+  font-size: 200%;
+  font-weight: bold;
+  color: #ff2f03;
+}
+
+.prodIntroAttr > .prodIntroForm {
+  color: #999;
+  border-radius: 0%;
+  padding: 2% 5%;
+}
+
+.prodIntroAttr > .prodIntroForm:focus {
+  box-shadow: none;
+}
+
+.prodIntroMidLast > button {
+  padding: 2.5% 6%;
+  font-size: 80%;
+  font-weight: bold;
+  background-color: #b64400;
+  border-color: #b64400;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.prodIntroMidLast > button:hover,
+.prodIntroMidLast > button:focus,
+.prodIntroMidLast > button:active {
+  background-color: #923904;
+  border-color: #923904;
+  box-shadow: none;
+}
+
+.prodIntroMidLast > a {
+  font-size: 150%;
+  color: #666;
+}
+
+.prodIntroMidLast > a:hover {
+  color: #2b579a;
 }
