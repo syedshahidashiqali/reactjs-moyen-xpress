@@ -1,3 +1,4 @@
+import "./ProductIntro.css";
 import {
   CarouselProvider,
   Slider,
@@ -6,7 +7,11 @@ import {
   ButtonNext,
   ImageWithZoom,
   Image,
+  Dot,
 } from "pure-react-carousel";
+
+// dummy data
+import { dummyData } from "../../dummyData";
 
 export default function ProductIntro() {
   return (
@@ -17,25 +22,40 @@ export default function ProductIntro() {
             <div className="row">
               <div className="col-6">
                 <CarouselProvider
-                  naturalSlideWidth={400}
-                  naturalSlideHeight={500}
-                  totalSlides={3}
+                  naturalSlideWidth={100}
+                  naturalSlideHeight={110}
+                  totalSlides={4}
                   visibleSlides={1}
                   className="prodcarouselProvider"
                 >
                   <Slider className="prodcarouselSlider">
-                    <Slide index={0} className="prodcarouselSlide">
-                      <ProductCarouselItem />
-                    </Slide>
-                    <Slide index={1} className="prodcarouselSlide">
-                      <ProductCarouselItem />
-                    </Slide>
-                    <Slide index={2} className="prodcarouselSlide">
-                      <ProductCarouselItem />
-                    </Slide>
+                    {dummyData.map((image, index) => {
+                      return (
+                        <Slide index={index} className="prodcarouselSlide">
+                          <ProductCarouselItem image={image} />
+                        </Slide>
+                      );
+                    })}
                   </Slider>
-                  <ButtonBack>Back</ButtonBack>
-                  <ButtonNext>Next</ButtonNext>
+                  <div className="productIntroDotsContainer">
+                    {dummyData.map((image, index) => {
+                      return (
+                        <Dot slide={index} key={index}>
+                          <Image src={image} className="prodDotImg" />
+                        </Dot>
+                      );
+                    })}
+                  </div>
+                  <div className="prodIntroButtonsContainer">
+                    <ButtonBack>
+                      {/* <i className="fa-solid fa-circle-chevron-left" /> */}
+                      <i className="fa-solid fa-angle-left" />
+                    </ButtonBack>
+                    <ButtonNext>
+                      {/* <i className="fa-solid fa-circle-chevron-right" /> */}
+                      <i className="fa-solid fa-angle-right" />
+                    </ButtonNext>
+                  </div>
                 </CarouselProvider>
               </div>
               <div className="col-6"></div>
@@ -48,13 +68,22 @@ export default function ProductIntro() {
   );
 }
 
-function ProductCarouselItem() {
+function ProductCarouselItem({ image }) {
   return (
     <div className="prodBox">
       <ImageWithZoom
-        src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhlYWRwaG9uZXN8ZW58MHx8MHx8&w=1000&q=80"
+        src={image}
         bgImageTag="img"
+        className="prodIntroZoomedImg"
       />
+    </div>
+  );
+}
+
+function ProductCarouselItemSub({ image }) {
+  return (
+    <div className="prodBoxSub">
+      <Image src={image} className="prodIntroImgSub" />
     </div>
   );
 }
