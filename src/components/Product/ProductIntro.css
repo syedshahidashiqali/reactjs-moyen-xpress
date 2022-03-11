@@ -381,3 +381,10 @@
 .prodVendContainer > .prodVendInfo > h6 > a:hover:after {
   transform: scaleX(1);
 }
+
+/* customer reviews section customization */
+
+.prodReviewContainer .prodAvgRating > .custRevRatTop > span {
+  font-size: 85%;
+  color: #999;
+}

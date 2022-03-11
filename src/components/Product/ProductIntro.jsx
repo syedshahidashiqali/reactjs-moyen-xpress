@@ -361,7 +361,27 @@ function ProductTabs() {
           </div>
         </Tab>
         <Tab eventKey="customerReviews" title="Customer Reviews (5)">
-          <p>Customer Reviews</p>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="prodReviewContainer">
+                <div className="prodAvgReviewWrapper d-flex jc-sa">
+                  <h4>3.0</h4>
+                  <div className="prodAvgRating">
+                    <p>Average Rating</p>
+                    <span className="d-flex ai-c custRevRatTop">
+                      <Rating
+                        ratingValue={rating}
+                        size={18}
+                        allowHalfIcon={true}
+                      />
+                      <span className="ms-2">(1 Reviews)</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">col of size 8</div>
+          </div>
         </Tab>
       </Tabs>
     </div>
