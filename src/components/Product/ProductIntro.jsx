@@ -10,8 +10,9 @@ import {
   Image,
   Dot,
 } from "pure-react-carousel";
-import { Breadcrumb, Form, Button } from "react-bootstrap";
+import { Breadcrumb, Form, Button, Card, Tabs, Tab } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
+import discountImg from "../../images/prodDiscountbanner.jpg";
 // dummy data
 import { dummyData } from "../../dummyData";
 
@@ -21,9 +22,9 @@ export default function ProductIntro() {
     <div className="productSection">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-9">
-            <div className="row mb-3">
-              <div className="col-6">
+          <div className="col-md-9 col-sm-12 col-xs-12">
+            <div className="row mb-4">
+              <div className="col-md-6 col-sm-6 col-xs-12">
                 <CarouselProvider
                   naturalSlideWidth={100}
                   naturalSlideHeight={90}
@@ -55,17 +56,15 @@ export default function ProductIntro() {
                   </div>
                   <div className="prodIntroButtonsContainer">
                     <ButtonBack>
-                      {/* <i className="fa-solid fa-circle-chevron-left" /> */}
                       <i className="fa-solid fa-angle-left" />
                     </ButtonBack>
                     <ButtonNext>
-                      {/* <i className="fa-solid fa-circle-chevron-right" /> */}
                       <i className="fa-solid fa-angle-right" />
                     </ButtonNext>
                   </div>
                 </CarouselProvider>
               </div>
-              <div className="col-6">
+              <div className="col-md-6 col-sm-6 col-xs-12">
                 <div className="prodIntroMid">
                   <h2>electronics black wrist watch</h2>
                   <div className="prodIntroMidTop my-3">
@@ -136,8 +135,76 @@ export default function ProductIntro() {
                 </div>
               </div>
             </div>
+            <div className="row mb-4">
+              <div className="col-md-12">
+                <ProductTabs />
+              </div>
+            </div>
           </div>
-          <div className="col-3"></div>
+          <div className="col-md-3">
+            <div className="prodIntroIconsContainer">
+              <IconBox
+                textHeading={"Free Shipping & Returns"}
+                textPara={"For all orders over $99"}
+                icon={"fa-solid fa-truck"}
+              />
+              <hr />
+              <IconBox
+                textHeading={"Secure Payment"}
+                textPara={"We ensure secure payment"}
+                icon={"fa-solid fa-briefcase"}
+              />
+              <hr />
+              <IconBox
+                textHeading={"Money Back Guarantee"}
+                textPara={"Any back within 30 days"}
+                icon={"fa-solid fa-hand-holding-dollar"}
+              />
+            </div>
+            <div className="prodIntroBannerContainer">
+              <figure>
+                <img src={discountImg} alt="discount banner" />
+              </figure>
+              <div className="prodIntroBannerPriceInfo">
+                40<sup>%</sup>
+                <sub>OFF</sub>
+                <h4>ultimate sale</h4>
+              </div>
+            </div>
+            <div className="prodIntroSliderContainer">
+              <div className="prodIntroTitle">
+                <h4>More Products</h4>
+              </div>
+              <div className="prodIntroCarousel">
+                <CarouselProvider
+                  naturalSlideWidth={100}
+                  naturalSlideHeight={60}
+                  totalSlides={3}
+                  visibleSlides={1}
+                >
+                  <Slider>
+                    <Slide index={0}>
+                      <SliderCard />
+                    </Slide>
+                    <Slide index={1}>
+                      <SliderCard />
+                    </Slide>
+                    <Slide index={2}>
+                      <SliderCard />
+                    </Slide>
+                  </Slider>
+                  <div className="prodIntroSmallBtnContainer">
+                    <ButtonBack>
+                      <i className="fa-solid fa-angle-left" />
+                    </ButtonBack>
+                    <ButtonNext>
+                      <i className="fa-solid fa-angle-right" />
+                    </ButtonNext>
+                  </div>
+                </CarouselProvider>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -156,10 +223,114 @@ function ProductCarouselItem({ image }) {
   );
 }
 
-function ProductCarouselItemSub({ image }) {
+function IconBox({ textHeading, textPara, icon }) {
   return (
-    <div className="prodBoxSub">
-      <Image src={image} className="prodIntroImgSub" />
+    <div className="prodIntroIconsBox d-flex ai-c">
+      <div className="prodIntroIconsBoxIcon ">
+        <i className={icon} />
+      </div>
+      <div className="prodIntroIconsBoxText ">
+        <h4>{textHeading}</h4>
+        <p>{textPara}</p>
+      </div>
+    </div>
+  );
+}
+
+function SliderCard() {
+  const [rating, setRating] = useState(0);
+
+  // Catch Rating value
+  const handleRating = (rate) => {
+    setRating(rate);
+    // other logic
+  };
+
+  return (
+    <Card className="prodIntroCardContainerCard">
+      <Card.Img
+        className="cardImage"
+        variant="top"
+        src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhlYWRwaG9uZXN8ZW58MHx8MHx8&w=1000&q=80"
+      />
+      <span className="cardDiscount">50% off</span>
+      <span className="cardTag">best</span>
+      <span className="cardFvt">
+        <i className="fa-regular fa-heart" />
+      </span>
+      <Card.Body className="cardBody">
+        <Card.Title>Shoes</Card.Title>
+        <Card.Text>
+          <del>$349.00</del> <span>$340.00</span>
+          <Rating ratingValue={rating} size={20} allowHalfIcon={true} />
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  );
+}
+
+function ProductTabs() {
+  const [key, setKey] = useState("description");
+
+  return (
+    <div className="productIntroTabs">
+      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-4 ">
+        <Tab eventKey="description" title="Description">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="prodDescContainer">
+                <h4>Detail</h4>
+                <p>
+                  Incredible games & non-stop entertainment. The PS4 console,
+                  delivering awesome gaming power, incredible entertainment and
+                  vibrant HDR technology
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-4">
+              <div className="prodDescBotContainer">
+                <h6>
+                  <span className="pe-2">1.</span>Free Shipping & Return
+                </h6>
+                <p className="ps-4">
+                  We offer free shipping for products on orders above 50$ and
+                  offer free delivery for all orders in US.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="prodDescBotContainer">
+                <h6>
+                  <span className="pe-2">2.</span>Free and Easy Returns
+                </h6>
+                <p className="ps-4">
+                  We guarantee our products and you could get back all of your
+                  money anytime you want in 30 days.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="prodDescBotContainer">
+                <h6>
+                  <span className="pe-2">3.</span>Special Financing
+                </h6>
+                <p className="ps-4">
+                  Get 20%-50% off items over 50$ for a month or over 250$ for a
+                  year with our special credit card.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Tab>
+        <Tab eventKey="vendorInfo" title="Vendor Info">
+          <p>Vendor Info</p>
+        </Tab>
+        <Tab eventKey="customerReviews" title="Customer Reviews (5)">
+          <p>Customer Reviews</p>
+        </Tab>
+      </Tabs>
     </div>
   );
 }

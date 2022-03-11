@@ -144,3 +144,191 @@
 .prodIntroMidLast > a:hover {
   color: #2b579a;
 }
+
+/* product intro right section */
+
+.prodIntroIconsContainer {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 2.5% 5%;
+}
+
+.prodIntroIconsContainer hr {
+  background-color: #999;
+  width: 90%;
+}
+
+.prodIntroIconsBoxIcon {
+  flex: 1;
+}
+
+.prodIntroIconsBoxText {
+  flex: 4;
+}
+
+.prodIntroIconsBoxIcon > i {
+  font-size: 2rem !important;
+  color: #512500;
+}
+
+.prodIntroIconsBoxText {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.prodIntroIconsBoxText > h4 {
+  font-size: 100%;
+  font-weight: 700;
+  letter-spacing: -0.05rem;
+}
+
+.prodIntroIconsBoxText > p {
+  font-size: 100%;
+  color: #666;
+}
+
+/* product discount banner */
+
+.prodIntroBannerContainer {
+  position: relative;
+  margin-top: 5%;
+}
+
+.prodIntroBannerContainer figure > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.prodIntroBannerPriceInfo {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20%;
+  transform: translateX(-20%);
+}
+
+.prodIntroBannerPriceInfo {
+  font-size: 300%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.prodIntroBannerPriceInfo sup {
+  font-size: 60%;
+}
+
+.prodIntroBannerPriceInfo sub {
+  font-size: 30%;
+  margin-left: -15%;
+}
+
+.prodIntroBannerPriceInfo h4 {
+  font-size: 40%;
+  font-weight: bold;
+}
+
+/* product small card */
+
+.prodIntroCardContainerCard {
+  cursor: pointer;
+}
+
+.prodIntroSliderContainer {
+  margin-top: 10%;
+}
+
+.prodIntroTitle > h4 {
+  font-size: 110%;
+}
+
+.prodIntroTitle {
+  position: relative;
+}
+
+.prodIntroTitle > h4::before {
+  position: absolute;
+  content: "";
+  bottom: -8px;
+  height: 2px;
+  width: 41%;
+  background-color: #666;
+}
+
+.prodIntroCarousel .prodIntroCardContainerCard {
+  margin-top: 5%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.prodIntroSliderContainer {
+  position: relative;
+}
+
+.prodIntroSmallBtnContainer {
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+.prodIntroSmallBtnContainer > button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: transparent;
+  background: transparent;
+}
+
+.prodIntroSmallBtnContainer > button:not(:disabled) {
+  color: #2b579a;
+}
+
+.prodIntroSmallBtnContainer > button:hover:not(:disabled) {
+  background-color: #2b579a;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+/* product tabs */
+
+.productIntroTabs > ul > li > button {
+  color: #999;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.productIntroTabs > ul > li > button:hover,
+.productIntroTabs > ul > li > button:focus,
+.productIntroTabs > ul > li > button:active {
+  color: #512500;
+}
+
+.productIntroTabs > ul > li > button.active {
+  color: #512500 !important;
+}
+
+.productIntroTabs .prodDescContainer > h4 {
+  color: #444;
+  font-size: 130%;
+  font-weight: bold;
+}
+
+.productIntroTabs .prodDescContainer > p {
+  margin-top: 15px;
+  font-size: 95%;
+  color: #666;
+}
+
+.productIntroTabs .prodDescBotContainer > h6 {
+  color: #444;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.productIntroTabs .prodDescBotContainer > p {
+  font-size: 90%;
+  color: #666;
+}
