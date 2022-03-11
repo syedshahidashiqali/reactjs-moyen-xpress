@@ -271,7 +271,7 @@ function SliderCard() {
 
 function ProductTabs() {
   const [key, setKey] = useState("description");
-
+  const [rating, setRating] = useState(3);
   return (
     <div className="productIntroTabs">
       <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-4 ">
@@ -325,7 +325,40 @@ function ProductTabs() {
           </div>
         </Tab>
         <Tab eventKey="vendorInfo" title="Vendor Info">
-          <p>Vendor Info</p>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="prodVendContainer">
+                <h4>Vendor</h4>
+                <div className="d-flex ai-c vendorRatingSec">
+                  <Rating ratingValue={rating} size={20} allowHalfIcon={true} />
+                  <span className="ms-2">(1 Reviews)</span>
+                </div>
+                <div className="prodVendInfo mt-4">
+                  <p>
+                    <span className="prodVendName">store name:</span>
+                    <span>my vendor shop</span>
+                  </p>
+                  <p>
+                    <span className="prodVendName">address:</span>
+                    <span>vendor's point vendor's point</span>
+                  </p>
+                  <p>
+                    <span className="prodVendName">Phone:</span>
+                    <span>22</span>
+                  </p>
+                  <h6 className="mt-4">
+                    <a href="">
+                      visit store
+                      <i
+                        className="fa-solid fa-arrow-right-long"
+                        style={{ marginLeft: "0.5rem" }}
+                      />
+                    </a>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
         </Tab>
         <Tab eventKey="customerReviews" title="Customer Reviews (5)">
           <p>Customer Reviews</p>

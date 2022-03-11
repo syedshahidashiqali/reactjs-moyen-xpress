@@ -310,7 +310,8 @@
   color: #512500 !important;
 }
 
-.productIntroTabs .prodDescContainer > h4 {
+.productIntroTabs .prodDescContainer > h4,
+.prodVendContainer > h4 {
   color: #444;
   font-size: 130%;
   font-weight: bold;
@@ -331,4 +332,52 @@
 .productIntroTabs .prodDescBotContainer > p {
   font-size: 90%;
   color: #666;
+}
+
+/*Vendor Info Content customization  */
+
+.prodVendContainer > .vendorRatingSec > span {
+  font-size: 100%;
+  color: #666;
+}
+
+.prodVendContainer > .prodVendInfo > p {
+  font-size: 100%;
+  text-transform: capitalize;
+  color: #666;
+  display: flex;
+}
+
+.prodVendContainer > .prodVendInfo > p > span:first-child {
+  flex: 2;
+}
+
+.prodVendContainer > .prodVendInfo > p > span:last-child {
+  flex: 12;
+}
+
+.prodVendContainer > .prodVendInfo > p > span.prodVendName {
+  color: #333;
+}
+
+.prodVendContainer > .prodVendInfo > h6 > a {
+  color: #444;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.prodVendContainer > .prodVendInfo > h6 > a:after {
+  display: block;
+  content: "";
+  border-bottom: 3px solid #444;
+  padding-bottom: 2px;
+  width: 105px;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.prodVendContainer > .prodVendInfo > h6 > a:hover:after {
+  transform: scaleX(1);
 }
