@@ -388,3 +388,70 @@
   font-size: 85%;
   color: #999;
 }
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1090px) {
+  .productSection > .container-fluid > .row > .hideOnSmall {
+    display: none;
+  }
+
+  .productSection > .container-fluid > .row > .col-md-9 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .productSection
+    > .container-fluid
+    > .row
+    > .col-md-9
+    > .row
+    > .col-md-6:last-child {
+    margin-top: 5%;
+  }
+}
+
+/* tabs responsiveness */
+
+@media only screen and (max-width: 532px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 431px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 70%;
+  }
+}
+
+@media only screen and (max-width: 363px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 65%;
+  }
+}
+
+@media only screen and (max-width: 346px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (max-width: 329px) {
+  .productIntroTabs > ul > li > button {
+    font-size: 55%;
+  }
+}

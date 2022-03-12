@@ -13,18 +13,22 @@ import {
 import { Breadcrumb, Form, Button, Card, Tabs, Tab } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 import discountImg from "../../images/prodDiscountbanner.jpg";
+import { useWindowSize } from "react-use";
+
 // dummy data
 import { dummyData } from "../../dummyData";
 
 export default function ProductIntro() {
   const [rating, setRating] = useState(0);
+  const { width } = useWindowSize();
+
   return (
     <div className="productSection">
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-9 col-sm-12 col-xs-12">
             <div className="row mb-4">
-              <div className="col-md-6 col-sm-6 col-xs-12">
+              <div className="col-md-6 col-sm-12 col-xs-12">
                 <CarouselProvider
                   naturalSlideWidth={100}
                   naturalSlideHeight={90}
@@ -64,7 +68,7 @@ export default function ProductIntro() {
                   </div>
                 </CarouselProvider>
               </div>
-              <div className="col-md-6 col-sm-6 col-xs-12">
+              <div className="col-md-6 col-sm-12 col-xs-12">
                 <div className="prodIntroMid">
                   <h2>electronics black wrist watch</h2>
                   <div className="prodIntroMidTop my-3">
@@ -141,7 +145,7 @@ export default function ProductIntro() {
               </div>
             </div>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 hideOnSmall">
             <div className="prodIntroIconsContainer">
               <IconBox
                 textHeading={"Free Shipping & Returns"}
