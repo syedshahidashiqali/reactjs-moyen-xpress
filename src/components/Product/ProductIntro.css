@@ -384,6 +384,8 @@
 
 /* customer reviews section customization */
 
+/* customer reviews left side customization */
+
 .prodIntroCusRevContainer > .row > .col-md-4 > .row > .col-md-4 > .avgRat > h4 {
   font-size: 350%;
   color: #336699;
@@ -411,7 +413,7 @@
   width: 95%;
 }
 
-/* customer reviews responsiveness */
+/* customer reviews left side responsiveness */
 @media only screen and (max-width: 825px) and (min-width: 768px) {
   .cusRevProdRatingProgress > .progress {
     float: right;
@@ -429,6 +431,43 @@
     > span.custRevRatTop {
     flex-direction: column;
     align-items: flex-start !important;
+  }
+}
+
+/* Customer Reviews Right Side customization */
+
+.prodIntroCusRevContainer > .row > .col-md-8 > .cusReviewLastText > h4 {
+  color: #555;
+  font-size: 130%;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.prodIntroCusRevContainer > .row > .col-md-8 > .cusReviewLastText > p {
+  font-size: 100%;
+  color: #666;
+}
+
+.prodIntroCusRevContainer > .row > .col-md-8 button {
+  background-color: #454545;
+  font-size: 90%;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-color: #454545;
+  border-radius: 0;
+  padding: 1.5% 3.5%;
+}
+
+.prodIntroCusRevContainer > .row > .col-md-8 button:active,
+.prodIntroCusRevContainer > .row > .col-md-8 button:focus {
+  border-color: #454545;
+}
+
+/* customer reviews right side responsiveness */
+
+@media only screen and (max-width: 767px) {
+  .prodIntroCusRevContainer > .row > .col-md-8 {
+    margin-top: 5%;
   }
 }
 

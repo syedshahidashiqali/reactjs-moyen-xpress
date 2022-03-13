@@ -469,7 +469,43 @@ function ProductTabs() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-8 col-sm-12 col-12">col of size 8</div>
+              <div className="col-md-8 col-sm-12 col-12">
+                <div className="cusReviewLastText">
+                  <h4>submit your review</h4>
+                  <p>Your email address will not be published.</p>
+                </div>
+                <Form>
+                  <Form.Group className="mb-5">
+                    <Form.Label>Your Rating Of This Product :</Form.Label>
+                    <Form.Select>
+                      <option>Rate...</option>
+                      <option value="1">Perfect</option>
+                      <option value="2">Good</option>
+                      <option value="3">Average</option>
+                      <option value="3">Not that bad</option>
+                      <option value="3">Very poor</option>
+                    </Form.Select>
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control as="textarea" rows={4} placeholder="Write Your Reviews Here..." />
+                  </Form.Group>
+                  <div className="row">
+                    <div className="col-md-6 col-sm-6 col-12">
+                      <Form.Group className="mb-3">
+                        <Form.Control type="text" placeholder="Your Name" />
+                      </Form.Group>
+                    </div>
+                    <div className="col-md-6 col-sm-6 col-12">
+                      <Form.Group className="mb-3">
+                        <Form.Control type="email" placeholder="Your Email" />
+                      </Form.Group>
+                    </div>
+                  </div>
+                  <Button variant="primary" type="submit">
+                    Submit Review
+                  </Button>
+                </Form>
+              </div>
             </div>
           </div>
         </Tab>
