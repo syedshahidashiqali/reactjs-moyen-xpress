@@ -10,7 +10,7 @@ import {
   Image,
   Dot,
 } from "pure-react-carousel";
-import { Breadcrumb, Form, Button, Card, Tabs, Tab } from "react-bootstrap";
+import { Breadcrumb, Form, Button, Card, Tabs, Tab, ProgressBar } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 import discountImg from "../../images/prodDiscountbanner.jpg";
 import { useWindowSize } from "react-use";
@@ -278,7 +278,7 @@ function ProductTabs() {
   const [rating, setRating] = useState(3);
   return (
     <div className="productIntroTabs">
-      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-4 ">
+      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-4">
         <Tab eventKey="description" title="Description">
           <div className="row">
             <div className="col-md-12">
@@ -365,29 +365,115 @@ function ProductTabs() {
           </div>
         </Tab>
         <Tab eventKey="customerReviews" title="Customer Reviews (5)">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="prodReviewContainer">
-                <div className="prodAvgReviewWrapper d-flex jc-sa">
-                  <h4>3.0</h4>
-                  <div className="prodAvgRating">
-                    <p>Average Rating</p>
-                    <span className="d-flex ai-c custRevRatTop">
+          <div className="prodIntroCusRevContainer">
+            <div className="row">
+              <div className="col-md-4 col-sm-8 col-xs-8">
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="avgRat">
+                      <h4>3.0</h4>
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="prodAvgRating">
+                      <span>Average Rating</span>
+                      <span className="d-flex ai-c custRevRatTop">
+                        <Rating
+                          ratingValue={rating}
+                          size={18}
+                          allowHalfIcon={true}
+                        />
+                        <span className="ms-2">(1 Reviews)</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="cusRevProdRating">
                       <Rating
-                        ratingValue={rating}
+                        ratingValue={1}
                         size={18}
                         allowHalfIcon={true}
                       />
-                      <span className="ms-2">(1 Reviews)</span>
-                    </span>
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="cusRevProdRatingProgress">
+                      <ProgressBar now={20} label={`${20}%`} />
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="cusRevProdRating">
+                      <Rating
+                        ratingValue={2}
+                        size={18}
+                        allowHalfIcon={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="cusRevProdRatingProgress">
+                      <ProgressBar now={40} label={`${40}%`} />
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="cusRevProdRating">
+                      <Rating
+                        ratingValue={3}
+                        size={18}
+                        allowHalfIcon={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="cusRevProdRatingProgress">
+                      <ProgressBar now={60} label={`${60}%`} />
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="cusRevProdRating">
+                      <Rating
+                        ratingValue={4}
+                        size={18}
+                        allowHalfIcon={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="cusRevProdRatingProgress">
+                      <ProgressBar now={80} label={`${80}%`} />
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex ai-c">
+                  <div className="col-md-4 col-sm-4 col-4">
+                    <div className="cusRevProdRating">
+                      <Rating
+                        ratingValue={5}
+                        size={18}
+                        allowHalfIcon={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-8 col-sm-8 col-8">
+                    <div className="cusRevProdRatingProgress">
+                      <ProgressBar now={100} label={`${100}%`} />
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="col-md-8 col-sm-12 col-12">col of size 8</div>
             </div>
-            <div className="col-md-8">col of size 8</div>
           </div>
         </Tab>
       </Tabs>
-    </div>
+    </div >
   );
 }
