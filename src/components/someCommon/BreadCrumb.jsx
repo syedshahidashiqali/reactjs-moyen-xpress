@@ -6,7 +6,7 @@ export default function BreadCrumb({ name }) {
   return (
     <div className="mainBreadCrumb">
       <Breadcrumb>
-        <Breadcrumb.Item>
+        <Breadcrumb.Item linkAs={"span"}>
           <Link to="/">Home</Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item active>{name}</Breadcrumb.Item>

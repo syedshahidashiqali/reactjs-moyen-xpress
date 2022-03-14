@@ -1,17 +1,14 @@
-.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a {
-  text-decoration: none;
-}
-
-.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a > a {
+.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > span > a {
   color: #555;
   font-size: 100%;
   font-weight: bold;
   text-decoration: none;
 }
 
-.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a > a:hover {
+.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > span > a:hover {
   color: #b64400;
 }
+
 .mainBreadCrumb
   > nav
   > ol.breadcrumb
