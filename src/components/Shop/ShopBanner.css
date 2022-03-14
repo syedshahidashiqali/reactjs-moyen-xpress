@@ -1,0 +1,45 @@
+/* Banner customization */
+
+.shopInnerBannerText > h4 {
+  text-transform: capitalize;
+  color: #333;
+  font-size: 180%;
+  font-weight: 600;
+}
+
+.shopInnerBannerText > h3 {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 250%;
+  font-weight: 700;
+}
+
+.shopInnerBannerText > button.shopMainDiscBtn {
+  border-radius: 0;
+  background-color: #333;
+  border-color: #333;
+  text-transform: uppercase;
+  font-size: 85%;
+  font-weight: bold;
+  margin-top: 5%;
+  padding: 2% 5%;
+}
+
+.shopInnerBannerText > button.shopMainDiscBtn:hover {
+  background-color: #444;
+  border-color: #444;
+}
+
+@media only screen and (max-width: 500px) {
+  .shopInnerBannerText > h4 {
+    font-size: 120%;
+  }
+
+  .shopInnerBannerText > h3 {
+    font-size: 120%;
+  }
+
+  .shopInnerBannerText > button.shopMainDiscBtn {
+    font-size: 70%;
+  }
+}

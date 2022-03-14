@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
 import CustomerSupport from "./components/common/CustomerSupport";
 import CardContainer from "./components/common/CardContainer";
+import Shop from "./pages/Shop";
 
 function App() {
   const [isHome, setIsHome] = useState(true);
@@ -27,6 +28,7 @@ function App() {
           path="/products"
           element={<Product home={{ isHome, setIsHome }} />}
         />
+        <Route path="/shop" element={<Shop home={{ isHome, setIsHome }} />} />
       </Routes>
       <OurVendor />
       {!isHome && <CardContainer name={"Related Products"} />}

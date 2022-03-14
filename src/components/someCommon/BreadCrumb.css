@@ -1,0 +1,31 @@
+.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a {
+  text-decoration: none;
+}
+
+.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a > a {
+  color: #555;
+  font-size: 100%;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.mainBreadCrumb > nav > ol.breadcrumb li.breadcrumb-item > a > a:hover {
+  color: #b64400;
+}
+.mainBreadCrumb
+  > nav
+  > ol.breadcrumb
+  .breadcrumb-item
+  + .breadcrumb-item::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-size: 60%;
+  font-weight: 900;
+  content: var(--bs-breadcrumb-divider, "");
+  color: #999;
+}
+
+.mainBreadCrumb > nav > ol.breadcrumb .breadcrumb-item.active {
+  display: flex;
+  align-items: baseline;
+}
