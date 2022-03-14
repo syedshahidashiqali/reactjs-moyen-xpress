@@ -10,6 +10,7 @@ import { Card } from "react-bootstrap";
 import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
+import { Link } from "react-router-dom";
 
 export default function CardContainer(props) {
   const { width } = useWindowSize();
@@ -24,10 +25,10 @@ export default function CardContainer(props) {
               <h1 className="prodCardsTitle">{name}</h1>
             </div>
             <div className="col d-flex jc-e prodCardsRow1Col2">
-              <a href="" className="showMoreProdsLink d-flex ai-c">
+              <Link to="/shop" className="showMoreProdsLink d-flex ai-c">
                 More Products
                 <i className="fa-solid fa-arrow-right-long showMoreProdsLinkArrow " />
-              </a>
+              </Link>
             </div>
           </div>
           <CarouselProvider
