@@ -3,6 +3,7 @@ import BreadCrumb from "../someCommon/BreadCrumb";
 import ShopBanner from "./ShopBanner";
 import ShopBrandSlider from "./ShopBrandSlider";
 import ShopCategorySlider from "./ShopCategorySlider";
+import ShopFilter from "./ShopFilter";
 
 export default function ShopMain() {
   return (
@@ -27,6 +28,12 @@ export default function ShopMain() {
           </div>
         </div>
         <hr />
+        <div className="row">
+          <div className="col-md-3">
+            <ShopFilter />
+          </div>
+          <div className="col-md-9 col-sm-12 col-12">loondon</div>
+        </div>
       </div>
     </div>
   );

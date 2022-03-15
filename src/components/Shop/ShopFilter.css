@@ -1,0 +1,108 @@
+.shopFilterWrapper > .shopFilterTitle > h4 {
+  font-size: 100%;
+  color: #333;
+  font-weight: bold;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item {
+  border: transparent;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header {
+  display: inline-block;
+  width: 100%;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header
+  > button
+  > span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 2.5px;
+  height: 2px;
+  background-color: #666;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item:first-child
+  .accordion-header
+  > button
+  > span:after {
+  width: 38%;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item:last-child
+  .accordion-header
+  > button
+  > span:after {
+  width: 14%;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header
+  > button {
+  background: transparent;
+  font-weight: 500;
+  font-size: 55%;
+  position: relative;
+  margin: -0.1rem 0;
+  padding: 1.4rem 0rem 0.75rem 0rem;
+  color: #333;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header
+  > button:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header
+  > button::after {
+  background: transparent;
+  width: 12px;
+  border-top: 2px solid #666;
+  transform: rotate(90deg);
+  height: auto;
+  transition: transform 300ms ease-in-out;
+}
+
+.shopFilterWrapper
+  > .shopFilterAccordionWrapper
+  > .accordion
+  > .accordion-item
+  > .accordion-header
+  > button:not(.collapsed)::after {
+  transform: rotate(-1deg);
+  transition: transform 300ms ease-in-out;
+}
