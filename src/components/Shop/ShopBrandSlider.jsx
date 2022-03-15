@@ -8,18 +8,18 @@ import sliderImg5 from "../../images/shopPageSlider1Img5.png";
 import sliderImg6 from "../../images/shopPageSlider1Img6.png";
 import sliderImg7 from "../../images/shopPageSlider1Img7.png";
 import { useWindowSize } from "react-use";
-
-const images = [
-  sliderImg1,
-  sliderImg2,
-  sliderImg3,
-  sliderImg4,
-  sliderImg5,
-  sliderImg6,
-  sliderImg7,
-];
+import { useState } from "react";
 
 export default function ShopBrandSlider() {
+  const [images, setImages] = useState([
+    sliderImg1,
+    sliderImg2,
+    sliderImg3,
+    sliderImg4,
+    sliderImg5,
+    sliderImg6,
+    sliderImg7,
+  ]);
   const { width } = useWindowSize();
   return (
     <CarouselProvider
