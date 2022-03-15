@@ -4,7 +4,11 @@ import ShopBanner from "./ShopBanner";
 import ShopBrandSlider from "./ShopBrandSlider";
 import ShopCategorySlider from "./ShopCategorySlider";
 import ShopFilter from "./ShopFilter";
-
+import { ContainerCard } from "../common/CardContainer";
+import { Pagination, Form } from "react-bootstrap";
+const arr = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 export default function ShopMain() {
   return (
     <div className="shopWrapperMain mt-5">
@@ -32,7 +36,68 @@ export default function ShopMain() {
           <div className="col-md-3">
             <ShopFilter />
           </div>
-          <div className="col-md-9 col-sm-12 col-12">loondon</div>
+          <div className="col-md-9 col-sm-12 col-12">
+            <div className="row">
+              <div className="col-md-6 col-sm-6 col-6">
+                <div className="shopSortByWrapper">
+                  <Form className="d-flex ai-c shopSortbyForm">
+                    <Form.Label>sort by:</Form.Label>
+                    <Form.Select className="ms-2">
+                      <option>Default sorting</option>
+                      <option value="popularity">Sort by popularity</option>
+                      <option value="rating">Sort by rating</option>
+                      <option value="latest">Sort by latest</option>
+                      <option value="low-to-high">
+                        Sort by price: low to high
+                      </option>
+                      <option value="high-to-low">
+                        Sort by price: high to low
+                      </option>
+                    </Form.Select>
+                  </Form>
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-6 col-6">
+                <div className="shopSortByWrapper">
+                  <Form className="d-flex jc-e shopSortbyForm">
+                    <Form.Select className="ms-2">
+                      <option value="20">Show 20</option>
+                      <option value="30">Show 30</option>
+                      <option value="50">Show 50</option>
+                      <option value="100">Show 100</option>
+                    </Form.Select>
+                  </Form>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-4">
+              {arr.map((item, index) => (
+                <div className="col-md-3 mb-3" key={index}>
+                  <ContainerCard />
+                </div>
+              ))}
+            </div>
+            <div className="row mt-4">
+              <div className="col-md-12 d-flex ai-c jc-c">
+                <Pagination className="shopPaginationWrapper">
+                  <Pagination.First>Go To First</Pagination.First>
+                  <Pagination.Prev />
+                  <Pagination.Item active>{1}</Pagination.Item>
+                  <Pagination.Item>{2}</Pagination.Item>
+                  <Pagination.Item>{3}</Pagination.Item>
+                  <Pagination.Item>{4}</Pagination.Item>
+                  <Pagination.Item>{5}</Pagination.Item>
+                  <Pagination.Item>{6}</Pagination.Item>
+                  <Pagination.Item>{6}</Pagination.Item>
+                  <Pagination.Item>{6}</Pagination.Item>
+                  <Pagination.Item>{6}</Pagination.Item>
+                  <Pagination.Item>{10}</Pagination.Item>
+                  <Pagination.Next />
+                  <Pagination.Last>Go To Last</Pagination.Last>
+                </Pagination>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

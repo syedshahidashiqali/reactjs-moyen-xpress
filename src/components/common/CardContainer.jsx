@@ -79,7 +79,7 @@ export default function CardContainer(props) {
   );
 }
 
-function ContainerCard() {
+export function ContainerCard() {
   const [rating, setRating] = useState(0);
 
   // Catch Rating value
