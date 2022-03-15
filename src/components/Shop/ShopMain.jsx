@@ -22,13 +22,13 @@ export default function ShopMain() {
             <ShopBrandSlider />
           </div>
         </div>
-        <div className="row mt-4 mb-4">
+        <div className="row mt-4 mb-4 mx-3">
           <div className="col-md-12 col-sm-12 col-12">
             <ShopCategorySlider />
           </div>
         </div>
         <hr />
-        <div className="row">
+        <div className="row mx-3">
           <div className="col-md-3">
             <ShopFilter />
           </div>
