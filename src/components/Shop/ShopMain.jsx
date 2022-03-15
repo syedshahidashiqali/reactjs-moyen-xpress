@@ -26,6 +26,7 @@ export default function ShopMain() {
             <ShopCategorySlider />
           </div>
         </div>
+        <hr />
       </div>
     </div>
   );
