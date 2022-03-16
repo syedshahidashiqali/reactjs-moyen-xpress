@@ -46,3 +46,22 @@
   box-shadow: none;
   border-color: #eee;
 }
+
+/* Responsiveness */
+
+/* Hide Filter Component whole row an largen the width of column*/
+@media only screen and (max-width: 991px) {
+  .hideOn991Px {
+    display: none !important;
+  }
+
+  .shopWrapperMain > .container-fluid > .row:last-child > .col-md-9 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .shopWrapperMain > .container-fluid > .row:last-child {
+    margin: 0% !important;
+  }
+}

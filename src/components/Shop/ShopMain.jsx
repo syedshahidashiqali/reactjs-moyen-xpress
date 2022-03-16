@@ -35,7 +35,7 @@ export default function ShopMain() {
         </div>
         <hr />
         <div className="row mx-3">
-          <div className="col-md-3">
+          <div className="col-md-3 hideOn991Px">
             <ShopFilter />
           </div>
           <div className="col-md-9 col-sm-12 col-12">
@@ -74,7 +74,7 @@ export default function ShopMain() {
             </div>
             <div className="row mt-4">
               {arr.map((item, index) => (
-                <div className="col-md-3 mb-3" key={index}>
+                <div className="col-md-3 col-sm-4 col-6 mb-3" key={index}>
                   <ContainerCard />
                 </div>
               ))}
@@ -86,7 +86,7 @@ export default function ShopMain() {
               </div>
             </div>
             <div className="row mt-4">
-              <div className="col-md-12 d-flex ai-c jc-c">
+              <div className="col-md-12 col-sm-12 col-12 d-flex ai-c jc-c">
                 <ShopPagination />
               </div>
             </div>

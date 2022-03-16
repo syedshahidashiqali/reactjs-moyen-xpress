@@ -114,3 +114,15 @@
   color: #fff;
   background-color: #b64400;
 }
+
+/* Respopnsiveness */
+
+@media only screen and (max-width: 540px) {
+  .shopPaginationWrapper
+    > ul.pagination
+    > .mainPaginationWrapper
+    > .allBtnsWrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
