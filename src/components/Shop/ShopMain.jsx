@@ -5,7 +5,9 @@ import ShopBrandSlider from "./ShopBrandSlider";
 import ShopCategorySlider from "./ShopCategorySlider";
 import ShopFilter from "./ShopFilter";
 import { ContainerCard } from "../common/CardContainer";
-import { Pagination, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import ShopPagination from "./ShopPagination";
+
 const arr = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
@@ -58,9 +60,9 @@ export default function ShopMain() {
                 </div>
               </div>
               <div className="col-md-6 col-sm-6 col-6">
-                <div className="shopSortByWrapper">
-                  <Form className="d-flex jc-e shopSortbyForm">
-                    <Form.Select className="ms-2">
+                <div className="shopshowManyWrapper">
+                  <Form className="d-flex jc-e shopshowManyForm">
+                    <Form.Select>
                       <option value="20">Show 20</option>
                       <option value="30">Show 30</option>
                       <option value="50">Show 50</option>
@@ -77,24 +79,15 @@ export default function ShopMain() {
                 </div>
               ))}
             </div>
+            <hr />
+            <div className="row mt-4">
+              <div className="col-md-12 d-flex jc-c">
+                <h6>Showing 1 to 20 of 220 results</h6>
+              </div>
+            </div>
             <div className="row mt-4">
               <div className="col-md-12 d-flex ai-c jc-c">
-                <Pagination className="shopPaginationWrapper">
-                  <Pagination.First>Go To First</Pagination.First>
-                  <Pagination.Prev />
-                  <Pagination.Item active>{1}</Pagination.Item>
-                  <Pagination.Item>{2}</Pagination.Item>
-                  <Pagination.Item>{3}</Pagination.Item>
-                  <Pagination.Item>{4}</Pagination.Item>
-                  <Pagination.Item>{5}</Pagination.Item>
-                  <Pagination.Item>{6}</Pagination.Item>
-                  <Pagination.Item>{6}</Pagination.Item>
-                  <Pagination.Item>{6}</Pagination.Item>
-                  <Pagination.Item>{6}</Pagination.Item>
-                  <Pagination.Item>{10}</Pagination.Item>
-                  <Pagination.Next />
-                  <Pagination.Last>Go To Last</Pagination.Last>
-                </Pagination>
+                <ShopPagination />
               </div>
             </div>
           </div>

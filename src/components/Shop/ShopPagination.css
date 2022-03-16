@@ -1,0 +1,116 @@
+/* Prev Next Buttons customization */
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li {
+  width: 100px;
+  height: 41px;
+  text-align: center;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li:first-child {
+  margin-right: 1rem;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li
+  > a {
+  color: #b64400;
+  border-color: #b64400;
+  border-radius: 0;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li
+  > a:focus {
+  background: transparent;
+  box-shadow: none;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li:hover
+  > a {
+  background-color: #b64400 !important;
+  border: none;
+  color: #fff;
+  transition: all 200ms ease-in-out;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li
+  > a
+  > span
+  > i {
+  font-size: 50% !important;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .prevNexBtnsWrapper
+  > li
+  > a
+  > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* All Buttons customization */
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .allBtnsWrapper
+  > li.page-item:not(:last-child) {
+  margin-right: 0.3rem;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .allBtnsWrapper
+  > li.page-item
+  > a {
+  color: #b64400;
+  border-color: #b64400;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .allBtnsWrapper
+  > li.page-item.active
+  > span {
+  background-color: #b64400;
+  border-color: #b64400;
+  z-index: inherit;
+}
+
+.shopPaginationWrapper
+  > ul.pagination
+  > .mainPaginationWrapper
+  > .allBtnsWrapper
+  > li.page-item:hover
+  a {
+  color: #fff;
+  background-color: #b64400;
+}
