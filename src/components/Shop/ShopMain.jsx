@@ -5,9 +5,8 @@ import ShopBrandSlider from "./ShopBrandSlider";
 import ShopCategorySlider from "./ShopCategorySlider";
 import ShopFilter from "./ShopFilter";
 import { ContainerCard } from "../common/CardContainer";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import ShopPagination from "./ShopPagination";
-
 const arr = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
@@ -40,10 +39,18 @@ export default function ShopMain() {
           </div>
           <div className="col-md-9 col-sm-12 col-12">
             <div className="row">
+              <div className="col showOn991Px">
+                <div className="openFilterCompWrapper">
+                  <Button className="openFilterBtn">
+                    <i className="fa-solid fa-bars-staggered me-2" />
+                    <span>filters</span>
+                  </Button>
+                </div>
+              </div>
               <div className="col-md-6 col-sm-6 col-6">
                 <div className="shopSortByWrapper">
                   <Form className="d-flex ai-c shopSortbyForm">
-                    <Form.Label>sort by:</Form.Label>
+                    <Form.Label className="hideOn991Px">sort by:</Form.Label>
                     <Form.Select className="ms-2">
                       <option>Default sorting</option>
                       <option value="popularity">Sort by popularity</option>

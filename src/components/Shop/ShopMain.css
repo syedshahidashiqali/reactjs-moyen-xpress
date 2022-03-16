@@ -18,7 +18,7 @@
   .shopSortByWrapper
   > .shopSortbyForm
   > select {
-  width: 35% !important;
+  width: 147px !important;
   color: #666;
   font-size: 90%;
 }
@@ -28,7 +28,7 @@
   .shopshowManyWrapper
   > .shopshowManyForm
   > select {
-  width: 25%;
+  width: 105px;
   color: #666;
   font-size: 90%;
 }
@@ -58,10 +58,88 @@
   .shopWrapperMain > .container-fluid > .row:last-child > .col-md-9 {
     width: 100%;
   }
+
+  .showOn991Px {
+    display: block !important;
+    flex: 0.1 !important;
+  }
+
+  .shopWrapperMain
+    > .container-fluid
+    > .row:last-child
+    > .col-md-9
+    > .row
+    > .col-md-6 {
+    flex: 1;
+  }
+}
+
+@media only screen and (max-width: 491px) {
+  .shopWrapperMain
+    > .container-fluid
+    > .row:last-child
+    > .col-md-9
+    > .row
+    > .col-md-6:first-child {
+    margin: 0% !important;
+    padding: 0% !important;
+  }
+
+  .shopWrapperMain
+    > .container-fluid
+    > .row:last-child
+    > .col-md-9
+    > .row
+    > .col-md-6:last-child {
+    margin: 0% !important;
+    padding: 0% !important;
+  }
+
+  .showOn991Px {
+    margin: 0% !important;
+    padding: 0% !important;
+  }
+
+  .shopWrapperMain
+    > .container-fluid
+    .shopSortByWrapper
+    > .shopSortbyForm
+    > select {
+    width: 100% !important;
+    margin: 0% !important;
+  }
+
+  .shopWrapperMain
+    > .container-fluid
+    .shopshowManyWrapper
+    > .shopshowManyForm
+    > select {
+    width: 100% !important;
+    margin: 0% !important;
+  }
 }
 
 @media only screen and (max-width: 350px) {
   .shopWrapperMain > .container-fluid > .row:last-child {
     margin: 0% !important;
   }
+}
+
+.showOn991Px {
+  display: none;
+}
+
+.showOn991Px > .openFilterCompWrapper > .openFilterBtn {
+  border: 2px solid #0088cc;
+  background-color: #fff;
+  color: #0088cc;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.showOn991Px > .openFilterCompWrapper > .openFilterBtn > i {
+  color: #0088cc !important;
 }
