@@ -38,7 +38,7 @@ export default function ShopFilter() {
             <Accordion.Body>
               <ul className="accordionBodyList">
                 {filterItems?.map((filterItem, index) => (
-                  <FilterItems filterName={filterItem} />
+                  <FilterItems filterName={filterItem} key={index} />
                 ))}
               </ul>
             </Accordion.Body>
@@ -51,7 +51,7 @@ export default function ShopFilter() {
               <ul className="accordionBodyList">
                 <>
                   {priceFilterItems?.map((filterItem, index) => (
-                    <FilterItems filterName={filterItem} />
+                    <FilterItems filterName={filterItem} key={index} />
                   ))}
                   <Form className="accordionFilterPriceForm mt-3">
                     <Form.Control type="number" placeholder="$min" />
