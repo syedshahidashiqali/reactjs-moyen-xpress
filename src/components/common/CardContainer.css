@@ -43,7 +43,9 @@
 }
 
 .cardImage {
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: scale-down;
+  height: 14rem;
 }
 
 .cardBody .card-title.h5 {
@@ -57,7 +59,7 @@
   color: #333;
 }
 
-.cardBody > p.card-text > span {
+.cardBody > p.card-text > .discAndActPrice > span {
   color: #ff3c12;
 }
 
@@ -116,7 +118,7 @@
 }
 
 @media only screen and (max-width: 380px) {
-  .cardBody > p.card-text > del,
+  .cardBody > p.card-text > .discAndActPrice > del,
   span {
     font-size: 80%;
   }
@@ -127,7 +129,18 @@
     font-size: 75%;
   }
 
-  .cardBody > p.card-text > del,
+  .cardBody > p.card-text > .discAndActPrice > del,
+  span {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .cardBody > p.card-text {
+    font-size: 70%;
+  }
+
+  .cardBody > p.card-text > .discAndActPrice > del,
   span {
     font-size: 100%;
   }

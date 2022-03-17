@@ -6,16 +6,26 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
 import { Link } from "react-router-dom";
+import { useQuery, QueryClient } from "react-query";
+import { Images_API } from "../../apiRoutes";
 
 export default function CardContainer(props) {
   const { width } = useWindowSize();
-  const { name } = props;
+  const { name, apiRoute } = props;
 
+  const fetchProducts = async () => {
+    const res = await (await fetch(apiRoute)).json();
+    return res[0].slice(0, 10);
+  };
+
+  console.log(26, apiRoute);
+
+  const { status, data } = useQuery("products", fetchProducts);
   return (
     <>
       <div className="prodCards">
@@ -33,35 +43,41 @@ export default function CardContainer(props) {
           </div>
           <CarouselProvider
             naturalSlideWidth={100}
-            naturalSlideHeight={125}
-            totalSlides={5}
+            naturalSlideHeight={width <= 380 ? 160 : 150}
+            totalSlides={10}
             visibleSlides={
-              width <= 910 && width > 730
+              width <= 920 && width > 742
                 ? 4
-                : width <= 730 && width > 555
+                : width <= 742 && width > 562
                 ? 3
-                : width <= 555
+                : width <= 562
                 ? 2
                 : 5
             }
           >
             <Slider>
               <div className="row">
-                <Slide index={0} className="cardSlide  d-flex jc-c">
-                  <ContainerCard />
-                </Slide>
-                <Slide index={1} className="cardSlide  d-flex jc-c">
-                  <ContainerCard />
-                </Slide>
-                <Slide index={2} className="cardSlide  d-flex jc-c">
-                  <ContainerCard />
-                </Slide>
-                <Slide index={3} className="cardSlide  d-flex jc-c">
-                  <ContainerCard />
-                </Slide>
-                <Slide index={4} className="cardSlide  d-flex jc-c">
-                  <ContainerCard />
-                </Slide>
+                {status === "loading" && (
+                  <div
+                    className="d-flex jc-c ai-c"
+                    style={{
+                      width: "100vw",
+                    }}
+                  >
+                    <Spinner animation="border" />
+                  </div>
+                )}
+                {status === "error" && <div>Error fetching data</div>}
+                {status === "success" &&
+                  data.map((product, index) => (
+                    <Slide
+                      index={index}
+                      className="cardSlide  d-flex jc-c"
+                      key={index}
+                    >
+                      <ContainerCard data={product} />
+                    </Slide>
+                  ))}
               </div>
             </Slider>
             <div className="carouselBtnContainer">
@@ -79,9 +95,12 @@ export default function CardContainer(props) {
   );
 }
 
-export function ContainerCard() {
-  const [rating, setRating] = useState(0);
+export function ContainerCard({ data }) {
+  const { width } = useWindowSize();
 
+  const { discounted_price, price, name, images } = data;
+
+  const [rating, setRating] = useState(0);
   // Catch Rating value
   const handleRating = (rate) => {
     setRating(rate);
@@ -93,7 +112,7 @@ export function ContainerCard() {
       <Card.Img
         className="cardImage"
         variant="top"
-        src="https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhlYWRwaG9uZXN8ZW58MHx8MHx8&w=1000&q=80"
+        src={`${Images_API}${images[0]?.name}`}
       />
       <span className="cardDiscount">50% off</span>
       <span className="cardTag">best</span>
@@ -101,10 +120,16 @@ export function ContainerCard() {
         <i className="fa-regular fa-heart" />
       </span>
       <Card.Body className="cardBody">
-        <Card.Title>Shoes</Card.Title>
+        <Card.Title>{name.slice(0, 12)}</Card.Title>
         <Card.Text>
-          <del>$349.00</del> <span>$340.00</span>
-          <Rating ratingValue={rating} size={20} allowHalfIcon={true} />
+          <div className="discAndActPrice">
+            <del>${price}</del> <span>${discounted_price}.00</span>
+          </div>
+          <Rating
+            ratingValue={rating}
+            size={width <= 335 ? 15 : 20}
+            allowHalfIcon={true}
+          />
         </Card.Text>
       </Card.Body>
     </Card>

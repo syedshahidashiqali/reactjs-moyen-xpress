@@ -10,30 +10,36 @@ import Product from "./pages/Product";
 import CustomerSupport from "./components/common/CustomerSupport";
 import CardContainer from "./components/common/CardContainer";
 import Shop from "./pages/Shop";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+const queryClient = new QueryClient();
 
 function App() {
   const [isHome, setIsHome] = useState(true);
 
   return (
-    <Router>
-      <NavBar />
-      {!isHome && (
-        <div className="container-fluid">
-          <CustomerSupport />
-        </div>
-      )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/products"
-          element={<Product home={{ isHome, setIsHome }} />}
-        />
-        <Route path="/shop" element={<Shop home={{ isHome, setIsHome }} />} />
-      </Routes>
-      <OurVendor />
-      {!isHome && <CardContainer name={"Related Products"} />}
-      <Footer />
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <NavBar />
+        {!isHome && (
+          <div className="container-fluid">
+            <CustomerSupport />
+          </div>
+        )}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/products"
+            element={<Product home={{ isHome, setIsHome }} />}
+          />
+          <Route path="/shop" element={<Shop home={{ isHome, setIsHome }} />} />
+        </Routes>
+        <OurVendor />
+        {!isHome && <CardContainer name={"Related Products"} />}
+        <Footer />
+      </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
