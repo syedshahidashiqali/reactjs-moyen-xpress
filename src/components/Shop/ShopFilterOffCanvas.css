@@ -1,0 +1,8 @@
+/* Shop filter OffCanvas */
+
+#shopFilterOffCanvas.offcanvas {
+  color: #fff;
+  width: 300px !important;
+  transition: transform 0.4s ease-in-out !important;
+  box-shadow: 1px 0 5px rgb(0 0 0 / 50%);
+}
