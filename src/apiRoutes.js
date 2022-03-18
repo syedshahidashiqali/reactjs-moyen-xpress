@@ -8,7 +8,7 @@ export const FORGETPASSWORD = API_BASED_URL_STOCK + "forgot-password";
 
 export const LOGIN = getApi("login-api?");
 export const SIGNUP = getApi("sing-up-api");
-export const GETPRODUCT = getApi("get-product");
+export const GETPRODUCTBYID = getApi("get-product-by-id");
 export const CART = getApi("get-cart-api");
 export const testCART = getApi("get-cart-api-test");
 export const CARTDELETE = getApi("cart-delete");
@@ -44,7 +44,7 @@ export const SubCategoryDataWithOutUserID = getApi(
   "shop/sub-category-userskip/"
 );
 export const AllDataWithOutUserId = getApi("featured-data-all-over-userskip");
-export const AllNewArrivalsDataSkipUser = getApi("all-new-arrivals-userskip/");
+export const AllNewArrivalsDataSkipUser = getApi("all-new-arrivals-userskip");
 // export const StripePKey =
 //   'pk_test_51JzIR5EyPVCLsOYzHfADwwDDXkZBsqTwRdoNbJzNzZNrsdqsOXfWaC6phXJ5Mz8MJk1GeEW8iWZNx1vimLbhJFyN00TyN94KRD';
 

@@ -12,6 +12,7 @@ import CardContainer from "./components/common/CardContainer";
 import Shop from "./pages/Shop";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { AllNewArrivalsDataSkipUser } from "./apiRoutes";
 const queryClient = new QueryClient();
 
 function App() {
@@ -29,13 +30,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/products"
+            path="/product/:productId"
             element={<Product home={{ isHome, setIsHome }} />}
           />
           <Route path="/shop" element={<Shop home={{ isHome, setIsHome }} />} />
         </Routes>
         <OurVendor />
-        {!isHome && <CardContainer name={"Related Products"} />}
+        {!isHome && (
+          <CardContainer
+            name={"Related Products"}
+            apiRoute={AllNewArrivalsDataSkipUser}
+          />
+        )}
         <Footer />
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />

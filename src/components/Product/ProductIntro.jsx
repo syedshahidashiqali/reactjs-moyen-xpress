@@ -10,18 +10,36 @@ import {
   Image,
   Dot,
 } from "pure-react-carousel";
-import { Breadcrumb, Form, Button, Card, Tabs, Tab, ProgressBar } from "react-bootstrap";
+import {
+  Breadcrumb,
+  Form,
+  Button,
+  Card,
+  Tabs,
+  Tab,
+  ProgressBar,
+} from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 import discountImg from "../../images/prodDiscountbanner.jpg";
 import { useWindowSize } from "react-use";
-
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { GETPRODUCTBYID } from "../../apiRoutes";
 // dummy data
 import { dummyData } from "../../dummyData";
 
 export default function ProductIntro() {
   const [rating, setRating] = useState(0);
   const { width } = useWindowSize();
+  const { productId } = useParams();
 
+  const fetchProduct = async () => {
+    const res = await (await fetch(`${GETPRODUCTBYID}/${productId}`)).json();
+    return res[0];
+  };
+
+  const { status, data } = useQuery("product", fetchProduct);
+  console.log(42, data);
   return (
     <div className="productSection">
       <div className="container-fluid">
@@ -391,11 +409,7 @@ function ProductTabs() {
                 <div className="row d-flex ai-c">
                   <div className="col-md-4 col-sm-4 col-4">
                     <div className="cusRevProdRating">
-                      <Rating
-                        ratingValue={1}
-                        size={18}
-                        allowHalfIcon={true}
-                      />
+                      <Rating ratingValue={1} size={18} allowHalfIcon={true} />
                     </div>
                   </div>
                   <div className="col-md-8 col-sm-8 col-8">
@@ -407,11 +421,7 @@ function ProductTabs() {
                 <div className="row d-flex ai-c">
                   <div className="col-md-4 col-sm-4 col-4">
                     <div className="cusRevProdRating">
-                      <Rating
-                        ratingValue={2}
-                        size={18}
-                        allowHalfIcon={true}
-                      />
+                      <Rating ratingValue={2} size={18} allowHalfIcon={true} />
                     </div>
                   </div>
                   <div className="col-md-8 col-sm-8 col-8">
@@ -423,11 +433,7 @@ function ProductTabs() {
                 <div className="row d-flex ai-c">
                   <div className="col-md-4 col-sm-4 col-4">
                     <div className="cusRevProdRating">
-                      <Rating
-                        ratingValue={3}
-                        size={18}
-                        allowHalfIcon={true}
-                      />
+                      <Rating ratingValue={3} size={18} allowHalfIcon={true} />
                     </div>
                   </div>
                   <div className="col-md-8 col-sm-8 col-8">
@@ -439,11 +445,7 @@ function ProductTabs() {
                 <div className="row d-flex ai-c">
                   <div className="col-md-4 col-sm-4 col-4">
                     <div className="cusRevProdRating">
-                      <Rating
-                        ratingValue={4}
-                        size={18}
-                        allowHalfIcon={true}
-                      />
+                      <Rating ratingValue={4} size={18} allowHalfIcon={true} />
                     </div>
                   </div>
                   <div className="col-md-8 col-sm-8 col-8">
@@ -455,11 +457,7 @@ function ProductTabs() {
                 <div className="row d-flex ai-c">
                   <div className="col-md-4 col-sm-4 col-4">
                     <div className="cusRevProdRating">
-                      <Rating
-                        ratingValue={5}
-                        size={18}
-                        allowHalfIcon={true}
-                      />
+                      <Rating ratingValue={5} size={18} allowHalfIcon={true} />
                     </div>
                   </div>
                   <div className="col-md-8 col-sm-8 col-8">
@@ -487,7 +485,11 @@ function ProductTabs() {
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="mb-3">
-                    <Form.Control as="textarea" rows={4} placeholder="Write Your Reviews Here..." />
+                    <Form.Control
+                      as="textarea"
+                      rows={4}
+                      placeholder="Write Your Reviews Here..."
+                    />
                   </Form.Group>
                   <div className="row">
                     <div className="col-md-6 col-sm-6 col-12">
@@ -510,6 +512,6 @@ function ProductTabs() {
           </div>
         </Tab>
       </Tabs>
-    </div >
+    </div>
   );
 }

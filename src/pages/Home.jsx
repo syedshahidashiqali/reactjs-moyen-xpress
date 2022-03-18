@@ -4,7 +4,11 @@ import CardContainer from "../components/common/CardContainer";
 import CategoryBanner from "../components/Home/CategoryBanner";
 
 // import APIs
-import { AllFeaturedProductWithOutUser } from "../apiRoutes";
+import {
+  AllFeaturedProductWithOutUser,
+  AllNewArrivalsDataSkipUser,
+} from "../apiRoutes";
+
 export default function Home() {
   return (
     <>
@@ -17,7 +21,10 @@ export default function Home() {
         apiRoute={AllFeaturedProductWithOutUser}
       />
       <CategoryBanner />
-      <CardContainer name={"New Arrivals"} />
+      <CardContainer
+        name={"New Arrivals"}
+        apiRoute={AllNewArrivalsDataSkipUser}
+      />
     </>
   );
 }

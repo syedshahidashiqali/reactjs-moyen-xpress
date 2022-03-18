@@ -11,21 +11,31 @@ import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
 import { Link } from "react-router-dom";
-import { useQuery, QueryClient } from "react-query";
+import { useQuery } from "react-query";
 import { Images_API } from "../../apiRoutes";
 
-export default function CardContainer(props) {
+export default function CardContainer({ name, apiRoute }) {
   const { width } = useWindowSize();
-  const { name, apiRoute } = props;
 
   const fetchProducts = async () => {
     const res = await (await fetch(apiRoute)).json();
     return res[0].slice(0, 10);
   };
 
-  console.log(26, apiRoute);
+  const { status, data } = useQuery(
+    name === "Deals Of The Day" ? "dealsOfTheDay" : "newArrivals",
+    fetchProducts
+  );
 
-  const { status, data } = useQuery("products", fetchProducts);
+  // console.log(apiRoute);
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const res = await (await fetch(apiRoute)).json();
+  //     setData(res[0].slice(0, 10));
+  //   };
+  //   getData();
+  // }, []);
   return (
     <>
       <div className="prodCards">
@@ -75,7 +85,9 @@ export default function CardContainer(props) {
                       className="cardSlide  d-flex jc-c"
                       key={index}
                     >
-                      <ContainerCard data={product} />
+                      <Link to={`product/${product?.id}`}>
+                        <ContainerCard data={product} />
+                      </Link>
                     </Slide>
                   ))}
               </div>
@@ -114,17 +126,19 @@ export function ContainerCard({ data }) {
         variant="top"
         src={`${Images_API}${images[0]?.name}`}
       />
-      <span className="cardDiscount">50% off</span>
+      {data.discounted_percentage && (
+        <span className="cardDiscount">{data?.discounted_percentage}% off</span>
+      )}
       <span className="cardTag">best</span>
       <span className="cardFvt">
         <i className="fa-regular fa-heart" />
       </span>
       <Card.Body className="cardBody">
         <Card.Title>{name.slice(0, 12)}</Card.Title>
-        <Card.Text>
-          <div className="discAndActPrice">
+        <Card.Text className="d-flex fd-c">
+          <span className="discAndActPrice">
             <del>${price}</del> <span>${discounted_price}.00</span>
-          </div>
+          </span>
           <Rating
             ratingValue={rating}
             size={width <= 335 ? 15 : 20}
