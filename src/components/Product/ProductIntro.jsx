@@ -24,7 +24,7 @@ import discountImg from "../../images/prodDiscountbanner.jpg";
 import { useWindowSize } from "react-use";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { GETPRODUCTBYID } from "../../apiRoutes";
+import { GETPRODUCTBYID, Images_API } from "../../apiRoutes";
 // dummy data
 import { dummyData } from "../../dummyData";
 
@@ -50,28 +50,28 @@ export default function ProductIntro() {
                 <CarouselProvider
                   naturalSlideWidth={100}
                   naturalSlideHeight={90}
-                  totalSlides={4}
+                  totalSlides={data?.images.length}
                   visibleSlides={1}
                   className="prodcarouselProvider"
                 >
                   <Slider className="prodcarouselSlider">
-                    {dummyData.map((image, index) => {
+                    {data?.images.map((image, index) => {
                       return (
                         <Slide
                           index={index}
                           key={index}
                           className="prodcarouselSlide"
                         >
-                          <ProductCarouselItem image={image} />
+                          <ProductCarouselItem image={image?.name} />
                         </Slide>
                       );
                     })}
                   </Slider>
                   <div className="productIntroDotsContainer">
-                    {dummyData.map((image, index) => {
+                    {data?.images.map((image, index) => {
                       return (
                         <Dot slide={index} key={index}>
-                          <Image src={image} className="prodDotImg" />
+                          <Image src={`${Images_API}${image?.name}`} className="prodDotImg" />
                         </Dot>
                       );
                     })}
@@ -88,57 +88,64 @@ export default function ProductIntro() {
               </div>
               <div className="col-md-6 col-sm-12 col-xs-12">
                 <div className="prodIntroMid">
-                  <h2>electronics black wrist watch</h2>
+                  <h2>{data?.name}</h2>
                   <div className="prodIntroMidTop my-3">
                     <Breadcrumb>
                       <span className="me-2 bold">Category:</span>
-                      <Breadcrumb.Item href="#">Electronics</Breadcrumb.Item>
-                      <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                        Computer
+                      <Breadcrumb.Item href="#">
+                        {data?.getchildcategory?.sub_category?.name}
                       </Breadcrumb.Item>
-                      <Breadcrumb.Item active>Monitor</Breadcrumb.Item>
+                      <Breadcrumb.Item href="#">
+                        {data?.getchildcategory?.sub_category?.name}
+                      </Breadcrumb.Item>
+                      <Breadcrumb.Item active>
+                        {data?.getchildcategory?.name}
+                      </Breadcrumb.Item>
                     </Breadcrumb>
                     <span>
-                      <span className="bold">Stock: </span> 2
+                      <span className="bold">Stock: </span> {data?.stock}
                     </span>
                     <span className="mt-3">
-                      <span className="bold">SKU: </span> MS46891340
+                      <span className="bold">SKU: </span> {data?.sku}
                     </span>
                   </div>
                   <div className="prodIntroMidMid">
-                    <h2>$99.00</h2>
+                    <h2>
+                      <del className="me-2">${data?.price}</del>
+                      ${data?.discounted_price}
+                    </h2>
                     <div className="prodIntroRating d-flex ai-c">
                       <Rating
                         ratingValue={rating}
                         size={20}
                         allowHalfIcon={true}
                       />
-                      <span>(0 reviews)</span>
+                      <span>({data?.review_total})</span>
                     </div>
                   </div>
                   <div className="prodIntroMidBot mt-4">
                     <div className="prodIntroAttr prodIntroSizeAtt">
-                      <label htmlFor="">Size:</label>
+                      <label htmlFor="">{data?.get_attribute_values[0]?.attribute?.name}:</label>
                       <Form.Select
                         aria-label="Default select example"
                         className="prodIntroForm"
                       >
                         <option>Please Select Attribute</option>
-                        <option value="12">12</option>
-                        <option value="24">24</option>
-                        <option value="32">32</option>
+                        {data?.get_attribute_values[0]?.value.map((attribute, index) => (
+                          <option value={attribute} key={index}>{attribute}</option>
+                        ))}
                       </Form.Select>
                     </div>
                     <div className="prodIntroAttr prodIntroColorAtt mt-4">
-                      <label htmlFor="">Color:</label>
+                      <label htmlFor="">{data?.get_attribute_values[1]?.attribute?.name}:</label>
                       <Form.Select
                         aria-label="Default select example"
                         className="prodIntroForm"
                       >
                         <option>Please Select Attribute</option>
-                        <option value="Gray">Gray</option>
-                        <option value="Black">Black</option>
-                        <option value="Blue">Blue</option>
+                        {data?.get_attribute_values[1]?.value.map((attribute, index) => (
+                          <option value={attribute} key={index}>{attribute}</option>
+                        ))}
                       </Form.Select>
                     </div>
                   </div>
@@ -159,7 +166,7 @@ export default function ProductIntro() {
             </div>
             <div className="row mb-4">
               <div className="col-md-12">
-                <ProductTabs />
+                <ProductTabs data={data} />
               </div>
             </div>
           </div>
@@ -237,7 +244,7 @@ function ProductCarouselItem({ image }) {
   return (
     <div className="prodBox">
       <ImageWithZoom
-        src={image}
+        src={`${Images_API}${image}`}
         bgImageTag="img"
         className="prodIntroZoomedImg"
       />
@@ -291,7 +298,7 @@ function SliderCard() {
   );
 }
 
-function ProductTabs() {
+function ProductTabs({ data }) {
   const [key, setKey] = useState("description");
   const [rating, setRating] = useState(3);
   return (
@@ -303,9 +310,7 @@ function ProductTabs() {
               <div className="prodDescContainer">
                 <h4>Detail</h4>
                 <p>
-                  Incredible games & non-stop entertainment. The PS4 console,
-                  delivering awesome gaming power, incredible entertainment and
-                  vibrant HDR technology
+                  {data?.description}
                 </p>
               </div>
             </div>
@@ -350,7 +355,7 @@ function ProductTabs() {
           <div className="row">
             <div className="col-md-12">
               <div className="prodVendContainer">
-                <h4>Vendor</h4>
+                <h4>{data?.get_shop.get_vendor?.username}</h4>
                 <div className="d-flex ai-c vendorRatingSec">
                   <Rating ratingValue={rating} size={20} allowHalfIcon={true} />
                   <span className="ms-2">(1 Reviews)</span>
@@ -358,15 +363,15 @@ function ProductTabs() {
                 <div className="prodVendInfo mt-4">
                   <p>
                     <span className="prodVendName">store name:</span>
-                    <span>my vendor shop</span>
+                    <span>{data?.get_shop.name}</span>
                   </p>
                   <p>
                     <span className="prodVendName">address:</span>
-                    <span>vendor's point vendor's point</span>
+                    <span>{data?.get_shop.get_vendor?.address_one}</span>
                   </p>
                   <p>
                     <span className="prodVendName">Phone:</span>
-                    <span>22</span>
+                    <span>{data?.get_shop.get_vendor?.phone_number}</span>
                   </p>
                   <h6 className="mt-4">
                     <a href="">
