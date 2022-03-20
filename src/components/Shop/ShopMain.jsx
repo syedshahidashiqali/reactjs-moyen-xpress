@@ -8,11 +8,20 @@ import { ContainerCard } from "../common/CardContainer";
 import { Form } from "react-bootstrap";
 import ShopPagination from "./ShopPagination";
 import ShopFilterOffCanvas from "./ShopFilterOffCanvas";
-
+import { GETPRODUCTS } from "../../apiRoutes";
+import { useQuery } from "react-query";
 const arr = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
+
 export default function ShopMain() {
+  const fetchProducts = async () => {
+    const res = await (await fetch(`${GETPRODUCTS}`)).json();
+    return res.slice(0, 20);
+  };
+
+  const { status, data } = useQuery("products", fetchProducts);
+  console.log(24, data);
   return (
     <div className="shopWrapperMain mt-5">
       <div className="container-fluid">
@@ -79,11 +88,12 @@ export default function ShopMain() {
               </div>
             </div>
             <div className="row mt-4">
-              {arr.map((item, index) => (
-                <div className="col-md-3 col-sm-4 col-6 mb-3" key={index}>
-                  <ContainerCard />
-                </div>
-              ))}
+              {status === "success" &&
+                data?.map((product, index) => (
+                  <div className="col-md-3 col-sm-4 col-6 mb-3" key={index}>
+                    <ContainerCard data={product} />
+                  </div>
+                ))}
             </div>
             <hr />
             <div className="row mt-4">

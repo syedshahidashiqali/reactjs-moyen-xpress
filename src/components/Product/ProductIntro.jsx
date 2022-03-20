@@ -39,7 +39,7 @@ export default function ProductIntro() {
   };
 
   const { status, data } = useQuery("product", fetchProduct);
-  console.log(42, data);
+  // console.log(42, data);
   return (
     <div className="productSection">
       <div className="container-fluid">

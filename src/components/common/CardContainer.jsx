@@ -6,7 +6,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import { Card, Spinner } from "react-bootstrap";
+import { Card, Placeholder } from "react-bootstrap";
 import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
@@ -59,23 +59,23 @@ export default function CardContainer({ name, apiRoute }) {
               width <= 920 && width > 742
                 ? 4
                 : width <= 742 && width > 562
-                ? 3
-                : width <= 562
-                ? 2
-                : 5
+                  ? 3
+                  : width <= 562
+                    ? 2
+                    : 5
             }
           >
             <Slider>
               <div className="row">
                 {status === "loading" && (
-                  <div
-                    className="d-flex jc-c ai-c"
-                    style={{
-                      width: "100vw",
-                    }}
-                  >
-                    <Spinner animation="border" />
-                  </div>
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
+                    <Slide
+                      index={index}
+                      key={index}
+                    >
+                      <ContainerCardPlaceholder />
+                    </Slide>
+                  ))
                 )}
                 {status === "error" && <div>Error fetching data</div>}
                 {status === "success" &&
@@ -85,7 +85,7 @@ export default function CardContainer({ name, apiRoute }) {
                       className="cardSlide  d-flex jc-c"
                       key={index}
                     >
-                      <Link to={`product/${product?.id}`}>
+                      <Link to={`product/${product?.id}`} style={{ textDecoration: "none" }}>
                         <ContainerCard data={product} />
                       </Link>
                     </Slide>
@@ -149,3 +149,18 @@ export function ContainerCard({ data }) {
     </Card>
   );
 }
+
+export const ContainerCardPlaceholder = () => {
+  return (
+    <Card className="cardContainerCard">
+      <Placeholder as={"div"} animation="glow">
+        <Placeholder xs={12} style={{ height: "14rem", width: "100%" }} />
+      </Placeholder>
+      <Card.Body className="text-center">
+        <Placeholder as={Card.Text} animation="glow">
+          <Placeholder xs={6} /> <Placeholder xs={10} /> <Placeholder xs={8} />
+        </Placeholder>
+      </Card.Body>
+    </Card>
+  );
+};
