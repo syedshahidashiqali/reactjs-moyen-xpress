@@ -12,6 +12,7 @@ import {
   Tabs,
   Tab,
   DropdownButton,
+  Modal,
 } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
@@ -35,6 +36,10 @@ function HeaderTop() {
   const hideDropdown = () => {
     setShow(false);
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
   return (
     <Navbar className="header-top" expand="lg">
       <Container className="topContainer d-flex align-items-center">
@@ -45,7 +50,7 @@ function HeaderTop() {
           <Nav className="navBar-links">
             <Nav.Link href="#home">Contact Us</Nav.Link>
             <Nav.Link href="#link">My Account</Nav.Link>
-            <Nav.Link href="#link" className="signin">
+            <Nav.Link className="signin" onClick={handleShowModal}>
               <i className="fa-regular fa-user headerUserIcon" />
               Sign In / Register
             </Nav.Link>
@@ -64,6 +69,9 @@ function HeaderTop() {
           </Nav>
         </div>
       </Container>
+      <SigninModal
+        data={{ showModal, setShowModal, handleCloseModal, handleShowModal }}
+      />
     </Navbar>
   );
 }
@@ -622,5 +630,28 @@ function HeaderBotNavLink({ path, text, className }) {
     >
       {text}
     </NavDropdown.Item>
+  );
+}
+
+function SigninModal({ data }) {
+  const { showModal, setShowModal, handleCloseModal, handleShowModal } = data;
+  return (
+    <Modal show={showModal} onHide={handleCloseModal}>
+      <div className="headerSigninModalHeader">
+        <Modal.Header closeButton>
+          <Modal.Title as="h5">
+            Sign in / Register for Vendors and Consumers
+          </Modal.Title>
+        </Modal.Header>
+      </div>
+      <div className="headerSigninModalBody">
+        <Modal.Body>
+          <div className="headerSigninModalBodyBtns">
+            <Button onClick={handleCloseModal}>as consumer</Button>
+            <Button onClick={handleCloseModal}>as vendor</Button>
+          </div>
+        </Modal.Body>
+      </div>
+    </Modal>
   );
 }
