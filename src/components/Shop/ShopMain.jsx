@@ -4,8 +4,11 @@ import ShopBanner from "./ShopBanner";
 import ShopBrandSlider from "./ShopBrandSlider";
 import ShopCategorySlider from "./ShopCategorySlider";
 import ShopFilter from "./ShopFilter";
-import { ContainerCard } from "../common/CardContainer";
-import { Form } from "react-bootstrap";
+import {
+  ContainerCard,
+  ContainerCardPlaceholder,
+} from "../common/CardContainer";
+import { Form, Alert } from "react-bootstrap";
 import ShopPagination from "./ShopPagination";
 import ShopFilterOffCanvas from "./ShopFilterOffCanvas";
 import { GETPRODUCTS } from "../../apiRoutes";
@@ -20,7 +23,7 @@ export default function ShopMain() {
     return res.slice(0, 20);
   };
 
-  const { status, data } = useQuery("products", fetchProducts);
+  const { status, data, error } = useQuery("products", fetchProducts);
   console.log(24, data);
   return (
     <div className="shopWrapperMain mt-5">
@@ -88,12 +91,26 @@ export default function ShopMain() {
               </div>
             </div>
             <div className="row mt-4">
+              {status === "loading" &&
+                arr?.map((item, index) => (
+                  <div className="col-md-3 col-sm-4 col-6 mb-3" key={index}>
+                    <ContainerCardPlaceholder />
+                  </div>
+                ))}
               {status === "success" &&
                 data?.map((product, index) => (
                   <div className="col-md-3 col-sm-4 col-6 mb-3" key={index}>
                     <ContainerCard data={product} />
                   </div>
                 ))}
+              {status === "error" && (
+                <div className="col-md-12 col-sm-12 col-12">
+                  <Alert variant="danger" show={true}>
+                    <Alert.Heading>JSON API data fetch error !</Alert.Heading>
+                    <p>{error.message}</p>
+                  </Alert>
+                </div>
+              )}
             </div>
             <hr />
             <div className="row mt-4">
