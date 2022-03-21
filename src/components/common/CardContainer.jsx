@@ -6,7 +6,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import { Card, Placeholder } from "react-bootstrap";
+import { Card, Placeholder, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
@@ -22,7 +22,7 @@ export default function CardContainer({ name, apiRoute }) {
     return res[0].slice(0, 10);
   };
 
-  const { status, data } = useQuery(
+  const { status, data, error } = useQuery(
     name === "Deals Of The Day" ? "dealsOfTheDay" : "newArrivals",
     fetchProducts
   );
@@ -59,25 +59,26 @@ export default function CardContainer({ name, apiRoute }) {
               width <= 920 && width > 742
                 ? 4
                 : width <= 742 && width > 562
-                  ? 3
-                  : width <= 562
-                    ? 2
-                    : 5
+                ? 3
+                : width <= 562
+                ? 2
+                : 5
             }
           >
             <Slider>
               <div className="row">
-                {status === "loading" && (
+                {status === "loading" &&
                   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-                    <Slide
-                      index={index}
-                      key={index}
-                    >
+                    <Slide index={index} key={index}>
                       <ContainerCardPlaceholder />
                     </Slide>
-                  ))
+                  ))}
+                {status === "error" && (
+                  <Alert variant="danger" show={true}>
+                    <Alert.Heading>Error while fetching data!</Alert.Heading>
+                    <p>{error.message}</p>
+                  </Alert>
                 )}
-                {status === "error" && <div>Error fetching data</div>}
                 {status === "success" &&
                   data.map((product, index) => (
                     <Slide
@@ -85,7 +86,10 @@ export default function CardContainer({ name, apiRoute }) {
                       className="cardSlide  d-flex jc-c"
                       key={index}
                     >
-                      <Link to={`product/${product?.id}`} style={{ textDecoration: "none" }}>
+                      <Link
+                        to={`product/${product?.id}`}
+                        style={{ textDecoration: "none" }}
+                      >
                         <ContainerCard data={product} />
                       </Link>
                     </Slide>

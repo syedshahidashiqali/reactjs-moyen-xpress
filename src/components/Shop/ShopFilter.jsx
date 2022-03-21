@@ -1,6 +1,8 @@
 import "./ShopFilter.css";
-import { Accordion, Form, Button } from "react-bootstrap";
+import { Accordion, Form, Button, Placeholder, Alert } from "react-bootstrap";
 import { useState } from "react";
+import { useQuery } from "react-query";
+import { ALLCATEGORY } from "../../apiRoutes";
 
 export default function ShopFilter() {
   const [filterItems, setFilterItems] = useState([
@@ -24,6 +26,13 @@ export default function ShopFilter() {
     "more than $300",
   ]);
 
+  const fetchFilters = async () => {
+    const res = await (await fetch(`${ALLCATEGORY}`)).json();
+    return res;
+  };
+
+  const { data: filters, status, error } = useQuery("filters", fetchFilters);
+  console.log(35, filters);
   return (
     <div className="shopFilterWrapper">
       <div className="shopFilterTitle">
@@ -37,9 +46,24 @@ export default function ShopFilter() {
             </Accordion.Header>
             <Accordion.Body>
               <ul className="accordionBodyList">
-                {filterItems?.map((filterItem, index) => (
-                  <FilterItems filterName={filterItem} key={index} />
-                ))}
+                {status === "success" &&
+                  filters?.map((filterItem, index) => (
+                    <FilterItems filterName={filterItem?.name} key={index} />
+                  ))}
+
+                {status === "loading" &&
+                  filterItems?.map((filterItem, index) => (
+                    <FilterItemsPlaceholder key={index} />
+                  ))}
+
+                {status === "error" && (
+                  <Alert variant="danger" show={true}>
+                    <Alert.Heading>
+                      Error while fetching categories data!
+                    </Alert.Heading>
+                    <p>{error.message}</p>
+                  </Alert>
+                )}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
@@ -76,6 +100,16 @@ function FilterItems({ filterName }) {
   return (
     <li className="accordionBodyListItem">
       <a href="">{filterName}</a>
+    </li>
+  );
+}
+
+function FilterItemsPlaceholder() {
+  return (
+    <li className="accordionBodyListItem">
+      <Placeholder as={"div"} animation="glow">
+        <Placeholder xs={8} className="rounded" />
+      </Placeholder>
     </li>
   );
 }
