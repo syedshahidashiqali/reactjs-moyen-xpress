@@ -17,6 +17,7 @@ import {
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
 import banner from "../../images/header-banner.gif";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -635,6 +636,7 @@ function HeaderBotNavLink({ path, text, className }) {
 
 function SigninModal({ data }) {
   const { showModal, setShowModal, handleCloseModal, handleShowModal } = data;
+  let navigate = useNavigate();
   return (
     <Modal show={showModal} onHide={handleCloseModal}>
       <div className="headerSigninModalHeader">
@@ -647,8 +649,22 @@ function SigninModal({ data }) {
       <div className="headerSigninModalBody">
         <Modal.Body>
           <div className="headerSigninModalBodyBtns">
-            <Button onClick={handleCloseModal}>as consumer</Button>
-            <Button onClick={handleCloseModal}>as vendor</Button>
+            <Button
+              onClick={() => {
+                navigate("/register/customer");
+                setShowModal(false);
+              }}
+            >
+              as consumer
+            </Button>
+            <Button
+              onClick={() => {
+                navigate("/register/vendor");
+                setShowModal(false);
+              }}
+            >
+              as vendor
+            </Button>
           </div>
         </Modal.Body>
       </div>

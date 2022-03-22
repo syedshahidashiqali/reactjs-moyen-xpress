@@ -797,3 +797,11 @@ a.headerBotLastLink.nav-link:after {
   background-color: #b64400;
   border-color: #b64400;
 }
+
+.headerSigninModalBodyBtns > button:hover {
+  background: transparent;
+  border-color: #b64400;
+  border: 2px solid;
+  color: #b64400;
+  transition: all 0.5s ease-in-out;
+}

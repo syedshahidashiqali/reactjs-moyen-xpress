@@ -13,6 +13,9 @@ import Shop from "./pages/Shop";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { AllNewArrivalsDataSkipUser } from "./apiRoutes";
+import Register from "./pages/Register";
+import VendorRegister from "./components/Register/VendorRegister";
+import CustomerRegister from "./components/Register/CustomerRegister";
 const queryClient = new QueryClient();
 
 function App() {
@@ -34,6 +37,10 @@ function App() {
             element={<Product home={{ isHome, setIsHome }} />}
           />
           <Route path="/shop" element={<Shop home={{ isHome, setIsHome }} />} />
+          <Route path="/register" element={<Register />}>
+            <Route path="vendor" element={<VendorRegister />} />
+            <Route path="customer" element={<CustomerRegister />} />
+          </Route>
         </Routes>
         <OurVendor />
         {!isHome && (

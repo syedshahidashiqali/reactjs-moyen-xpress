@@ -1,0 +1,149 @@
+.vendorRegisterWrapper > .container > .row .vendorRegisterBox {
+  border-radius: 5px;
+  padding: 40px 40px 20px;
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #b5b5b5;
+}
+
+.vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle {
+  margin-bottom: 30px;
+}
+
+.vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle > h3 {
+  margin: 0;
+  color: #000;
+  /* font-size: 32px; */
+  font-size: 200%;
+  text-align: center;
+  position: relative;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+}
+
+.vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle h3:after {
+  position: absolute;
+  content: "";
+  bottom: -9px;
+  left: 0;
+  width: 268px;
+  height: 2px;
+  background: #b64400;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* input placeholder color */
+.vendorRegisterWrapper > .container > .row input::placeholder,
+.vendorRegisterWrapper > .container > .row textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1; /* Firefox */
+}
+
+.vendorRegisterWrapper > .container > .row input:-ms-input-placeholder,
+.vendorRegisterWrapper > .container > .row textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+}
+
+.vendorRegisterWrapper > .container > .row input::-ms-input-placeholder,
+.vendorRegisterWrapper > .container > .row textarea::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999;
+}
+
+.vendorRegisterWrapper > .container > .row input,
+.vendorRegisterWrapper > .container > .row textarea {
+  box-shadow: none;
+  background: #f8f8f8;
+  font-size: 100%;
+}
+
+.vendorRegisterWrapper > .container > .row input:focus,
+.vendorRegisterWrapper > .container > .row textarea:focus {
+  background: transparent;
+}
+
+.vendorRegisterWrapper > .container > .row input::-webkit-file-upload-button {
+  height: 50px;
+  color: #666;
+}
+
+.vendorRegisterWrapper > .container > .row input {
+  height: 50px;
+  padding-left: 20px;
+}
+
+.vendorRegisterWrapper > .container > .row input.vendorInputFile {
+  padding-left: 2.5%;
+  color: #999;
+}
+
+.vendorRegisterWrapper > .container > .row label {
+  font-size: 150%;
+  font-weight: 600;
+}
+
+.vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn {
+  background-color: #b64400;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
+  text-transform: uppercase;
+  height: 60px;
+  transition: all 0.5s ease-in-out;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn:hover {
+  color: #b64400;
+  border: 2px solid #b64400;
+  background: transparent;
+}
+
+@media only screen and (max-width: 991px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterSubmitBtn {
+    font-size: 80%;
+  }
+  .vendorRegisterWrapper > .container > .row input.vendorInputFile {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 413px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle > h3 {
+    font-size: 150%;
+  }
+  .vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle h3:after {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 337px) {
+  .vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle > h3 {
+    font-size: 120%;
+  }
+  .vendorRegisterWrapper > .container > .row .vendorRegisterBoxTitle h3:after {
+    width: 90%;
+  }
+}
