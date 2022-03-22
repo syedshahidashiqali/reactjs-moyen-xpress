@@ -1,0 +1,135 @@
+.vendorLoginWrapper > .container > .row .vendorLoginBox {
+  border-radius: 5px;
+  padding: 40px 40px 20px;
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #b5b5b5;
+}
+
+.vendorLoginWrapper > .container > .row .vendorLoginBoxTitle {
+  margin-bottom: 30px;
+}
+
+.vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3 {
+  margin: 0;
+  color: #000;
+  font-size: 200%;
+  text-align: center;
+  position: relative;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+}
+
+.vendorLoginWrapper > .container > .row .vendorLoginBoxTitle h3:after {
+  position: absolute;
+  content: "";
+  bottom: -9px;
+  left: 0;
+  width: 268px;
+  height: 2px;
+  background: #b64400;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* input placeholder color */
+.vendorLoginWrapper > .container > .row input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1; /* Firefox */
+}
+
+.vendorLoginWrapper > .container > .row input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+}
+
+.vendorLoginWrapper > .container > .row input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999;
+}
+
+.vendorLoginWrapper > .container > .row input {
+  box-shadow: none;
+  background: #f8f8f8;
+  font-size: 100%;
+}
+
+.vendorLoginWrapper > .container > .row input:focus {
+  background: transparent;
+}
+
+.vendorLoginWrapper > .container > .row input {
+  height: 50px;
+  padding-left: 20px;
+}
+
+.vendorLoginWrapper > .container > .row .vendorLoginSubmitBtn {
+  background-color: #b64400;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
+  text-transform: uppercase;
+  height: 60px;
+  transition: all 0.5s ease-in-out;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.vendorLoginWrapper > .container > .row .vendorLoginSubmitBtn:hover {
+  color: #b64400;
+  border: 2px solid #b64400;
+  background: transparent;
+}
+
+.vendorLoginWrapper > .container > .row .forgotPassword > span {
+  color: #512500;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.vendorLoginWrapper > .container > .row .alreadyHaveAcc > span {
+  font-size: 100%;
+  color: #666;
+}
+
+.vendorLoginWrapper > .container > .row .alreadyHaveAcc > span span {
+  color: #512500;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 991px) {
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3 {
+    font-size: 150%;
+  }
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3:after {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3 {
+    font-size: 100%;
+  }
+  .vendorLoginWrapper > .container > .row .alreadyHaveAcc > span {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3 {
+    font-size: 200%;
+  }
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3:after {
+    width: 50%;
+  }
+  .vendorLoginWrapper > .container > .row .alreadyHaveAcc > span {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .vendorLoginWrapper > .container > .row .vendorLoginBoxTitle > h3 {
+    font-size: 150%;
+  }
+}

@@ -16,6 +16,9 @@ import { AllNewArrivalsDataSkipUser } from "./apiRoutes";
 import Register from "./pages/Register";
 import VendorRegister from "./components/Register/VendorRegister";
 import CustomerRegister from "./components/Register/CustomerRegister";
+import CustomerLogin from "./components/Login/CustomerLogin";
+import VendorLogin from "./components/Login/VendorLogin";
+import Login from "./pages/Login";
 const queryClient = new QueryClient();
 
 function App() {
@@ -40,6 +43,10 @@ function App() {
           <Route path="/register" element={<Register />}>
             <Route path="vendor" element={<VendorRegister />} />
             <Route path="customer" element={<CustomerRegister />} />
+          </Route>
+          <Route path="/login" element={<Login />}>
+            <Route path="vendor" element={<VendorLogin />} />
+            <Route path="customer" element={<CustomerLogin />} />
           </Route>
         </Routes>
         <OurVendor />

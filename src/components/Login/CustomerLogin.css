@@ -1,0 +1,138 @@
+.customerLoginWrapper > .container > .row .customerLoginBox {
+  border-radius: 5px;
+  padding: 40px 40px 20px;
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #b5b5b5;
+}
+
+.customerLoginWrapper > .container > .row .customerLoginBoxTitle {
+  margin-bottom: 30px;
+}
+
+.customerLoginWrapper > .container > .row .customerLoginBoxTitle > h3 {
+  margin: 0;
+  color: #000;
+  font-size: 200%;
+  text-align: center;
+  position: relative;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+}
+
+.customerLoginWrapper > .container > .row .customerLoginBoxTitle h3:after {
+  position: absolute;
+  content: "";
+  bottom: -9px;
+  left: 0;
+  width: 270px;
+  height: 2px;
+  background: #b64400;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* input placeholder color */
+.customerLoginWrapper > .container > .row input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1; /* Firefox */
+}
+
+.customerLoginWrapper > .container > .row input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+}
+
+.customerLoginWrapper > .container > .row input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999;
+}
+
+.customerLoginWrapper > .container > .row input {
+  box-shadow: none;
+  background: #f8f8f8;
+  font-size: 100%;
+}
+
+.customerLoginWrapper > .container > .row input:focus {
+  background: transparent;
+}
+
+.customerLoginWrapper > .container > .row input {
+  height: 50px;
+}
+
+.customerLoginWrapper > .container > .row input:not([type="submit"]) {
+  padding-left: 20px;
+}
+
+.customerLoginWrapper > .container > .row .customerLoginSubmitBtn {
+  background-color: #b64400;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
+  text-transform: uppercase;
+  height: 60px;
+  transition: all 0.5s ease-in-out;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.customerLoginWrapper > .container > .row .customerLoginSubmitBtn:hover {
+  color: #b64400;
+  border: 2px solid #b64400;
+  background: transparent;
+}
+
+.customerLoginWrapper > .container > .row .forgotPassword > span {
+  color: #512500;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.customerLoginWrapper > .container > .row .alreadyHaveAcc > span {
+  font-size: 100%;
+  color: #666;
+}
+
+.customerLoginWrapper > .container > .row .alreadyHaveAcc > span span {
+  color: #512500;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 991px) {
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle > h3 {
+    font-size: 120%;
+  }
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle h3:after {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle > h3 {
+    font-size: 90%;
+  }
+  .customerLoginWrapper > .container > .row .alreadyHaveAcc > span {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle > h3 {
+    font-size: 150%;
+  }
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle h3:after {
+    width: 50%;
+  }
+  .customerLoginWrapper > .container > .row .alreadyHaveAcc > span {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 367px) {
+  .customerLoginWrapper > .container > .row .customerLoginBoxTitle > h3 {
+    font-size: 120%;
+  }
+}
