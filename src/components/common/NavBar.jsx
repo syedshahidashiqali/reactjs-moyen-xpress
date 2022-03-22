@@ -651,7 +651,7 @@ function SigninModal({ data }) {
           <div className="headerSigninModalBodyBtns">
             <Button
               onClick={() => {
-                navigate("/register/customer");
+                navigate("/login/customer");
                 setShowModal(false);
               }}
             >
@@ -659,7 +659,7 @@ function SigninModal({ data }) {
             </Button>
             <Button
               onClick={() => {
-                navigate("/register/vendor");
+                navigate("/login/vendor");
                 setShowModal(false);
               }}
             >
