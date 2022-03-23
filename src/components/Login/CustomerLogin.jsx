@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
 import { LOGIN } from "../../apiRoutes";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 
