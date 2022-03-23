@@ -18,6 +18,8 @@ import "./NavBar.css";
 import logo from "../../images/header-logo.png";
 import banner from "../../images/header-banner.gif";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/reducers/auth";
 
 export default function NavBar() {
   return (
@@ -40,6 +42,11 @@ function HeaderTop() {
 
   const [showModal, setShowModal] = useState(false);
   const handleCloseModal = () => setShowModal(false);
+
+  // get user's value from store
+  const { userData } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   return (
     <Navbar className="header-top" expand="lg">
       <Container className="topContainer d-flex align-items-center">
@@ -50,22 +57,28 @@ function HeaderTop() {
           <Nav className="navBar-links">
             <Nav.Link href="#home">Contact Us</Nav.Link>
             <Nav.Link href="#link">My Account</Nav.Link>
-            <Nav.Link className="signin" onClick={() => setShowModal(true)}>
-              <i className="fa-regular fa-user headerUserIcon" />
-              Sign In / Register
-            </Nav.Link>
-            <NavDropdown
-              show={show}
-              onMouseEnter={showDropdown}
-              onMouseLeave={hideDropdown}
-              title="User"
-              id="basic-nav-dropdown"
-              className="dropDown"
-            >
-              <NavDropdown.Item href="#action/3.1" className="dropdownItem">
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
+            {!userData.username ? (
+              <Nav.Link className={"signin"} onClick={() => setShowModal(true)}>
+                <i className="fa-regular fa-user headerUserIcon" />
+                Sign In / Register
+              </Nav.Link>
+            ) : (
+              <NavDropdown
+                show={show}
+                onMouseEnter={showDropdown}
+                onMouseLeave={hideDropdown}
+                title={userData?.username}
+                id="basic-nav-dropdown"
+                className="dropDown"
+              >
+                <NavDropdown.Item
+                  className="dropdownItem"
+                  onClick={() => dispatch(logout())}
+                >
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
           </Nav>
         </div>
       </Container>
