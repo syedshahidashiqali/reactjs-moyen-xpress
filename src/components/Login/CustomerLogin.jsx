@@ -1,8 +1,43 @@
 import "./CustomerLogin.css";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import axios from "axios";
+import { LOGIN } from "../../apiRoutes";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/reducers/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerLogin() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loginFormEmailRef = useRef(null);
+  const loginFormPasswordRef = useRef(null);
+
+  // form submit handler
+  const submitLoginFormHandler = async (e) => {
+    e.preventDefault();
+    const email = loginFormEmailRef.current.value;
+    const password = loginFormPasswordRef.current.value;
+    await axios
+      .post(LOGIN, {
+        email,
+        password,
+      })
+      .then((res) => {
+        if (
+          res.data[0].message === "Email not found" ||
+          res.data[0].message === "Password is incorrect"
+        ) {
+          alert(res.data[0].message);
+        } else {
+          dispatch(login(res.data[0].user));
+          navigate("/", {
+            replace: true,
+          });
+        }
+      });
+  };
   return (
     <div className="customerLoginWrapper">
       <div className="container">
@@ -12,18 +47,26 @@ export default function CustomerLogin() {
               <div className="customerLoginBoxTitle">
                 <h3>Login as customer</h3>
               </div>
-              <Form>
+              <Form onSubmit={submitLoginFormHandler}>
                 <Form.Group className="mb-3">
                   <div className="row">
                     <div className="col-md-12">
-                      <Form.Control type="email" placeholder="Email" />
+                      <Form.Control
+                        type="email"
+                        placeholder="Email"
+                        ref={loginFormEmailRef}
+                      />
                     </div>
                   </div>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <div className="row">
                     <div className="col-md-12">
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        ref={loginFormPasswordRef}
+                      />
                     </div>
                   </div>
                 </Form.Group>
