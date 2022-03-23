@@ -40,7 +40,6 @@ function HeaderTop() {
 
   const [showModal, setShowModal] = useState(false);
   const handleCloseModal = () => setShowModal(false);
-  const handleShowModal = () => setShowModal(true);
   return (
     <Navbar className="header-top" expand="lg">
       <Container className="topContainer d-flex align-items-center">
@@ -51,7 +50,7 @@ function HeaderTop() {
           <Nav className="navBar-links">
             <Nav.Link href="#home">Contact Us</Nav.Link>
             <Nav.Link href="#link">My Account</Nav.Link>
-            <Nav.Link className="signin" onClick={handleShowModal}>
+            <Nav.Link className="signin" onClick={() => setShowModal(true)}>
               <i className="fa-regular fa-user headerUserIcon" />
               Sign In / Register
             </Nav.Link>
@@ -70,9 +69,7 @@ function HeaderTop() {
           </Nav>
         </div>
       </Container>
-      <SigninModal
-        data={{ showModal, setShowModal, handleCloseModal, handleShowModal }}
-      />
+      <SigninModal data={{ showModal, setShowModal, handleCloseModal }} />
     </Navbar>
   );
 }
@@ -635,7 +632,7 @@ function HeaderBotNavLink({ path, text, className }) {
 }
 
 function SigninModal({ data }) {
-  const { showModal, setShowModal, handleCloseModal, handleShowModal } = data;
+  const { showModal, setShowModal, handleCloseModal } = data;
   let navigate = useNavigate();
   return (
     <Modal show={showModal} onHide={handleCloseModal}>
