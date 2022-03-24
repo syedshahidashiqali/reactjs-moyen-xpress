@@ -1,0 +1,21 @@
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistMainPageTitleWrapper {
+  font-family: Poppins, sans-serif;
+  padding: 5%;
+  background-color: #512500;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistMainPageTitleWrapper
+  > h1 {
+  font-size: 200%;
+  font-weight: 900;
+}

@@ -14,6 +14,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { AllNewArrivalsDataSkipUser } from "./apiRoutes";
 import Register from "./pages/Register";
+import Wishlist from "./pages/Wishlist";
 import VendorRegister from "./components/Register/VendorRegister";
 import CustomerRegister from "./components/Register/CustomerRegister";
 import CustomerLogin from "./components/Login/CustomerLogin";
@@ -48,6 +49,10 @@ function App() {
             <Route path="vendor" element={<VendorLogin />} />
             <Route path="customer" element={<CustomerLogin />} />
           </Route>
+          <Route
+            path="/wishlist"
+            element={<Wishlist home={{ isHome, setIsHome }} />}
+          />
         </Routes>
         <OurVendor />
         {!isHome && (
