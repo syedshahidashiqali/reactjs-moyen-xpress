@@ -138,11 +138,11 @@ export function ContainerCard({ data }) {
       )}
       <span className="cardTag">best</span>
       {userData.username && (
-        <span className="cardFvt">
+        <span className="cardFvt" onClick={(e) => e.preventDefault()}>
           <i className="fa-regular fa-heart" />
         </span>
       )}
-      <span className="cardAddToCart">
+      <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
         <i className="fa-solid fa-cart-shopping" />
       </span>
       <Card.Body className="cardBody">
