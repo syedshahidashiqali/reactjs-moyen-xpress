@@ -13,6 +13,7 @@ import { useWindowSize } from "react-use";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { Images_API } from "../../apiRoutes";
+import { useSelector } from "react-redux";
 
 export default function CardContainer({ name, apiRoute }) {
   const { width } = useWindowSize();
@@ -123,6 +124,8 @@ export function ContainerCard({ data }) {
     // other logic
   };
 
+  const { userData } = useSelector((state) => state.auth);
+
   return (
     <Card className="cardContainerCard">
       <Card.Img
@@ -134,8 +137,13 @@ export function ContainerCard({ data }) {
         <span className="cardDiscount">{data?.discounted_percentage}% off</span>
       )}
       <span className="cardTag">best</span>
-      <span className="cardFvt">
-        <i className="fa-regular fa-heart" />
+      {userData.username && (
+        <span className="cardFvt">
+          <i className="fa-regular fa-heart" />
+        </span>
+      )}
+      <span className="cardAddToCart">
+        <i className="fa-solid fa-cart-shopping" />
       </span>
       <Card.Body className="cardBody">
         <Card.Title>{name.slice(0, 12)}</Card.Title>

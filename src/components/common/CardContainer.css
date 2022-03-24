@@ -63,10 +63,11 @@
   color: #ff3c12;
 }
 
-.cardFvt {
+.cardFvt,
+.cardAddToCart {
   position: absolute;
   right: 10%;
-  top: 1rem;
+  /* top: 1rem; */
   background-color: #b64400;
   color: white;
   border-radius: 50%;
@@ -82,16 +83,27 @@
   visibility: hidden;
 }
 
-.cardFvt:hover {
+.cardFvt {
+  top: 1rem;
+}
+
+.cardAddToCart {
+  top: 4rem;
+}
+
+.cardFvt:hover,
+.cardAddToCart:hover {
   transition: all 0.5s ease-in-out;
   background-color: #512500;
 }
 
-.cardContainerCard:hover .cardFvt {
+.cardContainerCard:hover .cardFvt,
+.cardContainerCard:hover .cardAddToCart {
   opacity: 1;
   visibility: visible;
 }
-.cardFvt > i {
+.cardFvt > i,
+.cardAddToCart > i {
   /* font-size: 1.25rem; */
   font-size: 1rem;
 }
