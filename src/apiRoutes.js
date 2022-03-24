@@ -5,7 +5,6 @@ export const Images_API = "https://moyenxpress.com/public/products/";
 export const getApi = (endpoint) => API_BASED_URL + endpoint;
 
 export const FORGETPASSWORD = API_BASED_URL_STOCK + "forgot-password";
-
 export const LOGIN = getApi("login-api?");
 export const SIGNUP = getApi("sing-up-api");
 export const GETPRODUCTBYID = getApi("get-product-by-id");
@@ -15,6 +14,7 @@ export const testCART = getApi("get-cart-api-test");
 export const CARTDELETE = getApi("cart-delete");
 export const ADDTOCART = getApi("cart-data-api");
 export const ALLCATEGORY = getApi("shop/category");
+export const CATEGORY_DATA_BY_ID = getApi("shop/category-all-data");
 export const SUBCAT = getApi("shop/category/subcategory/");
 export const SUBCATPRODUCTDATA = getApi("shop/sub-category"); // logged in
 export const ADDTOWISHLIST = getApi("shop/add-to-wishlist");
