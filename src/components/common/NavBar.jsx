@@ -16,8 +16,7 @@ import {
 } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
-import banner from "../../images/header-banner.gif";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/reducers/auth";
 
@@ -99,20 +98,31 @@ function HeaderMid() {
     <Navbar expand="lg" className="headerMid">
       <Container className="headerMidContainer">
         <NavHam />
-        <Navbar.Brand href="#home">
-          <img src={logo} className="headerMidLogo" alt="Moyen Xpress Logo" />
-        </Navbar.Brand>
-        <Navbar.Brand href="#home">
-          <img src={banner} className="headerMidBanner" alt="Sales Banner" />
+        <Navbar.Brand>
+          <Link to="/">
+            <img src={logo} className="headerMidLogo" alt="Moyen Xpress Logo" />
+          </Link>
         </Navbar.Brand>
         <div className="d-flex justify-content-end headerLast">
           <Nav className="me-auto d-flex align-items-center">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Shop</Nav.Link>
-            <Nav.Link href="#link">
+            <Link
+              to="/"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
+              Home
+            </Link>
+            <Link
+              to="/shop"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
+              Shop
+            </Link>
+            <Nav.Link>
               <i className="fa-regular fa-user"></i>
             </Nav.Link>
-            <Nav.Link href="#link">
+            <Nav.Link>
               <i className="fa-regular fa-heart"></i>
             </Nav.Link>
             <NavDropdown
