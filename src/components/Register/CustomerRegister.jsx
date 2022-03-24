@@ -2,9 +2,15 @@ import "./CustomerRegister.css";
 import { Form, Toast, ToastContainer } from "react-bootstrap";
 import { useRef, useState } from "react";
 import axios from "axios";
-import { SIGNUP } from "../../apiRoutes";
+import { SIGNUP, LOGIN } from "../../apiRoutes";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/reducers/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerRegister() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   // state for showing error toasts
   const [toastshow, setToastShow] = useState(false);
   const [error, setError] = useState([]);
@@ -26,7 +32,7 @@ export default function CustomerRegister() {
     const phoneNumber = registerFormPhoneNumberRef.current.value;
 
     // signup api
-    axios
+    await axios
       .post(SIGNUP, {
         username: username,
         email: email,
@@ -34,20 +40,44 @@ export default function CustomerRegister() {
         phone_number: phoneNumber,
       })
       .then((res) => {
-        console.log(26, res);
-        // res.data[0].message === "Email not found" ||
-        //   res.data[0].message === "Password is incorrect";
-        if (
-          res.data.email[0] === "The email has already been taken." ||
-          res.data.phone_number[0] ===
-            "The phone number has already been taken."
+        // console.log(42, res);
+        if (res?.data[0]?.message === "User Created Successfully") {
+          setError([]);
+          setToastShow(false);
+          // login api after user signup
+          axios
+            .post(LOGIN, {
+              email,
+              password,
+            })
+            .then((resLogin) => {
+              console.log(52, resLogin);
+              dispatch(login(resLogin?.data[0]?.user));
+              navigate("/", {
+                replace: true,
+              });
+            });
+        } else if (
+          res.data.hasOwnProperty("phone_number") === false &&
+          res.data.hasOwnProperty("email") === true
         ) {
-          // alert(res.data.email[0]);
           setToastShow(true);
-          setError([res.data.email[0], res.data.phone_number[0]]);
+          setError([res?.data?.email[0]]);
+        } else if (
+          res.data.hasOwnProperty("phone_number") === true &&
+          res.data.hasOwnProperty("email") === false
+        ) {
+          setToastShow(true);
+          setError([res?.data?.phone_number[0]]);
+        } else if (
+          res.data.hasOwnProperty("phone_number") === true &&
+          res.data.hasOwnProperty("email") === true
+        ) {
+          setToastShow(true);
+          setError([res?.data?.email[0], res?.data?.phone_number[0]]);
         }
       })
-      .catch((err) => console.log(29, err));
+      .catch((err) => console.log(79, err));
   };
   return (
     <div className="customerRegisterWrapper">
@@ -128,38 +158,41 @@ function ToastMessage({ data }) {
   const { toastshow, setToastShow, error } = data;
 
   return (
-    <ToastContainer position="top-end" style={{ zIndex: "1" }}>
-      {error?.map((item, index) => (
-        <Toast
-          bg="info"
-          onClose={() => setToastShow(false)}
-          show={toastshow}
-          delay={3000}
-          autohide
-          key={index}
-        >
-          <Toast.Header
-            style={{
-              // backgroundColor: "#512500",
-              backgroundColor: "#b64400",
-              color: "#fff",
-              border: "none",
-            }}
+    <ToastContainer position="middle-end" style={{ zIndex: "1" }}>
+      {error.length >= 1 &&
+        error?.map((item, index) => (
+          <Toast
+            bg="secondary"
+            onClose={() => setToastShow(false)}
+            show={toastshow}
+            delay={3000}
+            autohide
+            key={index}
           >
-            <strong className="me-auto">Warning!</strong>
-            <small className="text-muted">just now</small>
-          </Toast.Header>
-          <Toast.Body
-            style={{
-              // backgroundColor: "#b64400",
-              backgroundColor: "#512500",
-              color: "#fff",
-            }}
-          >
-            {item}
-          </Toast.Body>
-        </Toast>
-      ))}
+            <Toast.Header
+            // style={
+            //   {
+            //     backgroundColor: "#b64400",
+            //     backgroundColor: "#512500",
+            //     color: "#fff",
+            //     border: "none",
+            //   }
+            // }
+            >
+              <strong className="me-auto">Warning!</strong>
+              <small className="text-muted">just now</small>
+            </Toast.Header>
+            <Toast.Body
+              style={{
+                // backgroundColor: "#512500",
+                // backgroundColor: "#b64400",
+                color: "#fff",
+              }}
+            >
+              {item}
+            </Toast.Body>
+          </Toast>
+        ))}
     </ToastContainer>
   );
 }
