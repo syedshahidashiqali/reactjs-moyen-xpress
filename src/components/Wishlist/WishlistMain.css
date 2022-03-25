@@ -19,3 +19,269 @@
   font-size: 200%;
   font-weight: 900;
 }
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTilteWrapper
+  > h3 {
+  font-size: 150%;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  font-family: Poppins, sans-serif;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable {
+  border-collapse: inherit;
+  font-family: Poppins, sans-serif;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > thead
+  > tr
+  > th {
+  padding: 1rem 0 0.75rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > thead
+  > tr {
+  display: flex;
+  align-items: center;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr {
+  display: flex;
+  align-items: center;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr,
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > thead
+  > tr {
+  border-bottom: 1px solid #eee;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td {
+  /* width: 11rem; */
+  width: 20%;
+  padding: 1%;
+  /* padding-right: 0%; */
+  font-size: 90%;
+  border: none;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > thead
+  > tr
+  > th {
+  /* width: 11rem; */
+  width: 20%;
+  padding: 1%;
+
+  /* padding-right: 2%; */
+  /* font-size: 90%; */
+  border: none;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td
+  figure
+  img {
+  display: block;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdText
+  > a {
+  color: #666;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdText
+  > a:hover {
+  color: #512500;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdPrice
+  > span {
+  color: #ff2f03;
+  font-weight: bold;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdStockStatus {
+  color: #336699;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdAction
+  > .wishlistProdActionWrapper {
+  color: #0088cc;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.wishlistMainWrapper
+  > .container-fluid
+  > .row
+  > .col-md-12
+  > .wishlistTableWrapper
+  > .wishlistTable
+  > tbody
+  > tr
+  > td.wishlistProdAction
+  > .wishlistProdActionWrapper:hover {
+  color: #512500;
+}
+
+@media only screen and (max-width: 800px) {
+  .wishlistMainWrapper
+    > .container-fluid
+    > .row
+    > .col-md-12
+    > .wishlistTableWrapper
+    > .wishlistTable
+    > tbody
+    > tr
+    > td.wishlistProdText
+    > a {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .wishlistMainWrapper
+    > .container-fluid
+    > .row
+    > .col-md-12
+    > .wishlistTableWrapper
+    > .wishlistTable
+    > tbody
+    > tr {
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #eee;
+    margin: 1%;
+  }
+
+  .wishlistMainWrapper
+    > .container-fluid
+    > .row
+    > .col-md-12
+    > .wishlistTableWrapper
+    > .wishlistTable
+    > tbody
+    > tr
+    > td {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  .wishlistMainWrapper
+    > .container-fluid
+    > .row
+    > .col-md-12
+    > .wishlistTableWrapper
+    > .wishlistTable
+    > thead {
+    display: none;
+  }
+}
