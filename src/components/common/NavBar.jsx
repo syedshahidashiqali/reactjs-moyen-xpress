@@ -110,6 +110,8 @@ function HeaderMid() {
   const hideDropdown = () => {
     setShow(false);
   };
+
+  const { userData } = useSelector((state) => state.auth);
   return (
     <Navbar expand="lg" className="headerMid">
       <Container className="headerMidContainer">
@@ -135,20 +137,24 @@ function HeaderMid() {
             >
               Shop
             </Link>
-            <Link
-              to="/my-account"
-              className="nav-link"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fa-regular fa-user"></i>
-            </Link>
-            <Link
-              to="/wishlist"
-              className="nav-link"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fa-regular fa-heart"></i>
-            </Link>
+            {userData.username && (
+              <Link
+                to="/my-account"
+                className="nav-link"
+                style={{ textDecoration: "none" }}
+              >
+                <i className="fa-regular fa-user"></i>
+              </Link>
+            )}
+            {userData.username && (
+              <Link
+                to="/wishlist"
+                className="nav-link"
+                style={{ textDecoration: "none" }}
+              >
+                <i className="fa-regular fa-heart"></i>
+              </Link>
+            )}
             <NavDropdown
               show={show}
               onMouseEnter={showDropdown}
