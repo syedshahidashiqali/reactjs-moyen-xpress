@@ -49,13 +49,29 @@ function HeaderTop() {
   return (
     <Navbar className="header-top" expand="lg">
       <Container className="topContainer d-flex align-items-center">
-        <Navbar.Brand href="#home" className="header-welcome">
+        <Link
+          to="/"
+          className="header-welcome navbar-brand"
+          style={{ textDecoration: "none" }}
+        >
           WELCOME TO MOYEN XPRESS!
-        </Navbar.Brand>
+        </Link>
         <div className="d-flex justify-content-end">
           <Nav className="navBar-links">
-            <Nav.Link href="#home">Contact Us</Nav.Link>
-            <Nav.Link href="#link">My Account</Nav.Link>
+            <Link
+              to="/contact-us"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              to="/my-account"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
+              My Account
+            </Link>
             {!userData.username ? (
               <Nav.Link className={"signin"} onClick={() => setShowModal(true)}>
                 <i className="fa-regular fa-user headerUserIcon" />
@@ -119,12 +135,20 @@ function HeaderMid() {
             >
               Shop
             </Link>
-            <Nav.Link>
+            <Link
+              to="/my-account"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
               <i className="fa-regular fa-user"></i>
-            </Nav.Link>
-            <Nav.Link>
+            </Link>
+            <Link
+              to="/wishlist"
+              className="nav-link"
+              style={{ textDecoration: "none" }}
+            >
               <i className="fa-regular fa-heart"></i>
-            </Nav.Link>
+            </Link>
             <NavDropdown
               show={show}
               onMouseEnter={showDropdown}
