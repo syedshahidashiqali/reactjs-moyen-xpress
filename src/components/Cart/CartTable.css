@@ -1,0 +1,230 @@
+.cartTableWrapper > .cartTable {
+  border-collapse: inherit;
+  font-family: Poppins, sans-serif;
+}
+
+.cartTableWrapper > .cartTable > thead > tr > th {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.cartTableWrapper > .cartTable > thead > tr {
+  display: flex;
+  align-items: center;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr {
+  display: flex;
+  align-items: center;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr,
+.cartTableWrapper > .cartTable > thead > tr {
+  border-bottom: 1px solid #eee;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td:nth-child(3) {
+  width: 15%;
+}
+
+.cartTableWrapper > .cartTable > thead > tr > th:nth-child(3) {
+  width: 15%;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td:nth-child(7) {
+  width: 5%;
+}
+
+.cartTableWrapper > .cartTable > thead > tr > th:nth-child(7) {
+  width: 5%;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td:nth-child(5) {
+  width: 25%;
+}
+
+.cartTableWrapper > .cartTable > thead > tr > th:nth-child(5) {
+  width: 25%;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td {
+  width: 20%;
+  padding: 1%;
+  font-size: 90%;
+  border: none;
+}
+
+.cartTableWrapper > .cartTable > thead > tr > th {
+  width: 20%;
+  padding: 1%;
+  border: none;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td figure img {
+  display: block;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdText > a {
+  color: #444;
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdText > a:hover {
+  color: #512500;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdPrice > span {
+  color: #ff2f03;
+  font-weight: 600;
+  font-size: 105%;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdPrice > span > del {
+  color: #666;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdAttr > span {
+  color: #666;
+  font-weight: 400;
+  font-size: 105%;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup {
+  max-width: 120px;
+  position: relative;
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  input::-webkit-outer-spin-button,
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  > .input-group
+  > input {
+  border-radius: 0;
+  font-size: 95%;
+  color: #666;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  > .input-group
+  > button:focus {
+  box-shadow: none;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  > .input-group
+  > button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #666;
+  font-size: 1rem;
+  border: none;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  > .input-group
+  > button {
+  right: 2.5rem;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdQty
+  > .cartProdQtyInputGroup
+  > .input-group
+  > button:last-child {
+  right: 5px;
+  border-radius: 0;
+}
+
+.cartTableWrapper > .cartTable > tbody > tr > td.cartProdSubTotal > span {
+  font-size: 110%;
+  font-weight: 600;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdAction
+  > .cartProdActionWrapper
+  > span {
+  color: #08c;
+  font-size: 110%;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.cartTableWrapper
+  > .cartTable
+  > tbody
+  > tr
+  > td.cartProdAction
+  > .cartProdActionWrapper
+  > span:hover {
+  color: #b64400;
+}
