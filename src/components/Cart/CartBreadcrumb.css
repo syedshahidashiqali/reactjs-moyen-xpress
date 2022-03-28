@@ -28,3 +28,17 @@
   display: flex;
   align-items: baseline;
 }
+
+@media only screen and (max-width: 360px) {
+  .cartBreadcrumbWrapper > nav > ol.breadcrumb li.breadcrumb-item > span {
+    font-size: 80%;
+  }
+
+  .cartBreadcrumbWrapper
+    > nav
+    > ol.breadcrumb
+    .breadcrumb-item
+    + .breadcrumb-item::before {
+    font-size: 80%;
+  }
+}

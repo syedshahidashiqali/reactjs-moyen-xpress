@@ -29,3 +29,43 @@
   > button:hover {
   background-color: #e1e1e1;
 }
+
+@media only screen and (max-width: 980px) {
+  .cartMainWrapper > .container-fluid > .row:last-child > div.col-12 {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
+
+@media only screen and (max-width: 435px) {
+  .cartMainWrapper
+    > .container-fluid
+    > .row:last-child
+    > .col-md-8
+    > .row
+    .col-md-6 {
+    width: 100%;
+  }
+
+  .cartMainWrapper
+    > .container-fluid
+    > .row:last-child
+    > .col-md-8
+    > .row
+    > .col-md-6
+    > .cartMainShopBtn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cartMainWrapper
+    > .container-fluid
+    > .row:last-child
+    > .col-md-8
+    > .row
+    > .col-md-6
+    > .cartMainUpdateCartBtn {
+    margin-top: 5%;
+    justify-content: center !important;
+  }
+}
