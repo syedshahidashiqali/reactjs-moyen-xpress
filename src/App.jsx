@@ -20,6 +20,7 @@ import CustomerRegister from "./components/Register/CustomerRegister";
 import CustomerLogin from "./components/Login/CustomerLogin";
 import VendorLogin from "./components/Login/VendorLogin";
 import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 const queryClient = new QueryClient();
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             path="/wishlist"
             element={<Wishlist home={{ isHome, setIsHome }} />}
           />
+          <Route path="/cart" element={<Cart home={{ isHome, setIsHome }} />} />
         </Routes>
         <OurVendor />
         {!isHome && (

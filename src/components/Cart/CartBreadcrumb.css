@@ -1,0 +1,30 @@
+.cartBreadcrumbWrapper > nav > ol.breadcrumb li.breadcrumb-item > span {
+  color: #333;
+  font-size: 100%;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+}
+
+.cartBreadcrumbWrapper > nav > ol.breadcrumb li.breadcrumb-item > span:hover {
+  color: #b64400;
+}
+
+.cartBreadcrumbWrapper
+  > nav
+  > ol.breadcrumb
+  .breadcrumb-item
+  + .breadcrumb-item::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-size: 100%;
+  font-weight: 900;
+  content: var(--bs-breadcrumb-divider, "");
+  color: #999;
+}
+
+.cartBreadcrumbWrapper > nav > ol.breadcrumb .breadcrumb-item {
+  display: flex;
+  align-items: baseline;
+}
