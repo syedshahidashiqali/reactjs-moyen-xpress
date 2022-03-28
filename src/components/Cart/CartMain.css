@@ -1,0 +1,31 @@
+.cartMainWrapper > .container-fluid > .row .cartMainShopBtn > button {
+  background-color: #333;
+  border-color: #333;
+  padding: 3% 6%;
+  text-transform: uppercase;
+  font-size: 85%;
+  font-weight: 600;
+}
+
+.cartMainWrapper > .container-fluid > .row .cartMainShopBtn > button:hover {
+  background-color: #666;
+  border-color: #666;
+}
+
+.cartMainWrapper > .container-fluid > .row .cartMainUpdateCartBtn > button {
+  text-transform: uppercase;
+  background: transparent;
+  color: #333;
+  font-weight: bold;
+  font-size: 90%;
+  border-color: #ccc;
+  padding: 3% 8%;
+}
+
+.cartMainWrapper
+  > .container-fluid
+  > .row
+  .cartMainUpdateCartBtn
+  > button:hover {
+  background-color: #e1e1e1;
+}
