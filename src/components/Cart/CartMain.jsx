@@ -1,6 +1,7 @@
 import CartBreadcrumb from "./CartBreadcrumb";
 import "./CartMain.css";
 import CartTable from "./CartTable";
+import CartTotal from "./CartTotal";
 
 export default function CartMain() {
   return (
@@ -12,10 +13,12 @@ export default function CartMain() {
           </div>
         </div>
         <div className="row mt-5">
-          <div className="col-md-9 col-sm-12 col-12">
+          <div className="col-md-8 col-sm-12 col-12">
             <CartTable />
           </div>
-          <div className="col-md-3 col-sm-12 col-12"></div>
+          <div className="col-md-4 col-sm-12 col-12">
+            <CartTotal />
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,65 @@
+.cartTotalWrapper {
+  font-family: Poppins, sans-serif;
+}
+
+.cartTotalWrapper > .cartTotalSummary {
+  padding: 6%;
+  border: 1px solid #eee;
+}
+
+.cartTotalWrapper > .cartTotalSummary > h4 {
+  text-transform: uppercase;
+  font-size: 120%;
+  font-weight: 700;
+}
+
+.cartTotalWrapper > .cartTotalSummary .cartTotalOrderSummary {
+  margin-top: 8%;
+}
+
+.cartTotalWrapper > .cartTotalSummary .cartTotalOrderSummary > h6 {
+  font-weight: 600;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #eee;
+}
+
+.cartTotalWrapper
+  > .cartTotalSummary
+  .cartTotalOrderSummary
+  > .cartTotalOrderSummaryWrapper {
+  font-size: 80%;
+}
+
+.cartTotalWrapper
+  > .cartTotalSummary
+  > .cartTotalOrderSummary
+  > .cartTotalOrderSummaryWrapperTotal {
+  margin-top: 5%;
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.cartTotalWrapper
+  > .cartTotalSummary
+  > .cartTotalOrderSummary
+  > .cartTotalOrderSummaryBtnWrapper
+  > button {
+  text-transform: uppercase;
+  font-size: 90%;
+  font-weight: 600;
+  margin-top: 5%;
+  padding: 4%;
+  width: 100%;
+  background-color: #333;
+  border-color: #333;
+  transition: all 200ms ease-in-out;
+}
+
+.cartTotalWrapper
+  > .cartTotalSummary
+  > .cartTotalOrderSummary
+  > .cartTotalOrderSummaryBtnWrapper
+  > button:hover {
+  background-color: #454545;
+  border-color: #454545;
+}
