@@ -45,3 +45,35 @@
   input.form-control {
   padding: 0.75rem 1.25rem;
 }
+
+/* input placeholder color */
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  .form-control::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1; /* Firefox */
+  font-size: 90%;
+}
+
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  .form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+  font-size: 90%;
+}
+
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  .form-control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999;
+  font-size: 90%;
+}

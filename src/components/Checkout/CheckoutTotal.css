@@ -77,3 +77,21 @@
   outline: none;
   box-shadow: none;
 }
+
+@media only screen and (max-width: 370px) {
+  .checkoutTotalSelectWrapper > form > .form-select {
+    font-size: 85%;
+  }
+}
+
+@media only screen and (max-width: 348px) {
+  .checkoutTotalSelectWrapper > form > .form-select {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .checkoutTotalSelectWrapper > form > .form-select {
+    font-size: 75%;
+  }
+}

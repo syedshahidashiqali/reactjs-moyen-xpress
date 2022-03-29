@@ -55,6 +55,15 @@ export default function CheckoutForm() {
                 <Form.Control as="textarea" rows={4} cols={30} />
               </Form.Group>
             </div>
+            <Form.Group className="mb-3">
+              <Form.Check
+                id="checkoutCheckbox"
+                checked={checked}
+                type="checkbox"
+                label="Billing details same as Shipping details."
+                onChange={() => setChecked(!checked)}
+              />
+            </Form.Group>
             {checked === false && (
               <div
                 className={
@@ -107,15 +116,6 @@ export default function CheckoutForm() {
                 </Form.Group>
               </div>
             )}
-            <Form.Group className="mb-3">
-              <Form.Check
-                id="checkoutCheckbox"
-                checked={checked}
-                type="checkbox"
-                label="Billing details same as Shipping details."
-                onChange={() => setChecked(!checked)}
-              />
-            </Form.Group>
           </Form>
         </div>
       </div>

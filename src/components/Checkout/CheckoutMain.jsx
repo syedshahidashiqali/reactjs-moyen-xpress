@@ -13,10 +13,10 @@ export default function CheckoutMain() {
           </div>
         </div>
         <div className="row mt-5 mb-5">
-          <div className="col-md-7 col-lg-7 pe-lg-4">
+          <div className="col-lg-7 pe-lg-4">
             <CheckoutForm />
           </div>
-          <div className="col-md-4 col-lg-5">
+          <div className="col-lg-5">
             <CheckoutTotal />
           </div>
         </div>
