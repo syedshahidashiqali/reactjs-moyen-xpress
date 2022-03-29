@@ -22,6 +22,7 @@ import VendorLogin from "./components/Login/VendorLogin";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             path="/checkout"
             element={<Checkout home={{ isHome, setIsHome }} />}
           />
+          <Route path="*" element={<NotFound home={{ isHome, setIsHome }} />} />
         </Routes>
         <OurVendor />
         {!isHome && (
