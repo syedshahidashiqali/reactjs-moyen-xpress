@@ -1,0 +1,79 @@
+.checkoutTotalWrapper {
+  font-family: Poppins, sans-serif;
+}
+
+.checkoutTotalWrapper > .checkoutTotalSummary {
+  padding: 6%;
+  border: 1px solid #eee;
+}
+
+.checkoutTotalWrapper > .checkoutTotalSummary > h4 {
+  text-transform: uppercase;
+  font-size: 120%;
+  font-weight: 700;
+}
+
+.checkoutTotalWrapper > .checkoutTotalSummary .checkoutTotalOrderSummary {
+  margin-top: 8%;
+}
+
+.checkoutTotalWrapper > .checkoutTotalSummary .checkoutTotalOrderSummary > h6 {
+  font-weight: 600;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #eee;
+}
+
+.checkoutTotalWrapper
+  > .checkoutTotalSummary
+  .checkoutTotalOrderSummary
+  > .checkoutTotalOrderSummaryWrapper {
+  font-size: 80%;
+}
+
+.checkoutTotalWrapper
+  > .checkoutTotalSummary
+  > .checkoutTotalOrderSummary
+  > .checkoutTotalOrderSummaryWrapperTotal {
+  margin-top: 5%;
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.checkoutTotalWrapper
+  > .checkoutTotalSummary
+  > .checkoutTotalOrderSummary
+  > .checkoutTotalOrderSummaryBtnWrapper
+  > button {
+  text-transform: uppercase;
+  font-size: 90%;
+  font-weight: 600;
+  margin-top: 5%;
+  padding: 4%;
+  width: 100%;
+  background-color: #333;
+  border-color: #333;
+  transition: all 200ms ease-in-out;
+}
+
+.checkoutTotalWrapper
+  > .checkoutTotalSummary
+  > .checkoutTotalOrderSummary
+  > .checkoutTotalOrderSummaryBtnWrapper
+  > button:hover {
+  background-color: #454545;
+  border-color: #454545;
+}
+
+/* form css*/
+.checkoutTotalSelectWrapper > form > .form-select {
+  font-size: 90%;
+  color: #999;
+  padding: 4%;
+  background: transparent;
+}
+
+.checkoutTotalSelectWrapper > form > .form-select:focus {
+  color: #333;
+  outline: none;
+  box-shadow: none;
+}

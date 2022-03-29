@@ -21,6 +21,7 @@ import CustomerLogin from "./components/Login/CustomerLogin";
 import VendorLogin from "./components/Login/VendorLogin";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 const queryClient = new QueryClient();
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
             element={<Wishlist home={{ isHome, setIsHome }} />}
           />
           <Route path="/cart" element={<Cart home={{ isHome, setIsHome }} />} />
+          <Route
+            path="/checkout"
+            element={<Checkout home={{ isHome, setIsHome }} />}
+          />
         </Routes>
         <OurVendor />
         {!isHome && (
