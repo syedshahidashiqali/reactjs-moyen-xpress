@@ -149,7 +149,7 @@ export function ContainerCard({ data }) {
         <Card.Title>{name.slice(0, 12)}</Card.Title>
         <Card.Text className="d-flex fd-c">
           <span className="discAndActPrice">
-            <del>${price}</del> <span>${discounted_price}.00</span>
+            <del>${price}</del> <span>${discounted_price}</span>
           </span>
           <Rating
             ratingValue={rating}
