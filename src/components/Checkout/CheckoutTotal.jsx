@@ -25,9 +25,9 @@ export default function CheckoutTotal() {
                   Please select a payment method
                 </option>
                 <option value="stripe">
-                  visa, mastercard, american express
+                  VISA, MASTERCARD, AMERICAN EXPRESS
                 </option>
-                <option value="paypal">Paypal</option>
+                <option value="paypal">PayPal</option>
               </Form.Select>
             </Form>
           </div>
