@@ -1,0 +1,47 @@
+.checkoutFormMainWrapper {
+  font-family: Poppins, sans-serif;
+}
+
+.checkoutFormMainWrapper > .checkoutForm h4 {
+  color: #444;
+  text-transform: uppercase;
+  font-size: 120%;
+  font-weight: 700;
+}
+
+.checkoutFormMainWrapper > .checkoutForm > .checkoutFormWrapper {
+  color: #666;
+}
+
+.checkoutFormMainWrapper > .checkoutForm > .checkoutFormWrapper > form label {
+  font-size: 85%;
+}
+
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  .form-control {
+  border: 1px solid #eee;
+  color: #999;
+  font-size: 90%;
+}
+
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  .form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #86b7fe;
+  color: #444;
+}
+
+.checkoutFormMainWrapper
+  > .checkoutForm
+  > .checkoutFormWrapper
+  > form
+  input.form-control {
+  padding: 0.75rem 1.25rem;
+}
