@@ -20,9 +20,9 @@ export default function CheckoutTotal() {
           </div>
           <div className="checkoutTotalSelectWrapper mt-4 mb-4">
             <Form>
-              <Form.Select>
-                <option selected hidden disabled>
-                  Please select a payment method
+              <Form.Select defaultValue={"PLEASE SELECT A PAYMENT METHOD"}>
+                <option hidden disabled>
+                  PLEASE SELECT A PAYMENT METHOD
                 </option>
                 <option value="stripe">
                   VISA, MASTERCARD, AMERICAN EXPRESS

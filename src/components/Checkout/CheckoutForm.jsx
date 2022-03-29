@@ -110,7 +110,6 @@ export default function CheckoutForm() {
             <Form.Group className="mb-3">
               <Form.Check
                 id="checkoutCheckbox"
-                defaultChecked
                 checked={checked}
                 type="checkbox"
                 label="Billing details same as Shipping details."
