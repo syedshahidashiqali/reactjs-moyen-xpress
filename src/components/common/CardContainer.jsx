@@ -142,9 +142,9 @@ export function ContainerCard({ data }) {
           <i className="fa-regular fa-heart" />
         </span>
       )}
-      <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
+      {/* <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
         <i className="fa-solid fa-cart-shopping" />
-      </span>
+      </span> */}
       <Card.Body className="cardBody">
         <Card.Title>{name.slice(0, 12)}</Card.Title>
         <Card.Text className="d-flex fd-c">

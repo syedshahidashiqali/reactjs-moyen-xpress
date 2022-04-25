@@ -26,8 +26,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { GETPRODUCTBYID, Images_API } from "../../apiRoutes";
 import { useSelector } from "react-redux";
-// dummy data
-// import { dummyData } from "../../dummyData";
 
 export default function ProductIntro() {
   const [rating, setRating] = useState(0);
