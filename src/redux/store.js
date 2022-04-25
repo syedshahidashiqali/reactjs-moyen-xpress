@@ -11,18 +11,25 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import authReducer from "./reducers/auth";
+import session from "redux-persist/lib/storage/session";
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-});
-
-const persistConfig = {
+const rootPersistConfig = {
   key: "root",
   version: 1,
   storage,
+  blacklist: ["auth"],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const authPersistConfig = {
+  key: "auth",
+  storage: session,
+};
+
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer),
+});
+
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
