@@ -25,8 +25,9 @@ import { useWindowSize } from "react-use";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { GETPRODUCTBYID, Images_API } from "../../apiRoutes";
+import { useSelector } from "react-redux";
 // dummy data
-import { dummyData } from "../../dummyData";
+// import { dummyData } from "../../dummyData";
 
 export default function ProductIntro() {
   const [rating, setRating] = useState(0);
@@ -40,6 +41,8 @@ export default function ProductIntro() {
 
   const { status, data } = useQuery("product", fetchProduct);
   // console.log(42, data);
+
+  const { userData } = useSelector((state) => state.auth);
   return (
     <div className="productSection">
       <div className="container-fluid">
@@ -71,7 +74,10 @@ export default function ProductIntro() {
                     {data?.images.map((image, index) => {
                       return (
                         <Dot slide={index} key={index}>
-                          <Image src={`${Images_API}${image?.name}`} className="prodDotImg" />
+                          <Image
+                            src={`${Images_API}${image?.name}`}
+                            className="prodDotImg"
+                          />
                         </Dot>
                       );
                     })}
@@ -111,8 +117,8 @@ export default function ProductIntro() {
                   </div>
                   <div className="prodIntroMidMid">
                     <h2>
-                      <del className="me-2">${data?.price}</del>
-                      ${data?.discounted_price}
+                      <del className="me-2">${data?.price}</del>$
+                      {data?.discounted_price}
                     </h2>
                     <div className="prodIntroRating d-flex ai-c">
                       <Rating
@@ -125,42 +131,58 @@ export default function ProductIntro() {
                   </div>
                   <div className="prodIntroMidBot mt-4">
                     <div className="prodIntroAttr prodIntroSizeAtt">
-                      <label htmlFor="">{data?.get_attribute_values[0]?.attribute?.name}:</label>
+                      <label htmlFor="">
+                        {data?.get_attribute_values[0]?.attribute?.name}:
+                      </label>
                       <Form.Select
                         aria-label="Default select example"
                         className="prodIntroForm"
                       >
                         <option>Please Select Attribute</option>
-                        {data?.get_attribute_values[0]?.value.map((attribute, index) => (
-                          <option value={attribute} key={index}>{attribute}</option>
-                        ))}
+                        {data?.get_attribute_values[0]?.value.map(
+                          (attribute, index) => (
+                            <option value={attribute} key={index}>
+                              {attribute}
+                            </option>
+                          )
+                        )}
                       </Form.Select>
                     </div>
                     <div className="prodIntroAttr prodIntroColorAtt mt-4">
-                      <label htmlFor="">{data?.get_attribute_values[1]?.attribute?.name}:</label>
+                      <label htmlFor="">
+                        {data?.get_attribute_values[1]?.attribute?.name}:
+                      </label>
                       <Form.Select
                         aria-label="Default select example"
                         className="prodIntroForm"
                       >
                         <option>Please Select Attribute</option>
-                        {data?.get_attribute_values[1]?.value.map((attribute, index) => (
-                          <option value={attribute} key={index}>{attribute}</option>
-                        ))}
+                        {data?.get_attribute_values[1]?.value.map(
+                          (attribute, index) => (
+                            <option value={attribute} key={index}>
+                              {attribute}
+                            </option>
+                          )
+                        )}
                       </Form.Select>
                     </div>
                   </div>
-                  <div className="prodIntroMidLast mt-4 d-flex ai-c">
-                    <a href="">
-                      <i className="fa-regular fa-heart me-3" />
-                    </a>
-                    <Button variant="primary" size="lg">
-                      <i
-                        className="fa-solid fa-cart-shopping"
-                        style={{ marginRight: "0.5rem" }}
-                      />
-                      add to cart
-                    </Button>
-                  </div>
+                  {data?.stock > 0 && (
+                    <div className="prodIntroMidLast mt-4 d-flex ai-c">
+                      {userData.username && (
+                        <a href="">
+                          <i className="fa-regular fa-heart me-3" />
+                        </a>
+                      )}
+                      <Button variant="primary" size="lg">
+                        <i
+                          className="fa-solid fa-cart-shopping"
+                          style={{ marginRight: "0.5rem" }}
+                        />
+                        add to cart
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -309,9 +331,7 @@ function ProductTabs({ data }) {
             <div className="col-md-12">
               <div className="prodDescContainer">
                 <h4>Detail</h4>
-                <p>
-                  {data?.description}
-                </p>
+                <p>{data?.description}</p>
               </div>
             </div>
           </div>
