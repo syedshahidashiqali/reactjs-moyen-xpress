@@ -41,6 +41,15 @@ export default function ProductIntro() {
   // console.log(42, data);
 
   const { userData } = useSelector((state) => state.auth);
+
+  const [color, setColor] = useState(null);
+  const [size, setSize] = useState(null);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    console.log({ size, color });
+  };
+
   return (
     <div className="productSection">
       <div className="container-fluid">
@@ -127,60 +136,74 @@ export default function ProductIntro() {
                       <span>({data?.review_total})</span>
                     </div>
                   </div>
-                  <div className="prodIntroMidBot mt-4">
-                    <div className="prodIntroAttr prodIntroSizeAtt">
-                      <label htmlFor="">
-                        {data?.get_attribute_values[0]?.attribute?.name}:
-                      </label>
-                      <Form.Select
-                        aria-label="Default select example"
-                        className="prodIntroForm"
-                      >
-                        <option>Please Select Attribute</option>
-                        {data?.get_attribute_values[0]?.value.map(
-                          (attribute, index) => (
-                            <option value={attribute} key={index}>
-                              {attribute}
-                            </option>
-                          )
+                  <Form onSubmit={submitHandler}>
+                    <div className="prodIntroMidBot mt-4">
+                      <div className="prodIntroAttr prodIntroSizeAtt">
+                        <label htmlFor="">
+                          {data?.get_attribute_values[0]?.attribute?.name}:
+                        </label>
+                        <Form.Select
+                          className="prodIntroForm"
+                          required
+                          defaultValue={""}
+                          onChange={(e) => {
+                            setColor(e.target.value);
+                          }}
+                        >
+                          <option value="" hidden disabled>
+                            Please Select Attribute
+                          </option>
+                          {data?.get_attribute_values[0]?.value.map(
+                            (attribute, index) => (
+                              <option value={attribute} key={index}>
+                                {attribute}
+                              </option>
+                            )
+                          )}
+                        </Form.Select>
+                      </div>
+                      <div className="prodIntroAttr prodIntroColorAtt mt-4">
+                        <label htmlFor="">
+                          {data?.get_attribute_values[1]?.attribute?.name}:
+                        </label>
+                        <Form.Select
+                          className="prodIntroForm"
+                          required
+                          defaultValue={""}
+                          onChange={(e) => {
+                            setSize(e.target.value);
+                          }}
+                        >
+                          <option value="" hidden disabled>
+                            Please Select Attribute
+                          </option>
+                          {data?.get_attribute_values[1]?.value.map(
+                            (attribute, index) => (
+                              <option value={attribute} key={index}>
+                                {attribute}
+                              </option>
+                            )
+                          )}
+                        </Form.Select>
+                      </div>
+                    </div>
+                    {data?.stock > 0 && (
+                      <div className="prodIntroMidLast mt-4 d-flex ai-c">
+                        {userData.username && (
+                          <a href="">
+                            <i className="fa-regular fa-heart me-3" />
+                          </a>
                         )}
-                      </Form.Select>
-                    </div>
-                    <div className="prodIntroAttr prodIntroColorAtt mt-4">
-                      <label htmlFor="">
-                        {data?.get_attribute_values[1]?.attribute?.name}:
-                      </label>
-                      <Form.Select
-                        aria-label="Default select example"
-                        className="prodIntroForm"
-                      >
-                        <option>Please Select Attribute</option>
-                        {data?.get_attribute_values[1]?.value.map(
-                          (attribute, index) => (
-                            <option value={attribute} key={index}>
-                              {attribute}
-                            </option>
-                          )
-                        )}
-                      </Form.Select>
-                    </div>
-                  </div>
-                  {data?.stock > 0 && (
-                    <div className="prodIntroMidLast mt-4 d-flex ai-c">
-                      {userData.username && (
-                        <a href="">
-                          <i className="fa-regular fa-heart me-3" />
-                        </a>
-                      )}
-                      <Button variant="primary" size="lg">
-                        <i
-                          className="fa-solid fa-cart-shopping"
-                          style={{ marginRight: "0.5rem" }}
-                        />
-                        add to cart
-                      </Button>
-                    </div>
-                  )}
+                        <Button variant="primary" size="lg" type="submit">
+                          <i
+                            className="fa-solid fa-cart-shopping"
+                            style={{ marginRight: "0.5rem" }}
+                          />
+                          add to cart
+                        </Button>
+                      </div>
+                    )}
+                  </Form>
                 </div>
               </div>
             </div>

@@ -44,8 +44,8 @@
 
 .cardImage {
   /* object-fit: cover; */
-  object-fit: scale-down;
-  height: 14rem;
+  /* object-fit: scale-down; */
+  /* height: 14rem; */
 }
 
 .cardBody .card-title.h5 {

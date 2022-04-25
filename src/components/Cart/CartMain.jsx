@@ -19,7 +19,7 @@ export default function CartMain() {
             <div className="row">
               <div className="col-md-6 col-sm-6 col-6">
                 <div className="cartMainShopBtn">
-                  <Button classNAme="d-flex jc-c ai-c">
+                  <Button className="d-flex jc-c ai-c">
                     <i className="fa-solid fa-arrow-left-long me-2" />
                     continue shopping
                   </Button>
@@ -27,7 +27,7 @@ export default function CartMain() {
               </div>
               <div className="col-md-6 col-sm-6 col-6">
                 <div className="cartMainUpdateCartBtn d-flex jc-e">
-                  <Button classNAme="d-flex jc-c ai-c">update cart</Button>
+                  <Button className="d-flex jc-c ai-c">update cart</Button>
                 </div>
               </div>
             </div>
