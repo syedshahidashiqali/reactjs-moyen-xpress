@@ -24,8 +24,10 @@ import discountImg from "../../images/prodDiscountbanner.jpg";
 import { useWindowSize } from "react-use";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { GETPRODUCTBYID, Images_API } from "../../apiRoutes";
+import { GETPRODUCTBYID, Images_API, ADDTOCART } from "../../apiRoutes";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 export default function ProductIntro() {
   const [rating, setRating] = useState(0);
@@ -38,18 +40,69 @@ export default function ProductIntro() {
   };
 
   const { status, data } = useQuery("product", fetchProduct);
-  // console.log(42, data);
 
   const { userData } = useSelector((state) => state.auth);
 
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
 
-  const submitHandler = async (e) => {
+  const addToCartHandler = async (e) => {
     e.preventDefault();
-    console.log({ size, color });
+    if (userData.username === undefined) {
+      toast.error("Please login first", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const res = await axios.post(ADDTOCART, {
+        product_id: productId,
+        user_id: userData.id,
+        attribute: [color, size],
+      });
+
+      if (res.data[0].message === "Successfully added to cart") {
+        toast.success("Successfully added to cart.", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
   };
 
+  const addToWishlistHandler = (e) => {
+    e.preventDefault();
+    // if (userData.username === undefined) {
+    //   toast.error("Please login first", {
+    //     position: "bottom-center",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // } else {
+    //   toast.success("Successfully added to wishlist.", {
+    //     position: "bottom-center",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
+  };
   return (
     <div className="productSection">
       <div className="container-fluid">
@@ -136,7 +189,7 @@ export default function ProductIntro() {
                       <span>({data?.review_total})</span>
                     </div>
                   </div>
-                  <Form onSubmit={submitHandler}>
+                  <Form onSubmit={addToCartHandler}>
                     <div className="prodIntroMidBot mt-4">
                       <div className="prodIntroAttr prodIntroSizeAtt">
                         <label htmlFor="">
@@ -189,11 +242,9 @@ export default function ProductIntro() {
                     </div>
                     {data?.stock > 0 && (
                       <div className="prodIntroMidLast mt-4 d-flex ai-c">
-                        {userData.username && (
-                          <a href="">
-                            <i className="fa-regular fa-heart me-3" />
-                          </a>
-                        )}
+                        <a onClick={addToWishlistHandler}>
+                          <i className="fa-regular fa-heart me-3" />
+                        </a>
                         <Button variant="primary" size="lg" type="submit">
                           <i
                             className="fa-solid fa-cart-shopping"
@@ -279,6 +330,17 @@ export default function ProductIntro() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

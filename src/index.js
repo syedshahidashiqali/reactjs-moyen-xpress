@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./fontAwesome/css/all.min.css";
 import "animate.css";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import "react-toastify/dist/ReactToastify.css";
 // redux things
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
