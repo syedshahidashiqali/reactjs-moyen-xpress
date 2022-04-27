@@ -2,7 +2,7 @@ import "./CartTable.css";
 import { Table, InputGroup, FormControl, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Images_API } from "../../apiRoutes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CartTable({ status, data, cartDeleteHandler }) {
   const C = console.log.bind(console);
@@ -29,14 +29,7 @@ export default function CartTable({ status, data, cartDeleteHandler }) {
 }
 
 const TableBody = ({ data, cartDeleteHandler }) => {
-  const [sub, setSub] = useState(null);
-  const getSubTotal = (total) => {
-    setSub(total);
-  };
-
   const [subTotal, setSubTotal] = useState(null);
-
-  console.log(46, sub);
   return (
     <tbody>
       {data?.map((item) => {
@@ -80,8 +73,6 @@ const TableBody = ({ data, cartDeleteHandler }) => {
               <div className="cartProdQtyInputGroup">
                 <CartInputItem
                   price={item.get_products.discounted_price}
-                  getSubTotal={getSubTotal}
-                  subTotal={subTotal}
                   setSubTotal={setSubTotal}
                 />
               </div>
@@ -110,19 +101,14 @@ const TableBody = ({ data, cartDeleteHandler }) => {
   );
 };
 
-const CartInputItem = ({ price, getSubTotal, subTotal, setSubTotal }) => {
-  const inputRef = useRef(null);
-  const plusBtnRef = useRef(null);
-  const minusBtnRef = useRef(null);
+const CartInputItem = ({ price, subTotal, setSubTotal }) => {
   const [qty, setQty] = useState(1);
   // const [subTotal, setSubTotal] = useState(price);
   // console.log("110 qty", qty);
   // console.log("111 total", subTotal);
 
   useEffect(() => {
-    // getSubTotal(subTotal);
     // setSubTotal(qty * price);
-
     console.log("useEffect runs qty: ", qty);
     console.log("useEffect runs total: ", subTotal);
   }, [qty, subTotal, price]);
@@ -131,7 +117,6 @@ const CartInputItem = ({ price, getSubTotal, subTotal, setSubTotal }) => {
   const incrementhandler = () => {
     setQty((prevQty) => prevQty + 1);
     // setSubTotal((qty + 1) * price);
-    // getSubTotal(subTotal);
     // console.log("111 qty", qty + 1);
   };
 
@@ -140,7 +125,6 @@ const CartInputItem = ({ price, getSubTotal, subTotal, setSubTotal }) => {
     if (qty !== 1) {
       setQty((prevQty) => prevQty - 1);
       // setSubTotal((qty - 1) * price);
-      // getSubTotal(subTotal);
       // console.log("111 qty", qty - 1);
     }
   };
@@ -149,7 +133,6 @@ const CartInputItem = ({ price, getSubTotal, subTotal, setSubTotal }) => {
   const cartCalculationHanlder = (e) => {
     setQty(parseInt(e.target.value));
     setSubTotal(price * parseInt(e.target.value));
-    // getSubTotal(subTotal);
   };
   return (
     <InputGroup>
@@ -158,20 +141,9 @@ const CartInputItem = ({ price, getSubTotal, subTotal, setSubTotal }) => {
         min={1}
         value={qty}
         onChange={cartCalculationHanlder}
-        // onChange={() => inputRef.current()}
       />
-      <Button
-        onClick={decrementHandler}
-        // onClick={() => minusBtnRef.current()}
-      >
-        -
-      </Button>
-      <Button
-        onClick={incrementhandler}
-        // onClick={() => plusBtnRef.current()}
-      >
-        +
-      </Button>
+      <Button onClick={decrementHandler}>-</Button>
+      <Button onClick={incrementhandler}>+</Button>
     </InputGroup>
   );
 };
