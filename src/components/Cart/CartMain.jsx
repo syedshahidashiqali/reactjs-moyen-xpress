@@ -7,7 +7,6 @@ import { useQuery } from "react-query";
 import { testCART, CARTDELETE } from "../../apiRoutes";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { useDeleteCartProduct } from "../../customHooks/reactQueryCustomHooks";
 
 export default function CartMain() {
   const C = console.log.bind(console);

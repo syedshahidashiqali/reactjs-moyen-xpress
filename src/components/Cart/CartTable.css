@@ -187,6 +187,7 @@
   > .input-group
   > button {
   right: 2.5rem;
+  z-index: 0;
 }
 
 .cartTableWrapper
