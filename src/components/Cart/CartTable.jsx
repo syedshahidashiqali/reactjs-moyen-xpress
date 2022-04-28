@@ -29,7 +29,6 @@ export default function CartTable({ status, data, cartDeleteHandler }) {
 }
 
 const TableBody = ({ data, cartDeleteHandler }) => {
-  const [subTotal, setSubTotal] = useState(null);
   return (
     <tbody>
       {data?.map((item) => {
@@ -69,19 +68,7 @@ const TableBody = ({ data, cartDeleteHandler }) => {
                 {item?.attributes[0]}, {item?.attributes[1]}"
               </span>
             </td>
-            <td className="cartProdQty">
-              <div className="cartProdQtyInputGroup">
-                <CartInputItem
-                  price={item.get_products.discounted_price}
-                  setSubTotal={setSubTotal}
-                />
-              </div>
-            </td>
-            <SubTotal
-              price={item.get_products.discounted_price}
-              subTotal={subTotal}
-              setSubTotal={setSubTotal}
-            />
+            <CartInputItem price={item.get_products.discounted_price} />
             <td
               className="cartProdAction"
               onClick={() => {
@@ -101,57 +88,49 @@ const TableBody = ({ data, cartDeleteHandler }) => {
   );
 };
 
-const CartInputItem = ({ price, subTotal, setSubTotal }) => {
+const CartInputItem = ({ price }) => {
   const [qty, setQty] = useState(1);
-  // const [subTotal, setSubTotal] = useState(price);
-  // console.log("110 qty", qty);
-  // console.log("111 total", subTotal);
+  const [subTotal, setSubTotal] = useState(price);
 
   useEffect(() => {
-    // setSubTotal(qty * price);
-    console.log("useEffect runs qty: ", qty);
-    console.log("useEffect runs total: ", subTotal);
-  }, [qty, subTotal, price]);
+    setSubTotal((price * qty).toFixed(2));
+  }, [qty]);
 
   // plus btn handler
-  const incrementhandler = () => {
+  const incrementHandler = () => {
     setQty((prevQty) => prevQty + 1);
-    // setSubTotal((qty + 1) * price);
-    // console.log("111 qty", qty + 1);
   };
 
   // minus btn handler
   const decrementHandler = () => {
     if (qty !== 1) {
       setQty((prevQty) => prevQty - 1);
-      // setSubTotal((qty - 1) * price);
-      // console.log("111 qty", qty - 1);
     }
   };
 
   // when you directly change or type value in input box
   const cartCalculationHanlder = (e) => {
     setQty(parseInt(e.target.value));
-    setSubTotal(price * parseInt(e.target.value));
   };
   return (
-    <InputGroup>
-      <FormControl
-        type="number"
-        min={1}
-        value={qty}
-        onChange={cartCalculationHanlder}
-      />
-      <Button onClick={decrementHandler}>-</Button>
-      <Button onClick={incrementhandler}>+</Button>
-    </InputGroup>
-  );
-};
-
-const SubTotal = ({ price, subTotal }) => {
-  return (
-    <td className="cartProdSubTotal">
-      <span>${subTotal === null ? price : subTotal}</span>
-    </td>
+    <>
+      <td className="cartProdQty">
+        <div className="cartProdQtyInputGroup">
+          <InputGroup>
+            <FormControl
+              type="number"
+              min={1}
+              value={qty}
+              onChange={cartCalculationHanlder}
+            />
+            <Button onClick={decrementHandler}>-</Button>
+            <Button onClick={incrementHandler}>+</Button>
+          </InputGroup>
+        </div>
+      </td>
+      <td className="cartProdSubTotal">
+        <span>${subTotal}</span>
+      </td>
+    </>
   );
 };
