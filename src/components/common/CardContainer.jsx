@@ -126,6 +126,9 @@ export function ContainerCard({ data }) {
 
   const { userData } = useSelector((state) => state.auth);
 
+  const addToWishlistHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <Card className="cardContainerCard">
       <Card.Img
@@ -137,11 +140,13 @@ export function ContainerCard({ data }) {
         <span className="cardDiscount">{data?.discounted_percentage}% off</span>
       )}
       <span className="cardTag">best</span>
-      {userData.username && (
-        <span className="cardFvt" onClick={(e) => e.preventDefault()}>
-          <i className="fa-regular fa-heart" />
-        </span>
-      )}
+      <span
+        title="Add to wishlist"
+        className="cardFvt"
+        onClick={addToWishlistHandler}
+      >
+        <i className="fa-regular fa-heart" />
+      </span>
       {/* <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
         <i className="fa-solid fa-cart-shopping" />
       </span> */}

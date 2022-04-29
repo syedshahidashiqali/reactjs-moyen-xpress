@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ProductIntro.css";
 import {
   CarouselProvider,
@@ -24,7 +24,13 @@ import discountImg from "../../images/prodDiscountbanner.jpg";
 import { useWindowSize } from "react-use";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { GETPRODUCTBYID, Images_API, ADDTOCART } from "../../apiRoutes";
+import {
+  GETPRODUCTBYID,
+  Images_API,
+  ADDTOCART,
+  ADDTOWISHLIST,
+  WISHLISTDATA,
+} from "../../apiRoutes";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -45,6 +51,7 @@ export default function ProductIntro() {
 
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
+  const [isFvt, setIsFvt] = useState(false);
 
   const addToCartHandler = async (e) => {
     e.preventDefault();
@@ -79,29 +86,70 @@ export default function ProductIntro() {
     }
   };
 
-  const addToWishlistHandler = (e) => {
+  const fetchWishlistData = async () => {
+    const res = await (await fetch(`${WISHLISTDATA}/${userData.id}`)).json();
+    return res[0];
+  };
+
+  const {
+    status: wishlistStatus,
+    data: wishlistData,
+    refetch,
+  } = useQuery("wishlist", fetchWishlistData);
+
+  useEffect(() => {
+    wishlistData !== undefined &&
+      wishlistData.forEach((wishlist) => {
+        if (wishlist.product_id == productId) {
+          setIsFvt(true);
+        } else {
+          setIsFvt(false);
+        }
+      });
+  }, [wishlistData]);
+
+  const addToWishlistHandler = async (e) => {
     e.preventDefault();
-    // if (userData.username === undefined) {
-    //   toast.error("Please login first", {
-    //     position: "bottom-center",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // } else {
-    //   toast.success("Successfully added to wishlist.", {
-    //     position: "bottom-center",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // }
+    refetch();
+    if (userData.username === undefined) {
+      toast.error("Please login first", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const res = await axios.get(
+        `${ADDTOWISHLIST}/${productId}/${userData.id}`
+      );
+
+      if (res.data[0].message === "Added to wishlist") {
+        toast.success("Successfully added to wishlist.", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else if (
+        res.data[0].message === "This item has been removed from your wishlist"
+      ) {
+        toast.warning("This item is removed from your wishlist", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
   };
   return (
     <div className="productSection">
@@ -242,8 +290,17 @@ export default function ProductIntro() {
                     </div>
                     {data?.stock > 0 && (
                       <div className="prodIntroMidLast mt-4 d-flex ai-c">
-                        <a onClick={addToWishlistHandler}>
-                          <i className="fa-regular fa-heart me-3" />
+                        <a
+                          onClick={addToWishlistHandler}
+                          title="Add to wishlist"
+                        >
+                          {/* <i className="fa-solid fa-heart me-3" /> */}
+
+                          {isFvt === true ? (
+                            <i className="fa-solid fa-heart me-3" />
+                          ) : (
+                            <i className="fa-regular fa-heart me-3" />
+                          )}
                         </a>
                         <Button variant="primary" size="lg" type="submit">
                           <i
