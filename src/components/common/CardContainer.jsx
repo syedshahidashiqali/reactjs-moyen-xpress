@@ -12,8 +12,10 @@ import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import { Images_API } from "../../apiRoutes";
+import { Images_API, ADDTOWISHLIST } from "../../apiRoutes";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function CardContainer({ name, apiRoute }) {
   const { width } = useWindowSize();
@@ -115,7 +117,7 @@ export default function CardContainer({ name, apiRoute }) {
 export function ContainerCard({ data }) {
   const { width } = useWindowSize();
 
-  const { discounted_price, price, name, images } = data;
+  const { discounted_price, price, name, images, id } = data;
 
   const [rating, setRating] = useState(0);
   // Catch Rating value
@@ -126,8 +128,46 @@ export function ContainerCard({ data }) {
 
   const { userData } = useSelector((state) => state.auth);
 
-  const addToWishlistHandler = (e) => {
+  const addToWishlistHandler = async (e) => {
     e.preventDefault();
+    // refetch();
+    if (userData.username === undefined) {
+      toast.error("Please login first", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const res = await axios.get(`${ADDTOWISHLIST}/${id}/${userData.id}`);
+
+      if (res.data[0].message === "Added to wishlist") {
+        toast.success("Successfully added to wishlist.", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else if (
+        res.data[0].message === "This item has been removed from your wishlist"
+      ) {
+        toast.warning("This item is removed from your wishlist", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
   };
   return (
     <Card className="cardContainerCard">
@@ -147,9 +187,9 @@ export function ContainerCard({ data }) {
       >
         <i className="fa-regular fa-heart" />
       </span>
-      {/* <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
+      <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
         <i className="fa-solid fa-cart-shopping" />
-      </span> */}
+      </span>
       <Card.Body className="cardBody">
         <Card.Title>{name.slice(0, 12)}</Card.Title>
         <Card.Text className="d-flex fd-c">
