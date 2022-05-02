@@ -2,8 +2,20 @@ import "./WishlistMain.css";
 import BreadCrumb from "../someCommon/BreadCrumb";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useQuery } from "react-query";
+import { Images_API, WISHLISTDATA } from "../../apiRoutes";
 
 export default function WishlistMain() {
+  const { userData } = useSelector((state) => state.auth);
+
+  const fetchWishlistData = async () => {
+    const res = await (await fetch(`${WISHLISTDATA}/${userData.id}`)).json();
+    return res[0];
+  };
+
+  const { status, data, refetch } = useQuery("wishlist", fetchWishlistData);
+  console.log(data);
   return (
     <div className="wishlistMainWrapper">
       <div className="container-fluid">
@@ -30,61 +42,68 @@ export default function WishlistMain() {
         <div className="row px-4 mt-2">
           <div className="col-md-12">
             <div className="wishlistTableWrapper">
-              <Table className="wishlistTable">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th></th>
-                    <th>Price</th>
-                    <th>Stock Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-                    <tr key={index}>
-                      <td className="wishlistProdImg">
-                        <div className="p-relative">
+              {status === "loading" && "Loading.."}
+              {status === "error" && "Error.."}
+              {status === "success" && (
+                <Table className="wishlistTable">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th></th>
+                      <th>Price</th>
+                      <th>Stock Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item, index) => (
+                      <tr key={index}>
+                        <td className="wishlistProdImg">
+                          <div className="p-relative">
+                            <Link
+                              to={`/product/${item.product_id}`}
+                              style={{ textDecoration: "none" }}
+                            >
+                              <figure>
+                                <img
+                                  src={`${Images_API}${item.get_products.images[0].name}`}
+                                  alt=""
+                                />
+                              </figure>
+                            </Link>
+                          </div>
+                        </td>
+                        <td className="wishlistProdText">
                           <Link
-                            to={`/product/id`}
+                            to={`/product/${item.product_id}`}
                             style={{ textDecoration: "none" }}
                           >
-                            <figure>
-                              <img
-                                src="https://moyenxpress.com/products/164401125115.jpg"
-                                alt=""
-                              />
-                            </figure>
+                            {item.get_products.description}
                           </Link>
-                        </div>
-                      </td>
-                      <td className="wishlistProdText">
-                        <Link
-                          to={`/product/id`}
-                          style={{ textDecoration: "none" }}
-                        >
-                          Toshiba Canvio Basics 2TB Portable External Hard Drive
-                          USB 3.0
-                        </Link>
-                      </td>
-                      <td className="wishlistProdPrice">
-                        <span>$2.00</span>
-                      </td>
-                      <td className="wishlistProdStockStatus">
-                        <span>In Stock</span>
-                      </td>
-                      <td className="wishlistProdAction">
-                        <div className="wishlistProdActionWrapper">
+                        </td>
+                        <td className="wishlistProdPrice">
+                          <span>${item.get_products.discounted_price}</span>
+                        </td>
+                        <td className="wishlistProdStockStatus">
                           <span>
-                            <i className="fa-solid fa-trash me-2" />
-                            delete
+                            {item.get_products.stock > 0
+                              ? "In Stock"
+                              : "Out of Stock"}
                           </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
+                        </td>
+                        <td className="wishlistProdAction">
+                          <div className="wishlistProdActionWrapper">
+                            <span>
+                              <i className="fa-solid fa-trash me-2" />
+                              delete
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              )}
             </div>
           </div>
         </div>
