@@ -4,7 +4,8 @@ import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
-import { Images_API, WISHLISTDATA } from "../../apiRoutes";
+import { Images_API, WISHLISTDATA, ADDTOWISHLIST } from "../../apiRoutes";
+import axios from "axios";
 
 export default function WishlistMain() {
   const { userData } = useSelector((state) => state.auth);
@@ -15,7 +16,14 @@ export default function WishlistMain() {
   };
 
   const { status, data, refetch } = useQuery("wishlist", fetchWishlistData);
-  console.log(data);
+
+  // remove item from wishlist
+  const wishlistDelHandler = async (e, id) => {
+    e.preventDefault();
+    const res = await axios.get(`${ADDTOWISHLIST}/${id}/${userData.id}`);
+    refetch();
+  };
+
   return (
     <div className="wishlistMainWrapper">
       <div className="container-fluid">
@@ -93,7 +101,11 @@ export default function WishlistMain() {
                         </td>
                         <td className="wishlistProdAction">
                           <div className="wishlistProdActionWrapper">
-                            <span>
+                            <span
+                              onClick={(e) =>
+                                wishlistDelHandler(e, item.product_id)
+                              }
+                            >
                               <i className="fa-solid fa-trash me-2" />
                               delete
                             </span>
