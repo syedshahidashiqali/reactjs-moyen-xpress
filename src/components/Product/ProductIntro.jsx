@@ -32,7 +32,7 @@ import {
   WISHLISTDATA,
 } from "../../apiRoutes";
 import { useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 
 export default function ProductIntro() {
@@ -387,7 +387,7 @@ export default function ProductIntro() {
           </div>
         </div>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -397,7 +397,7 @@ export default function ProductIntro() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+      /> */}
     </div>
   );
 }

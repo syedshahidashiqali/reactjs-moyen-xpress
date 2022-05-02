@@ -23,6 +23,8 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import { ToastContainer, toast } from "react-toastify";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -73,6 +75,17 @@ function App() {
         <Footer />
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </QueryClientProvider>
   );
 }
