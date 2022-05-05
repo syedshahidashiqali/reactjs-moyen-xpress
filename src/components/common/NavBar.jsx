@@ -19,6 +19,10 @@ import logo from "../../images/header-logo.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/reducers/auth";
+import { testCART, CARTDELETE, Images_API } from "../../apiRoutes";
+import { useQuery } from "react-query";
+import axios from "axios";
+import CartEmptyText from "../Cart/CartEmpty";
 
 export default function NavBar() {
   return (
@@ -112,6 +116,14 @@ function HeaderMid() {
   };
 
   const { userData } = useSelector((state) => state.auth);
+
+  // get all cart items
+  const fetchCartProducts = async () => {
+    const res = await (await fetch(`${testCART}/${userData.id}`)).json();
+    return res[0];
+  };
+
+  const { status, data, refetch } = useQuery("cartProducts", fetchCartProducts);
   return (
     <Navbar expand="lg" className="headerMid">
       <Container className="headerMidContainer">
@@ -159,12 +171,30 @@ function HeaderMid() {
               show={show}
               onMouseEnter={showDropdown}
               onMouseLeave={hideDropdown}
-              title={<CartNav />}
-              id="basic-nav-dropdown"
+              title={
+                <CartNav
+                  cartCount={data?.length !== undefined ? data?.length : 0}
+                />
+              }
               className="headerMidDropdown"
             >
-              <NavDropItem />
-              <NavDropItem />
+              {status === "success" && data?.length >= 1 ? (
+                data.map((item, index) => {
+                  return (
+                    <NavDropdown.Item
+                      className="headerMidDropdownItem"
+                      key={index}
+                    >
+                      <CartItems data={item} refetch={refetch} />
+                    </NavDropdown.Item>
+                  );
+                })
+              ) : (
+                <CartEmptyText />
+              )}
+              <SubTotalCom />
+              {status === "error" && <CartEmptyText />}
+              {status === "loading" && <CartEmptyText />}
             </NavDropdown>
           </Nav>
         </div>
@@ -173,26 +203,28 @@ function HeaderMid() {
   );
 }
 
-function CartNav() {
+function CartNav({ cartCount }) {
   return (
     <>
       <i className="fa-solid fa-cart-shopping cartIcon">
-        <span className="cartCount">2</span>
+        <span className="cartCount">
+          {cartCount === undefined ? 0 : cartCount}
+        </span>
       </i>
       <span className="cartText">Cart</span>
     </>
   );
 }
 
-function NavDropItem() {
-  return (
-    <NavDropdown.Item href="#action/3.1" className="headerMidDropdownItem">
-      <CartItems />
-    </NavDropdown.Item>
-  );
-}
+function CartItems({ data, refetch }) {
+  const { description, discounted_price, images } = data.get_products;
+  const { quantity, user_id, id } = data;
 
-function CartItems() {
+  // delete cart item
+  const cartDeleteHandler = async (id) => {
+    const res = await axios.get(`${CARTDELETE}/${id}/${user_id}`);
+    refetch();
+  };
   return (
     <div className="d-flex jc-sb ai-c">
       <div className="prodLeft d-flex fd-c">
@@ -203,14 +235,14 @@ function CartItems() {
             fontWeight: "500",
           }}
         >
-          Beige knitted elas <br />
-          tic runner shoes
+          {description.slice(0, 20)}..
         </p>
         <h4
           className="prodQty"
           style={{ fontSize: "16px", fontWeight: "bold", color: "#512500" }}
         >
-          <span style={{ color: "#666", fontWeight: "400" }}>1 x</span> $25.68
+          <span style={{ color: "#666", fontWeight: "400" }}>{quantity} x</span>{" "}
+          ${discounted_price}
         </h4>
       </div>
       <div className="prodRight d-flex ai-c jc-e p-r" style={{ width: "100%" }}>
@@ -218,16 +250,37 @@ function CartItems() {
           // style={{ width: "50%" }}
           width={80}
           height={80}
-          src={
-            "https://sneakerbardetroit.com/wp-content/uploads/2018/07/Concepts-x-adidas-Energy-Boost.jpg"
-          }
-          alt=""
+          src={`${Images_API}${images[0].name}`}
+          alt="product view"
         />
-        <button className="btn cartItemRemoveBtn">
+        <button
+          className="btn cartItemRemoveBtn"
+          onClick={() => cartDeleteHandler(id)}
+        >
           <i className="fa-solid fa-xmark"></i>
         </button>
       </div>
     </div>
+  );
+}
+
+function SubTotalCom() {
+  return (
+    <>
+      <hr />
+      <div className="subTotalMainWrapper d-flex jc-sb">
+        <div className="subTotalLeft">
+          <span>Subtoal:</span>
+        </div>
+        <div className="subTotalRight">
+          <span>$180.00</span>
+        </div>
+      </div>
+      <div className="subTotalBtnsWrapper d-flex jc-sb mt-2">
+        <Link to="/cart">View Cart</Link>
+        <Link to="/checkout">Checkout</Link>
+      </div>
+    </>
   );
 }
 

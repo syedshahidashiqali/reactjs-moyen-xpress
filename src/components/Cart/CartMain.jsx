@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { testCART, CARTDELETE } from "../../apiRoutes";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import CartEmptyText from "./CartEmpty";
 
 export default function CartMain() {
   const C = console.log.bind(console);
@@ -68,14 +69,3 @@ export default function CartMain() {
     </div>
   );
 }
-
-const CartEmptyText = () => {
-  return (
-    <div className="cartEmptyTextWrapper my-3">
-      <h3 className="my-5 d-flex ai-c jc-c">
-        <i className="fas fa-times me-3" />
-        Your cart is empty.
-      </h3>
-    </div>
-  );
-};
