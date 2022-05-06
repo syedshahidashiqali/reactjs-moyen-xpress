@@ -7,7 +7,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import { Card, Placeholder, Alert } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { useWindowSize } from "react-use";
 import { Link } from "react-router-dom";
@@ -22,13 +22,19 @@ export default function CardContainer({ name, apiRoute }) {
 
   const fetchProducts = async () => {
     const res = await (await fetch(apiRoute)).json();
-    return res[0].slice(0, 10);
+    return res[0];
   };
 
-  const { status, data, error } = useQuery(
+  const { status, data, error, refetch } = useQuery(
     name === "Deals Of The Day" ? "dealsOfTheDay" : "newArrivals",
     fetchProducts
   );
+  const { userData } = useSelector((state) => state.auth);
+
+  // whenever user is logged out it refetches data
+  useEffect(() => {
+    refetch();
+  }, [userData.username]);
 
   // console.log(apiRoute);
   // const [data, setData] = useState([]);
@@ -93,7 +99,7 @@ export default function CardContainer({ name, apiRoute }) {
                         to={`product/${product?.id}`}
                         style={{ textDecoration: "none" }}
                       >
-                        <ContainerCard data={product} />
+                        <ContainerCard data={product} refetch={refetch} />
                       </Link>
                     </Slide>
                   ))}
@@ -114,7 +120,7 @@ export default function CardContainer({ name, apiRoute }) {
   );
 }
 
-export function ContainerCard({ data }) {
+export function ContainerCard({ data, refetch }) {
   const { width } = useWindowSize();
 
   const { discounted_price, price, name, images, id } = data;
@@ -130,7 +136,6 @@ export function ContainerCard({ data }) {
 
   const addToWishlistHandler = async (e) => {
     e.preventDefault();
-    // refetch();
     if (userData.username === undefined) {
       toast.error("Please login first", {
         position: "bottom-center",
@@ -154,6 +159,7 @@ export function ContainerCard({ data }) {
           draggable: true,
           progress: undefined,
         });
+        refetch();
       } else if (
         res.data[0].message === "This item has been removed from your wishlist"
       ) {
@@ -166,6 +172,7 @@ export function ContainerCard({ data }) {
           draggable: true,
           progress: undefined,
         });
+        refetch();
       }
     }
   };
@@ -185,7 +192,11 @@ export function ContainerCard({ data }) {
         className="cardFvt"
         onClick={addToWishlistHandler}
       >
-        <i className="fa-regular fa-heart" />
+        <i
+          className={`fa-${
+            data.is_wishlisted === true ? "solid" : "regular"
+          } fa-heart`}
+        />
       </span>
       <span className="cardAddToCart" onClick={(e) => e.preventDefault()}>
         <i className="fa-solid fa-cart-shopping" />

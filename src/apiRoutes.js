@@ -20,8 +20,10 @@ export const SUBCATPRODUCTDATA = getApi("shop/sub-category"); // logged in
 export const ADDTOWISHLIST = getApi("shop/add-to-wishlist");
 export const ARRIVALS = getApi("new-arrivals");
 export const FEATURED = getApi("featured");
+export const featuredDefault = getApi("featured-data-all-userskip");
+export const newArrivalDefault = getApi("new-arrivals-userskip");
 export const USERDATA = getApi("user-detail");
-export const ALLFEATUREDPRODUCTS = getApi("products-featured/");
+export const ALLFEATUREDPRODUCTS = getApi("products-featured");
 export const BRANDDATA = getApi("dataOfShops");
 export const WISHLISTDATA = getApi("wishlist");
 export const SEARCH = getApi("search-products");
@@ -39,8 +41,6 @@ export const searchDataWithOutUserID = getApi("search-products-userskip/");
 export const AllFeaturedProductWithOutUser = getApi(
   "products-featured-userskip"
 );
-export const featuredDefault = getApi("featured-data-all-userskip/");
-export const newArrivalDefault = getApi("new-arrivals-userskip/");
 export const SubCategoryDataWithOutUserID = getApi(
   "shop/sub-category-userskip/"
 );

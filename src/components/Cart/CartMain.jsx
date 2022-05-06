@@ -10,7 +10,6 @@ import axios from "axios";
 import CartEmptyText from "./CartEmpty";
 
 export default function CartMain() {
-  const C = console.log.bind(console);
   const { userData } = useSelector((state) => state.auth);
 
   // get all cart items
@@ -25,7 +24,13 @@ export default function CartMain() {
     refetch();
   };
 
-  const { status, data, refetch } = useQuery("cartProducts", fetchCartProducts);
+  const { status, data, refetch } = useQuery(
+    "cartProducts",
+    fetchCartProducts,
+    {
+      enabled: !!userData.username,
+    }
+  );
   return (
     <div className="cartMainWrapper">
       <div className="container-fluid">

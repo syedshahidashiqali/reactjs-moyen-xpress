@@ -123,7 +123,13 @@ function HeaderMid() {
     return res[0];
   };
 
-  const { status, data, refetch } = useQuery("cartProducts", fetchCartProducts);
+  const { status, data, refetch } = useQuery(
+    "cartProducts",
+    fetchCartProducts,
+    {
+      enabled: !!userData.username,
+    }
+  );
   return (
     <Navbar expand="lg" className="headerMid">
       <Container className="headerMidContainer">
