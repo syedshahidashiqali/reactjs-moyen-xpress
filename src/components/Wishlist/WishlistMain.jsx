@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import { Images_API, WISHLISTDATA, ADDTOWISHLIST } from "../../apiRoutes";
 import axios from "axios";
+import LoaderComp from "../LoaderComp";
 
 export default function WishlistMain() {
   const { userData } = useSelector((state) => state.auth);
@@ -49,9 +50,11 @@ export default function WishlistMain() {
         </div>
         <div className="row px-4 mt-2">
           <div className="col-md-12">
-            <div className="wishlistTableWrapper">
-              {status === "loading" && "Loading.."}
+            <div className="loaderWrapper d-flex ai-c jc-c">
+              {status === "loading" && <LoaderComp />}
               {status === "error" && "Error.."}
+            </div>
+            <div className="wishlistTableWrapper">
               {status === "success" && (
                 <Table className="wishlistTable">
                   <thead>

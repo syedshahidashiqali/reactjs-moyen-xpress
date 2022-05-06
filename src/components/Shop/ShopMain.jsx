@@ -24,8 +24,7 @@ export default function ShopMain() {
     return res.slice(0, 20);
   };
 
-  const { status, data, error } = useQuery("products", fetchProducts);
-  console.log(24, data);
+  const { status, data, error, refetch } = useQuery("products", fetchProducts);
   return (
     <div className="shopWrapperMain mt-5">
       <div className="container-fluid">
@@ -105,7 +104,7 @@ export default function ShopMain() {
                       to={`/product/${product?.id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <ContainerCard data={product} />
+                      <ContainerCard data={product} refetch={refetch} />
                     </Link>
                   </div>
                 ))}

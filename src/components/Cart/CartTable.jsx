@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 import { Images_API } from "../../apiRoutes";
 import { useEffect, useState } from "react";
 
-export default function CartTable({ status, data, cartDeleteHandler }) {
-  const C = console.log.bind(console);
+export default function CartTable({ data, cartDeleteHandler }) {
   return (
     <div className="cartTableWrapper">
-      {status === "error" && "Error while fetching data"}
-      {status === "loading" && "fetching data"}
       <Table className="cartTable">
         <thead>
           <tr>
