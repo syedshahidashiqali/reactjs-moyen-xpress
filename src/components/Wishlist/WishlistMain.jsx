@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { Images_API, WISHLISTDATA, ADDTOWISHLIST } from "../../apiRoutes";
 import axios from "axios";
 import LoaderComp from "../LoaderComp";
+import PageTitleBanner from "../PageTitleBanner";
 
 export default function WishlistMain() {
   const { userData } = useSelector((state) => state.auth);
@@ -30,9 +31,7 @@ export default function WishlistMain() {
       <div className="container-fluid">
         <div className="row mt-5">
           <div className="col-md-12 text-center">
-            <div className="wishlistMainPageTitleWrapper">
-              <h1>Wishlist</h1>
-            </div>
+            <PageTitleBanner title="Wishlist" />
           </div>
         </div>
         <div className="row mt-3 px-4">
