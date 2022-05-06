@@ -25,6 +25,7 @@ import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 import { ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
+import MyAccount from "./pages/MyAccount";
 
 const queryClient = new QueryClient();
 
@@ -66,6 +67,10 @@ function App() {
             element={<Checkout home={{ isHome, setIsHome }} />}
           />
           <Route path="*" element={<NotFound home={{ isHome, setIsHome }} />} />
+          <Route
+            path="/my-account"
+            element={<MyAccount home={{ isHome, setIsHome }} />}
+          />
         </Routes>
         <OurVendor />
         {!isHome && (

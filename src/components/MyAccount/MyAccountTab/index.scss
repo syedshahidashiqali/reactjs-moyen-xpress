@@ -1,0 +1,22 @@
+.mainTabsWrapper {
+  .myAccTabWrapper {
+    .nav-item {
+      & > a {
+        border: 1px solid #dee2e6;
+        margin-bottom: 8px;
+        padding: 10px 16px;
+        color: #495057;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          color: #512500;
+        }
+
+        &.active {
+          color: #512500;
+        }
+      }
+    }
+  }
+}
