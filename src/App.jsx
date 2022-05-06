@@ -12,7 +12,7 @@ import CardContainer from "./components/common/CardContainer";
 import Shop from "./pages/Shop";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { AllNewArrivalsDataSkipUser } from "./apiRoutes";
+import { newArrivalDefault, ARRIVALS } from "./apiRoutes";
 import Register from "./pages/Register";
 import Wishlist from "./pages/Wishlist";
 import VendorRegister from "./components/Register/VendorRegister";
@@ -24,11 +24,13 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const queryClient = new QueryClient();
 
 function App() {
   const [isHome, setIsHome] = useState(true);
+  const { userData } = useSelector((state) => state.auth);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -69,7 +71,11 @@ function App() {
         {!isHome && (
           <CardContainer
             name={"Related Products"}
-            apiRoute={AllNewArrivalsDataSkipUser}
+            apiRoute={
+              !userData.username
+                ? newArrivalDefault
+                : `${ARRIVALS}/${userData.id}`
+            }
           />
         )}
         <Footer />
