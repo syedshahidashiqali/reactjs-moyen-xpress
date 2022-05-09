@@ -76,7 +76,7 @@ export default function WishlistMain() {
                             >
                               <figure>
                                 <img
-                                  src={`${Images_API}${item.get_products.images[0].name}`}
+                                  src={`${Images_API}${item.get_products.images[0]?.name}`}
                                   alt=""
                                 />
                               </figure>

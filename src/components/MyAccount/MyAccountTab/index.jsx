@@ -2,11 +2,17 @@ import "./index.scss";
 import { Tab, Nav, Row, Col } from "react-bootstrap";
 import TabItem from "./TabItem";
 import TabContentItemDashboard from "./TabContentItem/Dashboard";
+import TabContentItemOrders from "./TabContentItem/Orders";
+import TabContentItemAccountDetails from "./TabContentItem/AccountDetails";
+import TabContentItemFollowedVendors from "./TabContentItem/FollowedVendors";
+import { useState } from "react";
 
 function MyAccountTab() {
+  const [key, setKey] = useState("dashboard");
+
   return (
     <div className="mainTabsWrapper">
-      <Tab.Container defaultActiveKey="dashboard">
+      <Tab.Container activeKey={key} onSelect={(k) => setKey(k)}>
         <Row>
           <Col lg={3} xl={3} md={12}>
             <div className="myAccTabWrapper">
@@ -22,16 +28,16 @@ function MyAccountTab() {
             <div className="myAccTabContentWrapper">
               <Tab.Content>
                 <Tab.Pane eventKey="dashboard">
-                  <TabContentItemDashboard />
+                  <TabContentItemDashboard setKey={setKey} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="orders">
-                  {/* <TabContentItem /> */}
+                  <TabContentItemOrders />
                 </Tab.Pane>
                 <Tab.Pane eventKey="account-details">
-                  {/* <TabContentItem /> */}
+                  <TabContentItemAccountDetails />
                 </Tab.Pane>
                 <Tab.Pane eventKey="followed-vendors">
-                  {/* <TabContentItem /> */}
+                  <TabContentItemFollowedVendors />
                 </Tab.Pane>
               </Tab.Content>
             </div>

@@ -1,0 +1,37 @@
+.myAccTabCardWrapper {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  transition: all 0.4s;
+  padding: 50px 0px;
+  cursor: pointer;
+
+  i {
+    color: #0088cc;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 10%);
+
+    i {
+      color: #b64400;
+    }
+
+    span {
+      color: #336699;
+    }
+  }
+
+  span {
+    color: #666;
+    transition: color 0s ease;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .tabContentItemWrapper {
+    .col-md-6 {
+      width: 100%;
+    }
+  }
+}
