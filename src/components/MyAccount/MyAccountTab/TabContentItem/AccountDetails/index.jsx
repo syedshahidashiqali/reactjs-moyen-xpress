@@ -15,7 +15,7 @@ function TabContentItemAccountDetails() {
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="pb-3 pt-2">
         <Col md={12} sm={12} xs={12}>
           <div className={styles.userDetHeadWrapper}>
             <h4>User Details</h4>
@@ -83,7 +83,7 @@ function TabContentItemAccountDetails() {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="my-2">
+        <Row className="py-3">
           <Col md={12} sm={12} xs={12}>
             <div className={styles.userDetHeadWrapper}>
               <h4>Password Change</h4>
@@ -114,7 +114,7 @@ function TabContentItemAccountDetails() {
             </Form.Group>
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-5">
           <Col md={12} sm={12} xs={12}>
             <div className={styles.btnWrapper}>
               <Button>save changes</Button>
